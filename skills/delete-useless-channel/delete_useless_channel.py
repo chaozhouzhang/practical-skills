@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 import argparse
 import shutil
-import tarfile
+import zipfile
 from pathlib import Path
 import sys
 
+#python3 delete_useless_channel.py /Users/zhangchaozhou/Documents/GitLab/new_brand_android /Users/zhangchaozhou/Documents/Shared/HaiChang/RU ru_code_2.7.1.170 ru
 
 def is_hidden(p: Path):
     return p.name.startswith('.')
@@ -76,10 +77,13 @@ def main():
                 if name not in (f'res-{keep_channel}', f'res-{keep_channel}-version'):
                     delete_path(item)
 
-    archive_path = dest_parent / f'{new_name}.tar.gz'
+    archive_path = dest_parent / f'{new_name}.zip'
     print(f'ARCHIVE: {archive_path}')
-    with tarfile.open(archive_path, 'w:gz') as tar:
-        tar.add(dest, arcname=new_name)
+    with zipfile.ZipFile(archive_path, 'w', compression=zipfile.ZIP_DEFLATED) as zf:
+        for file_path in dest.rglob('*'):
+            # Keep the top-level folder name in the zip archive.
+            arcname = Path(new_name) / file_path.relative_to(dest)
+            zf.write(file_path, arcname)
 
     print('DONE')
 
