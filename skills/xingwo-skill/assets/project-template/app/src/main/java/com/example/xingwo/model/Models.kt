@@ -101,6 +101,19 @@ data class RecentRecord(
     @StringRes val subtitleRes: Int,
 )
 
+data class TreeHolePost(
+    @StringRes val nameRes: Int,
+    @StringRes val moodRes: Int,
+    @StringRes val messageRes: Int,
+    @StringRes val timeRes: Int,
+)
+
+data class TarotCard(
+    @StringRes val nameRes: Int,
+    @StringRes val keywordRes: Int,
+    @StringRes val meaningRes: Int,
+)
+
 data class DetailSection(
     val title: String,
     val body: String,

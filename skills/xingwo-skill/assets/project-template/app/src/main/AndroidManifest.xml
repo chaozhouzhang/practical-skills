@@ -11,6 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XingWo">
         <activity
+            android:name=".TarotDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XingWo" />
+        <activity
+            android:name=".TreeHoleDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XingWo" />
+        <activity
+            android:name=".FortuneDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XingWo" />
+        <activity
             android:name=".DetailActivity"
             android:exported="false"
             android:theme="@style/Theme.XingWo" />

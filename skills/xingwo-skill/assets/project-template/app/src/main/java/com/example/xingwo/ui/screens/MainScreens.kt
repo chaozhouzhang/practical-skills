@@ -1,5 +1,6 @@
 package com.example.xingwo.ui.screens
 
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -52,7 +53,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.xingwo.FortuneDetailActivity
 import com.example.xingwo.R
+import com.example.xingwo.TarotDetailActivity
+import com.example.xingwo.TreeHoleDetailActivity
 import com.example.xingwo.data.FakeData
 import com.example.xingwo.model.BottomTab
 import com.example.xingwo.ui.components.AvatarBubble
@@ -125,7 +129,6 @@ fun MainScreen(onLogout: () -> Unit) {
 @Composable
 private fun HomeScreen() {
     val context = LocalContext.current
-    val fortune = FakeData.dailyFortune
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 52.dp, bottom = 20.dp),
@@ -134,17 +137,21 @@ private fun HomeScreen() {
         item {
             DailyFortuneCard(
                 onClick = {
-                    context.openDetail(
-                        buildFortuneDetail(
-                            context = context,
-                            score = fortune.score,
-                            suggestion = context.getString(fortune.suggestionRes),
-                        ),
-                    )
+                    context.startActivity(Intent(context, FortuneDetailActivity::class.java))
                 },
             )
         }
-        item { FeatureGrid(onCardClick = { context.openDetail(buildRecommendationDetail(context, it)) }) }
+        item {
+            FeatureGrid(
+                onCardClick = {
+                    when (it.titleRes) {
+                        R.string.home_card_tree_hole_title -> context.startActivity(Intent(context, TreeHoleDetailActivity::class.java))
+                        R.string.home_card_tarot_title -> context.startActivity(Intent(context, TarotDetailActivity::class.java))
+                        else -> context.openDetail(buildRecommendationDetail(context, it))
+                    }
+                },
+            )
+        }
         item { FeatureChipsRow(onChipClick = { context.openDetail(buildChipDetail(context, it)) }) }
         item { BannerCard(onClick = { context.openDetail(buildBannerDetail(context)) }) }
         item { SectionTitle(stringResource(R.string.section_today_topics), stringResource(R.string.action_refresh)) }

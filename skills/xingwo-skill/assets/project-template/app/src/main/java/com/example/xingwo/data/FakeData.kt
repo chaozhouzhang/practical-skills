@@ -17,6 +17,8 @@ import com.example.xingwo.model.ProfileStat
 import com.example.xingwo.model.PromptBubble
 import com.example.xingwo.model.RecentRecord
 import com.example.xingwo.model.RecommendationCard
+import com.example.xingwo.model.TarotCard
+import com.example.xingwo.model.TreeHolePost
 import com.example.xingwo.model.TrendTopic
 
 object FakeData {
@@ -181,6 +183,32 @@ object FakeData {
     val recentRecords = listOf(
         RecentRecord(R.string.record_1_title, R.string.record_1_subtitle),
         RecentRecord(R.string.record_2_title, R.string.record_2_subtitle),
+    )
+
+    val treeHolePosts = listOf(
+        TreeHolePost(R.string.tree_hole_user_1, R.string.tree_hole_mood_1, R.string.tree_hole_message_1, R.string.tree_hole_time_1),
+        TreeHolePost(R.string.tree_hole_user_2, R.string.tree_hole_mood_2, R.string.tree_hole_message_2, R.string.tree_hole_time_2),
+        TreeHolePost(R.string.tree_hole_user_3, R.string.tree_hole_mood_3, R.string.tree_hole_message_3, R.string.tree_hole_time_3),
+        TreeHolePost(R.string.tree_hole_user_4, R.string.tree_hole_mood_4, R.string.tree_hole_message_4, R.string.tree_hole_time_4),
+        TreeHolePost(R.string.tree_hole_user_5, R.string.tree_hole_mood_5, R.string.tree_hole_message_5, R.string.tree_hole_time_5),
+        TreeHolePost(R.string.tree_hole_user_6, R.string.tree_hole_mood_6, R.string.tree_hole_message_6, R.string.tree_hole_time_6),
+        TreeHolePost(R.string.tree_hole_user_7, R.string.tree_hole_mood_7, R.string.tree_hole_message_7, R.string.tree_hole_time_7),
+    )
+
+    val tarotCards = listOf(
+        TarotCard(R.string.tarot_card_1_name, R.string.tarot_card_1_keyword, R.string.tarot_card_1_meaning),
+        TarotCard(R.string.tarot_card_2_name, R.string.tarot_card_2_keyword, R.string.tarot_card_2_meaning),
+        TarotCard(R.string.tarot_card_3_name, R.string.tarot_card_3_keyword, R.string.tarot_card_3_meaning),
+        TarotCard(R.string.tarot_card_4_name, R.string.tarot_card_4_keyword, R.string.tarot_card_4_meaning),
+        TarotCard(R.string.tarot_card_5_name, R.string.tarot_card_5_keyword, R.string.tarot_card_5_meaning),
+    )
+
+    val tarotLoveTrends = listOf(
+        R.string.tarot_love_trend_1,
+        R.string.tarot_love_trend_2,
+        R.string.tarot_love_trend_3,
+        R.string.tarot_love_trend_4,
+        R.string.tarot_love_trend_5,
     )
 
     val tabs = listOf(BottomTab.Home, BottomTab.Companion, BottomTab.Profile)
