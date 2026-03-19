@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XingWo">
         <activity
+            android:name=".DetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XingWo" />
+        <activity
             android:name=".PrivacyActivity"
             android:exported="false"
             android:theme="@style/Theme.XingWo" />

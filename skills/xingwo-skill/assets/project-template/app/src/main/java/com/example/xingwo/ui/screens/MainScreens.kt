@@ -45,6 +45,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -123,19 +124,33 @@ fun MainScreen(onLogout: () -> Unit) {
 
 @Composable
 private fun HomeScreen() {
+    val context = LocalContext.current
+    val fortune = FakeData.dailyFortune
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 52.dp, bottom = 20.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp),
     ) {
-        item { DailyFortuneCard() }
-        item { FeatureGrid() }
-        item { FeatureChipsRow() }
-        item { BannerCard() }
+        item {
+            DailyFortuneCard(
+                onClick = {
+                    context.openDetail(
+                        buildFortuneDetail(
+                            context = context,
+                            score = fortune.score,
+                            suggestion = context.getString(fortune.suggestionRes),
+                        ),
+                    )
+                },
+            )
+        }
+        item { FeatureGrid(onCardClick = { context.openDetail(buildRecommendationDetail(context, it)) }) }
+        item { FeatureChipsRow(onChipClick = { context.openDetail(buildChipDetail(context, it)) }) }
+        item { BannerCard(onClick = { context.openDetail(buildBannerDetail(context)) }) }
         item { SectionTitle(stringResource(R.string.section_today_topics), stringResource(R.string.action_refresh)) }
-        item { TrendTopicRow() }
+        item { TrendTopicRow(onTopicClick = { context.openDetail(buildTrendTopicDetail(context, it)) }) }
         item { SectionTitle(stringResource(R.string.section_soul_match), stringResource(R.string.action_view_all)) }
-        item { MatchProfileRow() }
+        item { MatchProfileRow(onProfileClick = { context.openDetail(buildMatchProfileDetail(context, it)) }) }
     }
 }
 
@@ -199,9 +214,10 @@ private fun MiniBadge(text: String) {
 }
 
 @Composable
-private fun DailyFortuneCard() {
+private fun DailyFortuneCard(onClick: () -> Unit) {
     val fortune = FakeData.dailyFortune
     Card(
+        modifier = Modifier.clickable { onClick() },
         shape = RoundedCornerShape(22.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFF314A4D)),
     ) {
@@ -245,7 +261,7 @@ private fun DailyFortuneCard() {
 }
 
 @Composable
-private fun FeatureGrid() {
+private fun FeatureGrid(onCardClick: (com.example.xingwo.model.RecommendationCard) -> Unit) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         userScrollEnabled = false,
@@ -257,7 +273,9 @@ private fun FeatureGrid() {
             Card(
                 shape = RoundedCornerShape(18.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.Transparent),
-                modifier = Modifier.height(132.dp),
+                modifier = Modifier
+                    .height(132.dp)
+                    .clickable { onCardClick(item) },
             ) {
                 Box(
                     modifier = Modifier
@@ -277,7 +295,7 @@ private fun FeatureGrid() {
 }
 
 @Composable
-private fun FeatureChipsRow() {
+private fun FeatureChipsRow(onChipClick: (com.example.xingwo.model.FeatureChip) -> Unit) {
     LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         items(FakeData.chips.size) { index ->
             val chip = FakeData.chips[index]
@@ -285,6 +303,7 @@ private fun FeatureChipsRow() {
                 modifier = Modifier
                     .clip(RoundedCornerShape(14.dp))
                     .background(chip.color)
+                    .clickable { onChipClick(chip) }
                     .padding(horizontal = 16.dp, vertical = 12.dp),
             ) {
                 Text(stringResource(chip.titleRes), color = Color.White, fontWeight = FontWeight.SemiBold)
@@ -294,8 +313,9 @@ private fun FeatureChipsRow() {
 }
 
 @Composable
-private fun BannerCard() {
+private fun BannerCard(onClick: () -> Unit) {
     Card(
+        modifier = Modifier.clickable { onClick() },
         shape = RoundedCornerShape(18.dp),
         colors = CardDefaults.cardColors(containerColor = Color.Transparent),
     ) {
@@ -316,7 +336,7 @@ private fun BannerCard() {
 }
 
 @Composable
-private fun TrendTopicRow() {
+private fun TrendTopicRow(onTopicClick: (com.example.xingwo.model.TrendTopic) -> Unit) {
     LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         items(FakeData.trendTopics.size) { index ->
             val topic = FakeData.trendTopics[index]
@@ -330,6 +350,7 @@ private fun TrendTopicRow() {
                             listOf(topic.accent, topic.accent.copy(alpha = 0.45f), Color(0xFF14243D)),
                         ),
                     )
+                    .clickable { onTopicClick(topic) }
                     .padding(16.dp),
             ) {
                 Column(verticalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxHeight()) {
@@ -342,12 +363,14 @@ private fun TrendTopicRow() {
 }
 
 @Composable
-private fun MatchProfileRow() {
+private fun MatchProfileRow(onProfileClick: (com.example.xingwo.model.MatchProfile) -> Unit) {
     LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         items(FakeData.matchProfiles.size) { index ->
             val profile = FakeData.matchProfiles[index]
             Card(
-                modifier = Modifier.width(230.dp),
+                modifier = Modifier
+                    .width(230.dp)
+                    .clickable { onProfileClick(profile) },
                 shape = RoundedCornerShape(22.dp),
                 colors = CardDefaults.cardColors(containerColor = Color(0xFF15263B)),
             ) {
@@ -378,11 +401,12 @@ private fun MatchProfileRow() {
 
 @Composable
 private fun CompanionScreen() {
+    val context = LocalContext.current
     LazyColumn(
         contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 48.dp, bottom = 20.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp),
     ) {
-        item { BannerCard() }
+        item { BannerCard(onClick = { context.openDetail(buildBannerDetail(context)) }) }
         item { SectionTitle(title = stringResource(R.string.section_recommended_companion), action = stringResource(R.string.action_view_more)) }
         item {
             LazyVerticalGrid(
@@ -394,9 +418,11 @@ private fun CompanionScreen() {
             ) {
                 items(FakeData.companionCards) { item ->
                     Card(
+                        modifier = Modifier
+                            .height(210.dp)
+                            .clickable { context.openDetail(buildCompanionCardDetail(context, item)) },
                         shape = RoundedCornerShape(18.dp),
                         colors = CardDefaults.cardColors(containerColor = item.accent),
-                        modifier = Modifier.height(210.dp),
                     ) {
                         Column(
                             modifier = Modifier
@@ -423,19 +449,21 @@ private fun CompanionScreen() {
             }
         }
         item { SectionTitle(title = stringResource(R.string.section_companion_zone)) }
-        item { CompanionSectionRow() }
+        item { CompanionSectionRow(onSectionClick = { context.openDetail(buildCompanionSectionDetail(context, it)) }) }
         item { SectionTitle(title = stringResource(R.string.section_live_rooms), action = stringResource(R.string.action_enter_square)) }
-        item { CompanionRoomList() }
+        item { CompanionRoomList(onRoomClick = { context.openDetail(buildCompanionRoomDetail(context, it)) }) }
     }
 }
 
 @Composable
-private fun CompanionSectionRow() {
+private fun CompanionSectionRow(onSectionClick: (com.example.xingwo.model.CompanionSection) -> Unit) {
     LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         items(FakeData.companionSections.size) { index ->
             val item = FakeData.companionSections[index]
             Card(
-                modifier = Modifier.width(180.dp),
+                modifier = Modifier
+                    .width(180.dp)
+                    .clickable { onSectionClick(item) },
                 shape = RoundedCornerShape(18.dp),
                 colors = CardDefaults.cardColors(containerColor = Color(0xFF12243B)),
             ) {
@@ -450,10 +478,11 @@ private fun CompanionSectionRow() {
 }
 
 @Composable
-private fun CompanionRoomList() {
+private fun CompanionRoomList(onRoomClick: (com.example.xingwo.model.CompanionRoom) -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         FakeData.companionRooms.forEach { room ->
             Card(
+                modifier = Modifier.clickable { onRoomClick(room) },
                 shape = RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(containerColor = room.accent),
             ) {
@@ -491,6 +520,7 @@ private fun CompanionRoomList() {
 
 @Composable
 private fun ProfileScreen(onLogout: () -> Unit) {
+    val context = LocalContext.current
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 52.dp, bottom = 20.dp),
@@ -498,6 +528,7 @@ private fun ProfileScreen(onLogout: () -> Unit) {
     ) {
         item {
             Card(
+                modifier = Modifier.clickable { context.openDetail(buildProfileOverviewDetail(context)) },
                 shape = RoundedCornerShape(24.dp),
                 colors = CardDefaults.cardColors(containerColor = Color(0xFF182843)),
             ) {
@@ -515,7 +546,9 @@ private fun ProfileScreen(onLogout: () -> Unit) {
                     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                         FakeData.profileStats.forEach { stat ->
                             Card(
-                                modifier = Modifier.weight(1f),
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .clickable { context.openDetail(buildProfileStatDetail(context, stat)) },
                                 shape = RoundedCornerShape(18.dp),
                                 colors = CardDefaults.cardColors(containerColor = Color(0xFF243A5C)),
                             ) {
@@ -538,17 +571,27 @@ private fun ProfileScreen(onLogout: () -> Unit) {
             }
         }
         item { SectionTitle(stringResource(R.string.section_daily_tasks), stringResource(R.string.action_all_rewards)) }
-        item { DailyTaskPanel() }
+        item { DailyTaskPanel(onTaskClick = { context.openDetail(buildDailyTaskDetail(context, it)) }) }
         item { SectionTitle(stringResource(R.string.section_my_features)) }
         item {
             FakeData.profileMenus.forEach { item ->
-                ProfileAction(item.titleRes, item.subtitleRes, item.badgeRes)
+                ProfileAction(
+                    titleRes = item.titleRes,
+                    subtitleRes = item.subtitleRes,
+                    badgeRes = item.badgeRes,
+                    onClick = { context.openDetail(buildProfileMenuDetail(context, item)) },
+                )
             }
         }
         item { SectionTitle(stringResource(R.string.section_recent_records)) }
         item {
-            RecentRecordCard(stringResource(R.string.record_1_title), stringResource(R.string.record_1_subtitle))
-            RecentRecordCard(stringResource(R.string.record_2_title), stringResource(R.string.record_2_subtitle))
+            FakeData.recentRecords.forEach { record ->
+                RecentRecordCard(
+                    title = stringResource(record.titleRes),
+                    subtitle = stringResource(record.subtitleRes),
+                    onClick = { context.openDetail(buildRecentRecordDetail(context, record)) },
+                )
+            }
         }
         item {
             Button(
@@ -564,14 +607,17 @@ private fun ProfileScreen(onLogout: () -> Unit) {
 }
 
 @Composable
-private fun DailyTaskPanel() {
+private fun DailyTaskPanel(onTaskClick: (com.example.xingwo.model.DailyTask) -> Unit) {
     Card(
         shape = RoundedCornerShape(22.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFF13233B)),
     ) {
         Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             FakeData.dailyTasks.forEach { task ->
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                Row(
+                    modifier = Modifier.clickable { onTaskClick(task) },
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
                     Box(
                         modifier = Modifier
                             .size(22.dp)
@@ -602,11 +648,12 @@ private fun DailyTaskPanel() {
 }
 
 @Composable
-private fun ProfileAction(titleRes: Int, subtitleRes: Int, badgeRes: Int? = null) {
+private fun ProfileAction(titleRes: Int, subtitleRes: Int, badgeRes: Int? = null, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = 12.dp),
+            .padding(bottom = 12.dp)
+            .clickable { onClick() },
         shape = RoundedCornerShape(18.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFF13233B)),
     ) {
@@ -634,11 +681,12 @@ private fun ProfileAction(titleRes: Int, subtitleRes: Int, badgeRes: Int? = null
 }
 
 @Composable
-private fun RecentRecordCard(title: String, subtitle: String) {
+private fun RecentRecordCard(title: String, subtitle: String, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = 12.dp),
+            .padding(bottom = 12.dp)
+            .clickable { onClick() },
         shape = RoundedCornerShape(18.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFF13233B)),
     ) {

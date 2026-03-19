@@ -15,6 +15,7 @@ import com.example.xingwo.model.CompanionSection
 import com.example.xingwo.model.ProfileMenu
 import com.example.xingwo.model.ProfileStat
 import com.example.xingwo.model.PromptBubble
+import com.example.xingwo.model.RecentRecord
 import com.example.xingwo.model.RecommendationCard
 import com.example.xingwo.model.TrendTopic
 
@@ -175,6 +176,11 @@ object FakeData {
         DailyTask(R.string.daily_task_1_title, R.string.daily_task_1_reward, true),
         DailyTask(R.string.daily_task_2_title, R.string.daily_task_2_reward, false),
         DailyTask(R.string.daily_task_3_title, R.string.daily_task_3_reward, false),
+    )
+
+    val recentRecords = listOf(
+        RecentRecord(R.string.record_1_title, R.string.record_1_subtitle),
+        RecentRecord(R.string.record_2_title, R.string.record_2_subtitle),
     )
 
     val tabs = listOf(BottomTab.Home, BottomTab.Companion, BottomTab.Profile)

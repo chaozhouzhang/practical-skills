@@ -211,4 +211,113 @@
     <string name="host_name">主持人 %1$s</string>
     <string name="number_value">%1$d</string>
     <string name="percent_value">%1$d%%</string>
+
+    <string name="detail_page_hint">以下內容為原型示意，會依你剛剛點選的入口延伸成對應的詳情頁。</string>
+    <string name="detail_fortune_title">今日能量詳情</string>
+    <string name="detail_category_home_feature">首頁功能</string>
+    <string name="detail_category_quick_entry">快捷入口</string>
+    <string name="detail_category_banner">星座專題</string>
+
+    <string name="detail_section_focus">本次重點</string>
+    <string name="detail_section_scene">適合時機</string>
+    <string name="detail_section_suggestion">延伸建議</string>
+    <string name="detail_section_rhythm">節奏解讀</string>
+    <string name="detail_section_mode">互動方式</string>
+    <string name="detail_section_benefit">你會得到什麼</string>
+    <string name="detail_section_next_step">下一步</string>
+    <string name="detail_section_status">目前狀態</string>
+
+    <string name="detail_highlight_score">綜合分數 %1$d</string>
+    <string name="detail_highlight_today_topic">今日推薦話題</string>
+    <string name="detail_highlight_compatibility">默契度 %1$d%%</string>
+    <string name="detail_highlight_sign">星座 %1$s</string>
+    <string name="detail_highlight_online_count">%1$d 人正在參與</string>
+    <string name="detail_highlight_price">體驗參考 %1$d 星幣</string>
+    <string name="detail_highlight_zone">精選陪伴分區</string>
+    <string name="detail_highlight_tags">房間標籤 %1$s</string>
+    <string name="detail_highlight_profile">個人檔案摘要</string>
+    <string name="detail_highlight_value">目前數值 %1$s</string>
+    <string name="detail_highlight_completed">目前狀態 已完成</string>
+    <string name="detail_highlight_in_progress">目前狀態 進行中</string>
+    <string name="detail_highlight_reward">任務獎勵 %1$s</string>
+    <string name="detail_highlight_pending_count">待處理 %1$s 項</string>
+    <string name="detail_highlight_function">個人功能入口</string>
+    <string name="detail_highlight_record">最近使用紀錄</string>
+    <string name="detail_highlight_recommended">當前熱門入口</string>
+
+    <string name="detail_action_start">開始體驗</string>
+    <string name="detail_action_save">先收藏這頁</string>
+    <string name="detail_action_connect">看看互動方式</string>
+    <string name="detail_action_join">進入陪伴頁</string>
+    <string name="detail_action_explore">探索這個分區</string>
+    <string name="detail_action_join_room">加入這個房間</string>
+    <string name="detail_action_review_profile">查看更多資料</string>
+    <string name="detail_action_keep_going">繼續累積</string>
+    <string name="detail_action_check_task">查看完成方式</string>
+    <string name="detail_action_open_feature">開啟此功能</string>
+    <string name="detail_action_review_record">查看完整紀錄</string>
+
+    <string name="detail_fortune_subtitle">今天的整體能量偏順，適合把注意力放回真正想推進的事。</string>
+    <string name="detail_fortune_focus">愛情、事業與財務的節奏都相對平衡，今天比平常更適合你主動表態、排定優先順序，或把拖延中的事情往前推一步。</string>
+    <string name="detail_fortune_scene">如果你正準備開啟一段對話、安排約會、整理工作待辦，或想替自己做一個新的生活決定，這張運勢卡會是很好的節奏提醒。</string>
+    <string name="detail_fortune_suggestion">建議先把最重要的一件事放在白天完成，並記得保留晚上給自己喘息。原始提醒是：%1$s</string>
+
+    <string name="detail_feature_subtitle">這裡是「%1$s」的延伸頁，會把你剛剛點進來的主題展開成更完整的內容。</string>
+    <string name="detail_feature_focus">「%1$s」適合在你想釐清感受、想找方向，或單純想被接住的時候打開。它不是急著給答案，而是先幫你把心裡那團混亂慢慢理清。</string>
+    <string name="detail_feature_scene">如果你最近總是在同一個問題上反覆打轉，或腦中一直有一句話想問卻不知道從哪裡開始，現在點進這個入口會很有感。</string>
+    <string name="detail_feature_suggestion">先帶著一個最在意的問題開始，再順著內容往下看，體驗通常會比漫無目的瀏覽更明確。</string>
+
+    <string name="detail_chip_subtitle">「%1$s」是首頁裡偏輕量的快捷入口，適合快速進入你現在最想看的主題。</string>
+    <string name="detail_chip_focus">這個入口會把「%1$s」整理成更容易消化的內容，讓你不用花太多時間就能先抓到方向。</string>
+    <string name="detail_chip_scene">適合通勤、休息空檔或情緒剛冒出來的那一刻點進來，先快速感受一下目前的重點。</string>
+    <string name="detail_chip_suggestion">可以先看完一輪重點，再決定要不要進一步打開更完整的測算或陪伴內容。</string>
+
+    <string name="detail_banner_subtitle">這是一個偏專題感的入口，會把星座主題、人格感受與關係觀察整理成更有沉浸感的內容。</string>
+    <string name="detail_banner_focus">進來之後，你會先看到星座特質的主軸，再延伸到關係模式、情緒反應與日常互動的細節。</string>
+    <string name="detail_banner_scene">當你想更了解自己或想用比較輕鬆的方式認識一個人時，這個入口特別適合慢慢看。</string>
+    <string name="detail_banner_suggestion">建議先從最有感的一句描述開始，看看哪些特質最像現在的你，再往下探索對應的互動方式。</string>
+
+    <string name="detail_topic_focus">這個話題不是單純給結論，而是用一個更輕的切角，幫你重新理解「%1$s」背後的情緒與行動方向。</string>
+    <string name="detail_topic_scene">如果你最近剛好遇到關係起伏、節奏變化，或只是想確認自己現在是不是該往前走，這類話題會很剛好。</string>
+    <string name="detail_topic_suggestion">先把這個主題記住，等你晚點有更安靜的時間，再回來把它和最近生活中的真實感受對照看看。</string>
+
+    <string name="detail_match_mode">%1$s 的互動風格偏溫柔細緻，和 %2$s 的特質結合後，會更重視情緒回應、聊天節奏與被理解的感覺。</string>
+    <string name="detail_match_benefit">如果你選擇和 %1$s 深聊，通常會先得到穩定的情緒承接，再慢慢延伸到更深入的關係理解。</string>
+    <string name="detail_match_suggestion">先從比較日常、比較輕的內容開始互動，等節奏穩下來後，再談真正卡在心裡的事，感受通常會更好。</string>
+
+    <string name="detail_companion_card_subtitle">你點進的是一張偏體驗型的陪伴卡片，重點不只是內容本身，也在於進去後的聊天氛圍與節奏感。</string>
+    <string name="detail_companion_card_mode">「%1$s」通常會先用比較輕柔的方式讓你進入情境，再慢慢帶到對話、測驗或陪伴互動本身。</string>
+    <string name="detail_companion_card_scene">適合在想找人說話、想測一下關係方向，或單純想替今天的情緒找個出口時點進去。</string>
+    <string name="detail_companion_card_next">如果你現在還不確定要不要深入參與，可以先把這張卡當成暖身入口，先看感覺，再決定要不要往下一步走。</string>
+
+    <string name="detail_section_focus_body">「%1$s」比較像一個主題分區，裡面會聚合相似氣質的房間、功能與陪伴方式，讓你不用每次都從頭找起。</string>
+    <string name="detail_section_benefit_body">這種分區的好處是節奏一致，你更容易找到同類型的內容，也比較容易遇到和你當下情緒接近的人。</string>
+    <string name="detail_section_next_body">建議先從一個最直覺的房間或主題開始待一下，先感受氣氛，再決定要不要長時間停留。</string>
+
+    <string name="detail_room_subtitle">這是一個由 %1$s 帶領的即時房間，主打陪伴感、互動感和當下的在場感。</string>
+    <string name="detail_room_mode">%1$s 的帶房節奏偏自然，不會一開始就太重，通常會先用比較容易加入的話題讓人慢慢放鬆。</string>
+    <string name="detail_room_scene">如果你現在想找一個有人氣、又不會太有壓力的空間，帶著「%1$s」這些標籤進入會相對容易融入。</string>
+    <string name="detail_room_suggestion">先聽一下現在房內的節奏，再決定是要發言還是先旁聽，通常會比較不容易有壓力。</string>
+
+    <string name="detail_profile_status">你的個人頁目前更像是一張整理過的狀態摘要，會把喜好、節奏、互動偏好和最近累積的內容放在一起。</string>
+    <string name="detail_profile_focus">如果往後要再擴充，這裡很適合加上更完整的人格畫像、偏好標籤、近期陪伴傾向與收藏路徑。</string>
+    <string name="detail_profile_next">你可以把這頁理解成個人中樞，未來從這裡出發去看任務、紀錄、收藏與設定，會最順手。</string>
+
+    <string name="detail_stat_subtitle">這張統計卡代表的是你在平台裡某一種持續累積的狀態。</string>
+    <string name="detail_stat_status">%1$s 目前累積到 %2$s，代表你已經在這個面向建立了一定節奏，後續很適合繼續往上疊加。</string>
+    <string name="detail_stat_benefit">當「%1$s」持續增加時，使用者通常會更容易感受到投入感，也更容易回頭追蹤自己的變化。</string>
+    <string name="detail_stat_next">建議把這張卡當成長期追蹤目標，不用一次追很多，只要每次穩定增加一點就足夠。</string>
+
+    <string name="detail_task_subtitle">這是一個日常型任務入口，設計上是希望你用很低的門檻維持使用節奏。</string>
+    <string name="detail_task_focus">「%1$s」這類任務通常不難，重點不在挑戰，而在於幫你建立一種每天都能輕鬆回來的感覺。</string>
+    <string name="detail_task_benefit">完成後的 %1$s 不只是數值獎勵，也是在強化你和產品之間的日常連結。</string>
+    <string name="detail_task_next">如果今天還沒完成，先挑一個最容易做到的步驟開始，完成感通常會讓後續任務也更容易推進。</string>
+
+    <string name="detail_menu_focus">「%1$s」是個人頁裡比較明確的功能入口，點進來通常是想快速查看自己的資料、紀錄或後續操作。</string>
+    <string name="detail_menu_benefit">這類功能的價值在於把重要資訊收斂到一個地方，讓你不用在首頁與陪伴頁之間來回找。</string>
+    <string name="detail_menu_next">如果未來要擴充，這裡很適合再接更多列表、篩選條件或狀態標示，讓資訊更完整。</string>
+
+    <string name="detail_record_status">「%1$s」這筆紀錄的價值在於，它不只是結果本身，也代表你某一次真實進入產品內容後留下的痕跡。</string>
+    <string name="detail_record_focus">從目前這段內容來看，重點訊息是：%1$s</string>
+    <string name="detail_record_suggestion">如果這類紀錄未來越來越多，最適合做成可回顧、可對照的時間軸，讓使用者能看見自己的變化。</string>
 </resources>

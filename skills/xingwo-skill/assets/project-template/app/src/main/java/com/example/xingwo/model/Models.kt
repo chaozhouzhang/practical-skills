@@ -3,6 +3,7 @@ package com.example.xingwo.model
 import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.Color
 import com.example.xingwo.R
+import java.io.Serializable
 
 enum class BottomTab(@StringRes val labelRes: Int) {
     Home(R.string.bottom_tab_home),
@@ -94,3 +95,22 @@ data class DailyTask(
     @StringRes val rewardRes: Int,
     val completed: Boolean,
 )
+
+data class RecentRecord(
+    @StringRes val titleRes: Int,
+    @StringRes val subtitleRes: Int,
+)
+
+data class DetailSection(
+    val title: String,
+    val body: String,
+) : Serializable
+
+data class DetailPageContent(
+    val category: String,
+    val title: String,
+    val subtitle: String,
+    val highlights: ArrayList<String>,
+    val sections: ArrayList<DetailSection>,
+    val actionText: String,
+) : Serializable
