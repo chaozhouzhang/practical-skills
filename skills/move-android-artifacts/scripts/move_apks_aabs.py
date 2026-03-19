@@ -4,6 +4,11 @@ import os
 import shutil
 from pathlib import Path
 
+#python3 scripts/move_apks_aabs.py --sources /Users/zhangchaozhou/Library/Containers/com.tencent.WeWorkMac/Data/Documents/Profiles/D511B93AC2D24928F61476927A9D8AAA/Caches/Files --dest ~/Desktop/apks
+#python3 scripts/move_apks_aabs.py --sources /Users/zhangchaozhou/Documents/Shared --dest ~/Desktop/apks
+#python3 scripts/move_apks_aabs.py --sources /Users/zhangchaozhou/Documents/GitLab --dest ~/Desktop/apks
+
+
 EXTS = {".apk", ".aab", ".apks"}
 
 def iter_artifacts(root: Path):

@@ -1,0 +1,214 @@
+<resources>
+    <string name="app_name">星窩 Prototype</string>
+    <string name="brand_name">星窩</string>
+    <string name="brand_slogan">星窩裡，遇見懂你的人</string>
+    <string name="quick_login">快速登入</string>
+    <string name="login_phone">以手機號碼登入</string>
+    <string name="agree_prefix">我已閱讀並同意 </string>
+    <string name="agree_connector"> 與 </string>
+    <string name="select_country_region">選擇國家或地區</string>
+    <string name="hint_phone">請輸入手機號碼</string>
+    <string name="hint_password">請輸入密碼</string>
+    <string name="login_register">登入 / 註冊</string>
+    <string name="symbol_close">×</string>
+    <string name="symbol_check">✓</string>
+    <string name="symbol_separator">|</string>
+    <string name="symbol_bullet">•</string>
+    <string name="symbol_chevron_right">></string>
+    <string name="back_text">返回</string>
+    <string name="agreement_required">請先同意用戶服務條款與隱私權政策</string>
+    <string name="terms_title">用戶服務條款</string>
+    <string name="privacy_title">隱私權政策</string>
+    <string name="selected_country_hint">目前選擇</string>
+    <string name="terms_content">歡迎使用星窩。為保障你的權益，使用本服務前請先詳閱本條款。你同意以合法、善意且不侵害他人權益的方式使用平台服務，不得發布違法、騷擾、仇恨、詐騙或冒充他人的內容。平台提供之測驗、陪伴、占卜與互動內容，主要作為娛樂與情緒支持參考，不構成醫療、法律、投資或其他專業建議。帳號資料須由你妥善保管，如因個人保管不當造成損失，須自行承擔相應風險。若平台發現異常使用、惡意攻擊、洗量、濫用優惠或其他違規行為，有權限制功能、暫停或終止服務。為維持服務品質，平台得視營運需要調整功能、內容、收費方案與活動規則，並以站內公告或更新版本方式通知。你繼續使用服務，即視為接受最新條款內容。</string>
+    <string name="privacy_content">星窩重視你的個人資料與隱私權。我們可能蒐集你主動提供的資料，例如手機號碼、登入資訊、裝置識別資訊、互動紀錄與偏好設定，並用於帳號驗證、服務提供、體驗優化、風險控管與客服支援。除法律另有規定、取得你的同意，或為完成必要服務流程外，我們不會任意將你的個人資料揭露給無關第三方。為提升產品品質，我們可能以去識別化或統計化方式分析使用情況。你可依相關法令申請查詢、更正或刪除你的資料；若部分資料屬法規、交易或安全留存所必要，平台將於合理範圍內保存。當你使用本服務，即表示你理解並同意本隱私權政策所載之資料處理方式。</string>
+
+    <string name="country_taiwan">台灣</string>
+    <string name="country_taiwan_en">Taiwan</string>
+    <string name="country_code_taiwan">+886</string>
+    <string name="country_china">中國</string>
+    <string name="country_china_en">China</string>
+    <string name="country_code_china">+86</string>
+    <string name="country_hong_kong">香港</string>
+    <string name="country_hong_kong_en">HongKong</string>
+    <string name="country_code_hong_kong">+852</string>
+    <string name="country_macao">澳門</string>
+    <string name="country_macao_en">Macao</string>
+    <string name="country_code_macao">+853</string>
+    <string name="country_malaysia">馬來西亞</string>
+    <string name="country_malaysia_en">Malaysia</string>
+    <string name="country_code_malaysia">+60</string>
+    <string name="country_singapore">新加坡</string>
+    <string name="country_singapore_en">Singapore</string>
+    <string name="country_code_singapore">+65</string>
+    <string name="country_usa">美國</string>
+    <string name="country_usa_en">USA</string>
+    <string name="country_code_usa">+1</string>
+    <string name="country_australia">澳大利亞</string>
+    <string name="country_australia_en">Australia</string>
+    <string name="country_code_australia">+61</string>
+    <string name="country_picker_value">%1$s ▾</string>
+    <string name="country_row_value">%1$s (%2$s)</string>
+
+    <string name="bottom_tab_home">首頁</string>
+    <string name="bottom_tab_companion">陪伴</string>
+    <string name="bottom_tab_profile">我的</string>
+    <string name="icon_planet">🪐</string>
+    <string name="icon_people">👥</string>
+    <string name="icon_profile">🙂</string>
+    <string name="icon_food">🍜</string>
+    <string name="icon_trophy">🏆</string>
+    <string name="icon_home">🏠</string>
+    <string name="icon_trend_up">↗</string>
+    <string name="icon_star">✦</string>
+    <string name="icon_sparkles">✨</string>
+
+    <string name="display_name">小葵花衫</string>
+    <string name="avatar_short_name">花</string>
+    <string name="profile_tag_openhearted">大方</string>
+    <string name="profile_tag_sagittarius">射手旅行家</string>
+    <string name="profile_subtitle">射手座旅行家 · 情緒療癒愛好者</string>
+
+    <string name="section_today_fortune">今日運勢 🍀</string>
+    <string name="section_today_topics">今日話題</string>
+    <string name="section_soul_match">靈魂契合</string>
+    <string name="section_recommended_companion">推薦陪伴</string>
+    <string name="section_companion_zone">陪伴分區</string>
+    <string name="section_live_rooms">即時房間</string>
+    <string name="section_daily_tasks">今日任務</string>
+    <string name="section_my_features">我的功能</string>
+    <string name="section_recent_records">最近紀錄</string>
+
+    <string name="action_refresh">換一組</string>
+    <string name="action_view_all">查看全部</string>
+    <string name="action_view_more">查看更多</string>
+    <string name="action_enter_square">進入廣場</string>
+    <string name="action_all_rewards">全部獎勵</string>
+
+    <string name="fortune_suggestion">人生建議：乘星逐光，隨心向暖，放慢一點也很好。</string>
+    <string name="fortune_love">愛情</string>
+    <string name="fortune_career">事業</string>
+    <string name="fortune_wealth">財富</string>
+    <string name="fortune_social">社交</string>
+    <string name="fortune_study">學業</string>
+
+    <string name="home_card_tree_hole_title">心靈樹洞</string>
+    <string name="home_card_tree_hole_subtitle">心情悶悶的時候，來和樹洞聊聊</string>
+    <string name="home_card_tarot_title">塔羅測算</string>
+    <string name="home_card_tarot_subtitle">看看最近的感情與運勢走向</string>
+    <string name="home_card_synastry_title">星盤合盤</string>
+    <string name="home_card_synastry_subtitle">戀愛、婚配與關係默契分析</string>
+    <string name="home_card_soulmate_title">靈魂伴侶</string>
+    <string name="home_card_soulmate_subtitle">找找平行時空裡懂你的 TA</string>
+
+    <string name="feature_chip_astrology">星座解析</string>
+    <string name="feature_chip_ziwei">紫微斗數</string>
+    <string name="feature_chip_calendar">老黃曆</string>
+    <string name="feature_chip_match">星盤配對</string>
+
+    <string name="banner_title">十二星座</string>
+    <string name="banner_subtitle">屬人格心瓶子</string>
+
+    <string name="prompt_1">你說抑鬱症，真的還有救嗎？</string>
+    <string name="prompt_2">你覺得學業和愛情，哪個比較重要？</string>
+    <string name="prompt_3">你覺得麵包和愛情，最後會選哪一個？</string>
+
+    <string name="trend_topic_1_title">本週桃花提醒</string>
+    <string name="trend_topic_1_subtitle">適合重新聯絡的人，這週可能會主動靠近你。</string>
+    <string name="trend_topic_2_title">情緒修復指南</string>
+    <string name="trend_topic_2_subtitle">今晚適合慢下來，替自己安排一次小小冥想。</string>
+    <string name="trend_topic_3_title">月亮星座解析</string>
+    <string name="trend_topic_3_subtitle">更懂你的安全感從哪裡來，也更懂你在意什麼。</string>
+
+    <string name="match_name_1">安可</string>
+    <string name="match_sign_1">雙魚</string>
+    <string name="match_summary_1">擅長情緒陪伴，聊天溫柔，會認真接住你的每一句話。</string>
+    <string name="match_name_2">沐夏</string>
+    <string name="match_sign_2">巨蟹</string>
+    <string name="match_summary_2">很適合深夜聊日常，節奏慢、很有耐心，也願意傾聽。</string>
+    <string name="match_name_3">觀星人</string>
+    <string name="match_sign_3">水瓶</string>
+    <string name="match_summary_3">擅長聊星盤和關係模式，分析清楚，互動起來很舒服。</string>
+
+    <string name="companion_card_1_title">心靈的共鳴，一起聊聊天吧～</string>
+    <string name="companion_card_2_title">測測你的正緣，會不會就是他…</string>
+    <string name="companion_card_3_title">專屬星盤互動房</string>
+    <string name="companion_card_4_title">夜聊療癒小站</string>
+
+    <string name="companion_section_1_title">熱門房間</string>
+    <string name="companion_section_1_desc">即時陪伴與熱門話題聊天</string>
+    <string name="companion_section_2_title">占卜測算</string>
+    <string name="companion_section_2_desc">輕量測驗、關係配對與塔羅解讀</string>
+    <string name="companion_section_3_title">療癒夜話</string>
+    <string name="companion_section_3_desc">適合晚間進入、節奏慢一點的陪伴空間</string>
+
+    <string name="room_1_title">深夜情緒樹洞</string>
+    <string name="room_1_host">南枝</string>
+    <string name="room_2_title">今日塔羅抽牌</string>
+    <string name="room_2_host">Luna</string>
+    <string name="room_3_title">射手座關係診斷</string>
+    <string name="room_3_host">Mori</string>
+    <string name="room_4_title">靈魂共振房</string>
+    <string name="room_4_host">阿澄</string>
+
+    <string name="tag_healing">療癒</string>
+    <string name="tag_night_chat">夜聊</string>
+    <string name="tag_tree_hole">樹洞</string>
+    <string name="tag_tarot">塔羅</string>
+    <string name="tag_luck">運勢</string>
+    <string name="tag_reading">解讀</string>
+    <string name="tag_sign">星座</string>
+    <string name="tag_love">戀愛</string>
+    <string name="tag_interaction">互動</string>
+    <string name="tag_match">匹配</string>
+    <string name="tag_companion">陪伴</string>
+    <string name="tag_heal">治癒</string>
+
+    <string name="profile_stat_fate">已點亮緣分</string>
+    <string name="profile_stat_fate_value">12</string>
+    <string name="profile_stat_saved">收藏內容</string>
+    <string name="profile_stat_saved_value">28</string>
+    <string name="profile_stat_check_in">連續簽到</string>
+    <string name="profile_stat_check_in_value">7 天</string>
+
+    <string name="profile_menu_chart_title">我的星盤</string>
+    <string name="profile_menu_chart_subtitle">查看專屬人格畫像、關係匹配與運勢總結</string>
+    <string name="profile_menu_order_title">我的訂單</string>
+    <string name="profile_menu_order_subtitle">占卜紀錄、陪伴訂單與消費明細</string>
+    <string name="profile_menu_order_badge">2</string>
+    <string name="profile_menu_saved_title">收藏內容</string>
+    <string name="profile_menu_saved_subtitle">看過的測驗、文章與陪伴房間都在這裡</string>
+    <string name="profile_menu_settings_title">設定中心</string>
+    <string name="profile_menu_settings_subtitle">通知、帳號安全與關於我們</string>
+
+    <string name="daily_task_1_title">完成今日簽到</string>
+    <string name="daily_task_1_reward">+10 星光</string>
+    <string name="daily_task_2_title">參加一次陪伴房</string>
+    <string name="daily_task_2_reward">+20 緣分值</string>
+    <string name="daily_task_3_title">完成一份測驗</string>
+    <string name="daily_task_3_reward">+15 星幣</string>
+    <string name="task_done">已完成</string>
+    <string name="task_in_progress">進行中</string>
+
+    <string name="record_1_title">本週情緒曲線</string>
+    <string name="record_1_subtitle">近 7 天狀態大致穩定，週二晚間波動偏高，建議 22:00 前休息。</string>
+    <string name="record_2_title">上次測驗結果</string>
+    <string name="record_2_subtitle">你目前的關係能量偏慢熱，若願意更主動表達需求，互動會更順。</string>
+
+    <string name="logout">登出</string>
+    <string name="logout_confirm_title">是否登出</string>
+    <string name="logout_confirm_message">返回上一頁將會登出帳號，是否繼續？</string>
+    <string name="logout_confirm_action">確認登出</string>
+    <string name="logout_cancel_action">取消</string>
+    <string name="tab_following">關注</string>
+    <string name="tab_recommend">推薦</string>
+    <string name="tab_test">測試</string>
+    <string name="tab_sign">星座</string>
+
+    <string name="people_online">%1$d 人在線</string>
+    <string name="divination_price">占卜題組 %1$d</string>
+    <string name="online_count">%1$d 在線</string>
+    <string name="host_name">主持人 %1$s</string>
+    <string name="number_value">%1$d</string>
+    <string name="percent_value">%1$d%%</string>
+</resources>

@@ -5,7 +5,11 @@ import zipfile
 from pathlib import Path
 import sys
 
-#python3 delete_useless_channel.py /Users/zhangchaozhou/Documents/GitLab/new_brand_android /Users/zhangchaozhou/Documents/Shared/HaiChang/RU ru_code_2.7.1.170 ru
+#python3 delete_useless_channel.py /Users/zhangchaozhou/Documents/Github/new_brand_android /Users/zhangchaozhou/Documents/Shared/HaiChang/RU ru_code_2.8.0.190 ru
+#python3 delete_useless_channel.py /Users/zhangchaozhou/Documents/Github/new_brand_android /Users/zhangchaozhou/Documents/Shared/HaiChang/ZH juumi_code_2.8.0.182 zh
+#python3 delete_useless_channel.py /Users/zhangchaozhou/Documents/Github/new_brand_android /Users/zhangchaozhou/Documents/Shared/HaiChang/EN songora_code_2.8.0.184 en
+#python3 delete_useless_channel.py /Users/zhangchaozhou/Documents/Github/new_brand_android /Users/zhangchaozhou/Documents/Shared/HaiChang/VI joysing_code_2.8.0.186 vi
+#python3 delete_useless_channel.py /Users/zhangchaozhou/Documents/Github/new_brand_android /Users/zhangchaozhou/Documents/Shared/HaiChang/AR voolaa_code_2.8.0.188 ar
 
 def is_hidden(p: Path):
     return p.name.startswith('.')

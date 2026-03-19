@@ -1,0 +1,35 @@
+# Gradle / Kotlin
+.gradle/
+.kotlin/
+
+# IDE
+.idea/
+*.iml
+
+# Local machine config
+local.properties
+
+# Build outputs
+build/
+**/build/
+out/
+bin/
+gen/
+captures/
+.externalNativeBuild/
+.cxx/
+objs/
+obj/
+
+# Android artifacts
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# Logs / temp
+*.log
+*.tmp
+*.swp
+.DS_Store
