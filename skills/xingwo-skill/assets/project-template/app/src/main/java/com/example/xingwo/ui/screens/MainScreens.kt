@@ -69,17 +69,17 @@ import com.example.xingwo.ui.components.AvatarBubble
 import com.example.xingwo.ui.components.SectionTitle
 
 @Composable
-fun MainScreen(onLogout: () -> Unit) {
+fun MainScreen(onExit: () -> Unit) {
     var selectedTab by remember { mutableStateOf(BottomTab.Home) }
-    var showLogoutDialog by remember { mutableStateOf(false) }
+    var showExitDialog by remember { mutableStateOf(false) }
 
     BackHandler {
-        showLogoutDialog = true
+        showExitDialog = true
     }
 
-    if (showLogoutDialog) {
+    if (showExitDialog) {
         AlertDialog(
-            onDismissRequest = { showLogoutDialog = false },
+            onDismissRequest = { showExitDialog = false },
             containerColor = Color(0xFF13233B),
             title = {
                 Text(
@@ -97,8 +97,8 @@ fun MainScreen(onLogout: () -> Unit) {
             confirmButton = {
                 Button(
                     onClick = {
-                        showLogoutDialog = false
-                        onLogout()
+                        showExitDialog = false
+                        onExit()
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF67F1E4)),
                 ) {
@@ -106,7 +106,7 @@ fun MainScreen(onLogout: () -> Unit) {
                 }
             },
             dismissButton = {
-                TextButton(onClick = { showLogoutDialog = false }) {
+                TextButton(onClick = { showExitDialog = false }) {
                     Text(stringResource(R.string.logout_cancel_action), color = Color.White)
                 }
             },
@@ -122,7 +122,7 @@ fun MainScreen(onLogout: () -> Unit) {
             when (selectedTab) {
                 BottomTab.Home -> HomeScreen()
                 BottomTab.Companion -> CompanionScreen()
-                BottomTab.Profile -> ProfileScreen(onLogout = onLogout)
+                BottomTab.Profile -> ProfileScreen()
             }
         }
         BottomBar(
@@ -545,7 +545,7 @@ private fun CompanionRoomList(onRoomClick: (com.example.xingwo.model.CompanionRo
 }
 
 @Composable
-private fun ProfileScreen(onLogout: () -> Unit) {
+private fun ProfileScreen() {
     val context = LocalContext.current
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -605,16 +605,6 @@ private fun ProfileScreen(onLogout: () -> Unit) {
                     badgeRes = item.badgeRes,
                     onClick = { context.openDetail(buildProfileMenuDetail(context, item)) },
                 )
-            }
-        }
-        item {
-            Button(
-                onClick = onLogout,
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(18.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2A3956)),
-            ) {
-                Text(stringResource(R.string.logout), color = Color.White, modifier = Modifier.padding(vertical = 6.dp))
             }
         }
     }

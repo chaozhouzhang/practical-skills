@@ -63,14 +63,6 @@
             android:exported="false"
             android:theme="@style/Theme.XingWo" />
         <activity
-            android:name=".PhoneLoginActivity"
-            android:exported="false"
-            android:theme="@style/Theme.XingWo" />
-        <activity
-            android:name=".AuthLandingActivity"
-            android:exported="false"
-            android:theme="@style/Theme.XingWo" />
-        <activity
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/Theme.XingWo" />
