@@ -27,13 +27,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.xingwo.R
 import com.example.xingwo.data.FakeData
+import com.example.xingwo.model.CompanionRoom
+import com.example.xingwo.model.MatchProfile
 import com.example.xingwo.model.TarotCard
+import com.example.xingwo.model.ZodiacProfile
 import com.example.xingwo.ui.components.AvatarBubble
 import com.example.xingwo.ui.components.GradientPrimaryButton
 
@@ -216,6 +220,379 @@ fun TarotDetailScreen(
                 enabled = true,
                 onClick = onBack,
             )
+        }
+    }
+}
+
+@Composable
+fun SynastryDetailScreen(onBack: () -> Unit) {
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding()
+            .navigationBarsPadding(),
+        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 18.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+        item { DetailTopBar(title = stringResource(R.string.home_card_synastry_title), onBack = onBack) }
+        item {
+            Card(
+                shape = RoundedCornerShape(28.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.Transparent),
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Brush.linearGradient(listOf(Color(0xFF2046C9), Color(0xFF4F6CFF), Color(0xFF78A4FF))))
+                        .padding(20.dp),
+                ) {
+                    Column {
+                        Text(stringResource(R.string.synastry_title), color = Color.White, fontSize = 28.sp, fontWeight = FontWeight.Black)
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(stringResource(R.string.synastry_subtitle), color = Color(0xFFE7EEFF), fontSize = 15.sp, lineHeight = 23.sp)
+                    }
+                }
+            }
+        }
+        item {
+            RelationshipMetricCard(
+                title = stringResource(R.string.synastry_metric_1_title),
+                score = stringResource(R.string.synastry_metric_1_score),
+                body = stringResource(R.string.synastry_metric_1_body),
+            )
+        }
+        item {
+            RelationshipMetricCard(
+                title = stringResource(R.string.synastry_metric_2_title),
+                score = stringResource(R.string.synastry_metric_2_score),
+                body = stringResource(R.string.synastry_metric_2_body),
+            )
+        }
+        item {
+            RelationshipMetricCard(
+                title = stringResource(R.string.synastry_metric_3_title),
+                score = stringResource(R.string.synastry_metric_3_score),
+                body = stringResource(R.string.synastry_metric_3_body),
+            )
+        }
+        item {
+            Card(
+                shape = RoundedCornerShape(22.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF12243B)),
+            ) {
+                Column(modifier = Modifier.padding(18.dp)) {
+                    Text(stringResource(R.string.synastry_advice_title), color = Color.White, fontSize = 19.sp, fontWeight = FontWeight.Bold)
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Text(stringResource(R.string.synastry_advice_body), color = Color(0xFFD8E4EF), fontSize = 15.sp, lineHeight = 24.sp)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun SoulmateDetailScreen(onBack: () -> Unit) {
+    val profiles = FakeData.matchProfiles
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding()
+            .navigationBarsPadding(),
+        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 18.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+        item { DetailTopBar(title = stringResource(R.string.home_card_soulmate_title), onBack = onBack) }
+        item {
+            Card(
+                shape = RoundedCornerShape(28.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.Transparent),
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Brush.linearGradient(listOf(Color(0xFFFF7BC1), Color(0xFFFF90D2), Color(0xFFFFB1C3))))
+                        .padding(20.dp),
+                ) {
+                    Column {
+                        Text(stringResource(R.string.soulmate_title), color = Color.White, fontSize = 28.sp, fontWeight = FontWeight.Black)
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(stringResource(R.string.soulmate_subtitle), color = Color(0xFFFFF3FA), fontSize = 15.sp, lineHeight = 23.sp)
+                    }
+                }
+            }
+        }
+        items(profiles.size) { index ->
+            SoulmateProfileCard(profile = profiles[index])
+        }
+        item {
+            Card(
+                shape = RoundedCornerShape(22.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF12243B)),
+            ) {
+                Column(modifier = Modifier.padding(18.dp)) {
+                    Text(stringResource(R.string.soulmate_tips_title), color = Color.White, fontSize = 19.sp, fontWeight = FontWeight.Bold)
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Text(stringResource(R.string.soulmate_tips_body), color = Color(0xFFD8E4EF), fontSize = 15.sp, lineHeight = 24.sp)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun HotRoomsDetailScreen(onBack: () -> Unit) {
+    val rooms = FakeData.companionRooms.take(3)
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding()
+            .navigationBarsPadding(),
+        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 18.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+        item { DetailTopBar(title = stringResource(R.string.companion_section_1_title), onBack = onBack) }
+        item {
+            DetailHeroCard(
+                title = stringResource(R.string.hot_rooms_title),
+                subtitle = stringResource(R.string.hot_rooms_subtitle),
+                colors = listOf(Color(0xFF304B92), Color(0xFF5973D9), Color(0xFF8AA1FF)),
+            )
+        }
+        items(rooms.size) { index ->
+            HotRoomCard(room = rooms[index])
+        }
+        item {
+            InfoBlock(
+                title = stringResource(R.string.hot_rooms_tips_title),
+                body = stringResource(R.string.hot_rooms_tips_body),
+            )
+        }
+    }
+}
+
+@Composable
+fun DivinationZoneDetailScreen(onBack: () -> Unit) {
+    val cards = FakeData.companionCards.filter { it.price != null }.take(3)
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding()
+            .navigationBarsPadding(),
+        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 18.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+        item { DetailTopBar(title = stringResource(R.string.companion_section_2_title), onBack = onBack) }
+        item {
+            DetailHeroCard(
+                title = stringResource(R.string.divination_zone_title),
+                subtitle = stringResource(R.string.divination_zone_subtitle),
+                colors = listOf(Color(0xFF5C2AB7), Color(0xFF8752F9), Color(0xFFC889FF)),
+            )
+        }
+        items(cards.size) { index ->
+            val card = cards[index]
+            InfoBlock(
+                title = stringResource(card.titleRes),
+                body = stringResource(R.string.divination_zone_item_body, stringResource(card.titleRes), card.price ?: 0),
+            )
+        }
+        item {
+            InfoBlock(
+                title = stringResource(R.string.divination_zone_tips_title),
+                body = stringResource(R.string.divination_zone_tips_body),
+            )
+        }
+    }
+}
+
+@Composable
+fun HealingNightDetailScreen(onBack: () -> Unit) {
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding()
+            .navigationBarsPadding(),
+        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 18.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+        item { DetailTopBar(title = stringResource(R.string.companion_section_3_title), onBack = onBack) }
+        item {
+            DetailHeroCard(
+                title = stringResource(R.string.healing_night_title),
+                subtitle = stringResource(R.string.healing_night_subtitle),
+                colors = listOf(Color(0xFF163959), Color(0xFF29627A), Color(0xFF49A7A0)),
+            )
+        }
+        item { InfoBlock(title = stringResource(R.string.healing_night_topic_1_title), body = stringResource(R.string.healing_night_topic_1_body)) }
+        item { InfoBlock(title = stringResource(R.string.healing_night_topic_2_title), body = stringResource(R.string.healing_night_topic_2_body)) }
+        item { InfoBlock(title = stringResource(R.string.healing_night_topic_3_title), body = stringResource(R.string.healing_night_topic_3_body)) }
+        item { InfoBlock(title = stringResource(R.string.healing_night_tips_title), body = stringResource(R.string.healing_night_tips_body)) }
+    }
+}
+
+@Composable
+fun ZodiacDetailScreen(onBack: () -> Unit) {
+    val profiles = FakeData.zodiacProfiles
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding()
+            .navigationBarsPadding(),
+        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 18.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+        item { DetailTopBar(title = stringResource(R.string.banner_title), onBack = onBack) }
+        item {
+            DetailHeroCard(
+                title = stringResource(R.string.zodiac_detail_title),
+                subtitle = stringResource(R.string.zodiac_detail_subtitle),
+                colors = listOf(Color(0xFF152F92), Color(0xFF304FD6), Color(0xFF77A3FF)),
+            )
+        }
+        items(profiles.size) { index ->
+            ZodiacProfileCard(profile = profiles[index])
+        }
+    }
+}
+
+@Composable
+private fun RelationshipMetricCard(title: String, score: String, body: String) {
+    Card(
+        shape = RoundedCornerShape(22.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF132642)),
+    ) {
+        Column(modifier = Modifier.padding(18.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(title, color = Color.White, fontSize = 19.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(999.dp))
+                        .background(Color(0xFF2B4E95))
+                        .padding(horizontal = 12.dp, vertical = 8.dp),
+                ) {
+                    Text(score, color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Bold)
+                }
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(body, color = Color(0xFFD8E4EF), fontSize = 15.sp, lineHeight = 24.sp)
+        }
+    }
+}
+
+@Composable
+private fun DetailHeroCard(title: String, subtitle: String, colors: List<Color>) {
+    Card(
+        shape = RoundedCornerShape(28.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.Transparent),
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Brush.linearGradient(colors))
+                .padding(20.dp),
+        ) {
+            Column {
+                Text(title, color = Color.White, fontSize = 28.sp, fontWeight = FontWeight.Black)
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(subtitle, color = Color(0xFFF0F6FF), fontSize = 15.sp, lineHeight = 23.sp)
+            }
+        }
+    }
+}
+
+@Composable
+private fun InfoBlock(title: String, body: String) {
+    Card(
+        shape = RoundedCornerShape(22.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF12243B)),
+    ) {
+        Column(modifier = Modifier.padding(18.dp)) {
+            Text(title, color = Color.White, fontSize = 19.sp, fontWeight = FontWeight.Bold)
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(body, color = Color(0xFFD8E4EF), fontSize = 15.sp, lineHeight = 24.sp)
+        }
+    }
+}
+
+@Composable
+private fun HotRoomCard(room: CompanionRoom) {
+    val context = LocalContext.current
+    val tagsText = room.tags.joinToString(" / ") { context.getString(it) }
+    Card(
+        shape = RoundedCornerShape(22.dp),
+        colors = CardDefaults.cardColors(containerColor = room.accent),
+    ) {
+        Column(modifier = Modifier.padding(18.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                AvatarBubble(stringResource(room.hostRes), modifier = Modifier.size(44.dp))
+                Spacer(modifier = Modifier.width(12.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(stringResource(room.titleRes), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.host_name, stringResource(room.hostRes)), color = Color(0xFFE3ECF6), fontSize = 13.sp)
+                }
+                Text(stringResource(R.string.online_count, room.onlineCount), color = Color(0xFFFFE18A), fontSize = 13.sp, fontWeight = FontWeight.Bold)
+            }
+            Spacer(modifier = Modifier.height(12.dp))
+            Text(
+                tagsText,
+                color = Color(0xFFF5F8FD),
+                fontSize = 14.sp,
+                lineHeight = 21.sp,
+            )
+        }
+    }
+}
+
+@Composable
+private fun ZodiacProfileCard(profile: ZodiacProfile) {
+    Card(
+        shape = RoundedCornerShape(22.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF132642)),
+    ) {
+        Column(modifier = Modifier.padding(18.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(999.dp))
+                        .background(Color(0xFF2B4E95))
+                        .padding(horizontal = 12.dp, vertical = 8.dp),
+                ) {
+                    Text(stringResource(profile.nameRes), color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Bold)
+                }
+                Spacer(modifier = Modifier.width(10.dp))
+                Text(stringResource(profile.titleRes), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+            }
+            Spacer(modifier = Modifier.height(12.dp))
+            Text(stringResource(profile.summaryRes), color = Color(0xFFD8E4EF), fontSize = 15.sp, lineHeight = 24.sp)
+        }
+    }
+}
+
+@Composable
+private fun SoulmateProfileCard(profile: MatchProfile) {
+    Card(
+        shape = RoundedCornerShape(22.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF132642)),
+    ) {
+        Column(modifier = Modifier.padding(18.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                AvatarBubble(stringResource(profile.nameRes), modifier = Modifier.size(46.dp))
+                Spacer(modifier = Modifier.width(12.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(stringResource(profile.nameRes), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(profile.signRes), color = Color(0xFF9DB8CF), fontSize = 13.sp)
+                }
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(999.dp))
+                        .background(profile.accent)
+                        .padding(horizontal = 12.dp, vertical = 8.dp),
+                ) {
+                    Text(stringResource(R.string.percent_value, profile.compatibility), color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                }
+            }
+            Spacer(modifier = Modifier.height(12.dp))
+            Text(stringResource(profile.summaryRes), color = Color(0xFFE8EEF5), fontSize = 15.sp, lineHeight = 23.sp)
         }
     }
 }

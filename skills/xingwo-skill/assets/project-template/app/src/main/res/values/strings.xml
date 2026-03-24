@@ -375,4 +375,84 @@
     <string name="tarot_love_trend_3">近期桃花不算少，但真正值得留意的是「有沒有穩定回應」。比起一時熱烈，更適合觀察誰願意在細節上持續靠近你。</string>
     <string name="tarot_love_trend_4">最近的感情走向比較像從模糊走向明朗。某段原本看不懂的互動，接下來很可能出現明確訊號，讓你知道該繼續、該等待，還是該轉身。</string>
     <string name="tarot_love_trend_5">如果你目前是單身，這段時間更適合先把自己的狀態照顧穩。當你不再急著尋找答案，反而比較容易遇到讓你舒服、也願意慢慢靠近的人。</string>
+
+    <string name="synastry_title">關係默契合盤</string>
+    <string name="synastry_subtitle">這裡用比較輕量的方式，把兩個人的相處節奏、情緒互動與長期磨合感做成一頁式摘要。</string>
+    <string name="synastry_metric_1_title">情緒互接</string>
+    <string name="synastry_metric_1_score">89 分</string>
+    <string name="synastry_metric_1_body">你們之間最明顯的優勢是能接住彼此的情緒波動。一方低落時，另一方通常不會急著糾正，而是更容易先給陪伴感。</string>
+    <string name="synastry_metric_2_title">溝通節奏</string>
+    <string name="synastry_metric_2_score">76 分</string>
+    <string name="synastry_metric_2_body">溝通上其實不缺話題，但容易在期待不同時出現節奏落差。只要把需求說清楚，不要靠猜，很多誤會都能少一半。</string>
+    <string name="synastry_metric_3_title">長期磨合</string>
+    <string name="synastry_metric_3_score">83 分</string>
+    <string name="synastry_metric_3_body">這段關係不是沒有摩擦，而是屬於願意修正、願意回頭對齊的類型。只要雙方都沒有逃避，長期走下去的穩定度其實不低。</string>
+    <string name="synastry_advice_title">這段關係最需要注意的地方</string>
+    <string name="synastry_advice_body">你們最值得把握的是「願意理解彼此」這件事，但也要小心把很多情緒放在心裡不說。越在意彼此，越要把真實需求說出來，關係才不會卡在默默猜測裡。</string>
+
+    <string name="soulmate_title">靈魂共振名單</string>
+    <string name="soulmate_subtitle">這裡不是只看單一分數，而是把適合深聊、適合陪伴、適合慢慢熟起來的人放在一起，讓你感受不同類型的契合感。</string>
+    <string name="soulmate_tips_title">如何判斷誰真的適合你</string>
+    <string name="soulmate_tips_body">高契合不一定代表馬上就會發展成關係，但通常代表你和對方比較容易產生安心感。與其追求瞬間的熱度，不如觀察誰願意穩定回應你、也願意理解你真正在意的事。</string>
+
+    <string name="hot_rooms_title">今晚的熱門陪伴房</string>
+    <string name="hot_rooms_subtitle">這個頁面會集中展示目前最容易快速融入的房間，適合想直接加入聊天、又不想從零開始找話題的人。</string>
+    <string name="hot_rooms_tips_title">怎麼挑第一個要進的房間</string>
+    <string name="hot_rooms_tips_body">先看標籤是不是貼近你當下的情緒，再看在線人數是否符合你想要的節奏。人多的房間比較熱鬧，人少的房間通常更容易慢慢聊深一點。</string>
+
+    <string name="divination_zone_title">測算與解讀入口</string>
+    <string name="divination_zone_subtitle">這裡收的是偏測驗、塔羅與關係解析類的內容，適合帶著問題進來，快速找到可以幫你整理情緒與方向的入口。</string>
+    <string name="divination_zone_item_body">「%1$s」適合拿來快速切一個角度看問題，目前示意價格為 %2$d 星幣。進去之後會先給你輕量結果，再決定要不要往更深的解析走。</string>
+    <string name="divination_zone_tips_title">什麼時候適合做測算</string>
+    <string name="divination_zone_tips_body">最適合的時機不是情緒最爆炸的當下，而是你已經知道自己卡在哪裡、只是需要一個更清楚的切角時。這樣拿到的結果會更有參考價值。</string>
+
+    <string name="healing_night_title">晚間療癒陪伴場</string>
+    <string name="healing_night_subtitle">這個分區更像慢節奏的夜晚角落，適合失眠、想說說話、或者只想在安靜的陪伴裡把心情放下來一點點。</string>
+    <string name="healing_night_topic_1_title">深夜情緒整理</string>
+    <string name="healing_night_topic_1_body">適合在情緒很多、腦袋停不下來的時候進來。這類內容通常不急著給答案，而是先陪你把感受說清楚。</string>
+    <string name="healing_night_topic_2_title">慢慢聊日常</string>
+    <string name="healing_night_topic_2_body">有時候真正需要的不是分析，而是有人陪你把今天發生的事從頭講一遍。這個主題更適合慢慢講、慢慢被接住。</string>
+    <string name="healing_night_topic_3_title">睡前安定感</string>
+    <string name="healing_night_topic_3_body">如果你在睡前特別容易想很多，這類夜話內容會更適合作為過渡，讓心情慢慢降下來，而不是把情緒帶進整晚的失眠裡。</string>
+    <string name="healing_night_tips_title">進入夜話分區前的小提醒</string>
+    <string name="healing_night_tips_body">不用勉強自己一次說很多。只要先從一句「我今天有點累」開始，節奏就會慢慢打開。夜裡的陪伴更重視安全感，而不是表達得多完整。</string>
+
+    <string name="zodiac_detail_title">十二星座人格地圖</string>
+    <string name="zodiac_detail_subtitle">這裡把 12 星座的人格氣質拆成更容易理解的短篇介紹，適合快速感受每個星座在關係、情緒與日常互動裡最鮮明的樣子。</string>
+    <string name="zodiac_aries_name">牡羊座</string>
+    <string name="zodiac_aries_title">直接熱烈的行動派</string>
+    <string name="zodiac_aries_summary">牡羊座的魅力在於反應快、熱情真，喜歡了就會靠近，不喜歡拐彎。情緒來得快也去得快，最受不了關係裡一直拖著不說清楚。</string>
+    <string name="zodiac_taurus_name">金牛座</string>
+    <string name="zodiac_taurus_title">慢熱穩定的安全感提供者</string>
+    <string name="zodiac_taurus_summary">金牛座不一定會立刻表態，但一旦認定就很穩。他們重視日常照顧、實際陪伴和可預期的節奏，比起甜言蜜語，更相信長時間累積出的安心感。</string>
+    <string name="zodiac_gemini_name">雙子座</string>
+    <string name="zodiac_gemini_title">腦袋快、話題多的交流型人格</string>
+    <string name="zodiac_gemini_summary">雙子座擅長聊天，也擅長在不同場景裡切換節奏。表面看起來輕鬆，其實很在意有沒有被理解。對他們來說，好的關係通常從有趣的對話開始。</string>
+    <string name="zodiac_cancer_name">巨蟹座</string>
+    <string name="zodiac_cancer_title">柔軟細膩的情緒接住者</string>
+    <string name="zodiac_cancer_summary">巨蟹座常常先感覺到別人的情緒，再決定自己怎麼靠近。他們重感情、顧家，也很需要安全感。越在乎一個人，越容易把很多情緒收在心裡。</string>
+    <string name="zodiac_leo_name">獅子座</string>
+    <string name="zodiac_leo_title">自帶光感的主角型人格</string>
+    <string name="zodiac_leo_summary">獅子座在關係裡很重視被看見、被珍惜，也很願意主動照顧別人。他們外表強勢，內心其實很在意回應。如果你願意真心欣賞，獅子會給出非常明亮的愛。</string>
+    <string name="zodiac_virgo_name">處女座</string>
+    <string name="zodiac_virgo_title">細節控與秩序感很強的照顧型人格</string>
+    <string name="zodiac_virgo_summary">處女座擅長觀察細節，也擅長用實際方式照顧關係。他們不是冷淡，而是會先確認值不值得投入。看起來挑剔，其實只是很在意穩定與真誠。</string>
+    <string name="zodiac_libra_name">天秤座</string>
+    <string name="zodiac_libra_title">溫和體面、重視平衡的互動型人格</string>
+    <string name="zodiac_libra_summary">天秤座很會維持氣氛，也很在意相處舒不舒服。他們不喜歡太衝突的場面，常常先顧全大局。真正的課題往往不是沒想法，而是如何更果斷地表達自己。</string>
+    <string name="zodiac_scorpio_name">天蠍座</string>
+    <string name="zodiac_scorpio_title">外冷內深的高濃度情感人格</string>
+    <string name="zodiac_scorpio_summary">天蠍座的情感很深，不輕易把全部交出去。一旦信任，就會非常投入；一旦受傷，也很難假裝沒事。他們最重視的是關係裡的真心與忠誠。</string>
+    <string name="zodiac_sagittarius_name">射手座</string>
+    <string name="zodiac_sagittarius_title">自由感很強的真誠探索者</string>
+    <string name="zodiac_sagittarius_summary">射手座喜歡輕鬆、真實、有空氣感的關係，不愛被綁太緊。看起來灑脫，其實很重視彼此能不能一起成長。越能讓他們做自己，越容易留下來。</string>
+    <string name="zodiac_capricorn_name">摩羯座</string>
+    <string name="zodiac_capricorn_title">理性克制的長期經營派</string>
+    <string name="zodiac_capricorn_summary">摩羯座不一定很會說，但很會扛。他們常用行動去證明在乎，也習慣先把事情做好。真正靠近後會發現，他們其實比想像中更溫柔、更需要被理解。</string>
+    <string name="zodiac_aquarius_name">水瓶座</string>
+    <string name="zodiac_aquarius_title">獨特清醒的觀察型人格</string>
+    <string name="zodiac_aquarius_summary">水瓶座很重視精神交流和邊界感，喜歡有趣、真誠又不窒息的關係。他們不是不投入，而是需要先確認彼此能不能在同一個頻率上相處。</string>
+    <string name="zodiac_pisces_name">雙魚座</string>
+    <string name="zodiac_pisces_title">感受力很強的浪漫共情者</string>
+    <string name="zodiac_pisces_summary">雙魚座很容易被情緒和氛圍打動，也很會替別人著想。愛的時候很深，受傷時也容易把自己困住。對他們來說，被溫柔理解是一件很重要的事。</string>
 </resources>

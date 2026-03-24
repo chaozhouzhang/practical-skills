@@ -6,14 +6,12 @@ import com.example.xingwo.R
 import com.example.xingwo.model.CompanionCard
 import com.example.xingwo.model.CompanionRoom
 import com.example.xingwo.model.CompanionSection
-import com.example.xingwo.model.DailyTask
 import com.example.xingwo.model.DetailPageContent
 import com.example.xingwo.model.DetailSection
 import com.example.xingwo.model.FeatureChip
 import com.example.xingwo.model.MatchProfile
 import com.example.xingwo.model.ProfileMenu
 import com.example.xingwo.model.ProfileStat
-import com.example.xingwo.model.RecentRecord
 import com.example.xingwo.model.RecommendationCard
 import com.example.xingwo.model.TrendTopic
 
@@ -205,26 +203,6 @@ internal fun buildProfileStatDetail(context: Context, stat: ProfileStat): Detail
     )
 }
 
-internal fun buildDailyTaskDetail(context: Context, task: DailyTask): DetailPageContent {
-    val title = context.getString(task.titleRes)
-    val reward = context.getString(task.rewardRes)
-    return DetailPageContent(
-        category = context.getString(R.string.section_daily_tasks),
-        title = title,
-        subtitle = context.getString(R.string.detail_task_subtitle),
-        highlights = arrayListOf(
-            if (task.completed) context.getString(R.string.detail_highlight_completed) else context.getString(R.string.detail_highlight_in_progress),
-            context.getString(R.string.detail_highlight_reward, reward),
-        ),
-        sections = arrayListOf(
-            DetailSection(context.getString(R.string.detail_section_focus), context.getString(R.string.detail_task_focus, title)),
-            DetailSection(context.getString(R.string.detail_section_benefit), context.getString(R.string.detail_task_benefit, reward)),
-            DetailSection(context.getString(R.string.detail_section_next_step), context.getString(R.string.detail_task_next)),
-        ),
-        actionText = context.getString(R.string.detail_action_check_task),
-    )
-}
-
 internal fun buildProfileMenuDetail(context: Context, menu: ProfileMenu): DetailPageContent {
     val title = context.getString(menu.titleRes)
     val subtitle = context.getString(menu.subtitleRes)
@@ -242,23 +220,6 @@ internal fun buildProfileMenuDetail(context: Context, menu: ProfileMenu): Detail
             DetailSection(context.getString(R.string.detail_section_next_step), context.getString(R.string.detail_menu_next)),
         ),
         actionText = context.getString(R.string.detail_action_open_feature),
-    )
-}
-
-internal fun buildRecentRecordDetail(context: Context, record: RecentRecord): DetailPageContent {
-    val title = context.getString(record.titleRes)
-    val subtitle = context.getString(record.subtitleRes)
-    return DetailPageContent(
-        category = context.getString(R.string.section_recent_records),
-        title = title,
-        subtitle = subtitle,
-        highlights = arrayListOf(context.getString(R.string.detail_highlight_record)),
-        sections = arrayListOf(
-            DetailSection(context.getString(R.string.detail_section_status), context.getString(R.string.detail_record_status, title)),
-            DetailSection(context.getString(R.string.detail_section_focus), context.getString(R.string.detail_record_focus, subtitle)),
-            DetailSection(context.getString(R.string.detail_section_suggestion), context.getString(R.string.detail_record_suggestion)),
-        ),
-        actionText = context.getString(R.string.detail_action_review_record),
     )
 }
 

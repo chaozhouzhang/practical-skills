@@ -54,9 +54,15 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.xingwo.FortuneDetailActivity
+import com.example.xingwo.HealingNightDetailActivity
+import com.example.xingwo.HotRoomsDetailActivity
 import com.example.xingwo.R
+import com.example.xingwo.SoulmateDetailActivity
+import com.example.xingwo.SynastryDetailActivity
 import com.example.xingwo.TarotDetailActivity
 import com.example.xingwo.TreeHoleDetailActivity
+import com.example.xingwo.ZodiacDetailActivity
+import com.example.xingwo.DivinationZoneDetailActivity
 import com.example.xingwo.data.FakeData
 import com.example.xingwo.model.BottomTab
 import com.example.xingwo.ui.components.AvatarBubble
@@ -147,13 +153,15 @@ private fun HomeScreen() {
                     when (it.titleRes) {
                         R.string.home_card_tree_hole_title -> context.startActivity(Intent(context, TreeHoleDetailActivity::class.java))
                         R.string.home_card_tarot_title -> context.startActivity(Intent(context, TarotDetailActivity::class.java))
+                        R.string.home_card_synastry_title -> context.startActivity(Intent(context, SynastryDetailActivity::class.java))
+                        R.string.home_card_soulmate_title -> context.startActivity(Intent(context, SoulmateDetailActivity::class.java))
                         else -> context.openDetail(buildRecommendationDetail(context, it))
                     }
                 },
             )
         }
         item { FeatureChipsRow(onChipClick = { context.openDetail(buildChipDetail(context, it)) }) }
-        item { BannerCard(onClick = { context.openDetail(buildBannerDetail(context)) }) }
+        item { BannerCard(onClick = { context.startActivity(Intent(context, ZodiacDetailActivity::class.java)) }) }
         item { SectionTitle(stringResource(R.string.section_today_topics), stringResource(R.string.action_refresh)) }
         item { TrendTopicRow(onTopicClick = { context.openDetail(buildTrendTopicDetail(context, it)) }) }
         item { SectionTitle(stringResource(R.string.section_soul_match), stringResource(R.string.action_view_all)) }
@@ -413,7 +421,7 @@ private fun CompanionScreen() {
         contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 48.dp, bottom = 20.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp),
     ) {
-        item { BannerCard(onClick = { context.openDetail(buildBannerDetail(context)) }) }
+        item { BannerCard(onClick = { context.startActivity(Intent(context, ZodiacDetailActivity::class.java)) }) }
         item { SectionTitle(title = stringResource(R.string.section_recommended_companion), action = stringResource(R.string.action_view_more)) }
         item {
             LazyVerticalGrid(
@@ -456,7 +464,18 @@ private fun CompanionScreen() {
             }
         }
         item { SectionTitle(title = stringResource(R.string.section_companion_zone)) }
-        item { CompanionSectionRow(onSectionClick = { context.openDetail(buildCompanionSectionDetail(context, it)) }) }
+        item {
+            CompanionSectionRow(
+                onSectionClick = {
+                    when (it.titleRes) {
+                        R.string.companion_section_1_title -> context.startActivity(Intent(context, HotRoomsDetailActivity::class.java))
+                        R.string.companion_section_2_title -> context.startActivity(Intent(context, DivinationZoneDetailActivity::class.java))
+                        R.string.companion_section_3_title -> context.startActivity(Intent(context, HealingNightDetailActivity::class.java))
+                        else -> context.openDetail(buildCompanionSectionDetail(context, it))
+                    }
+                },
+            )
+        }
         item { SectionTitle(title = stringResource(R.string.section_live_rooms), action = stringResource(R.string.action_enter_square)) }
         item { CompanionRoomList(onRoomClick = { context.openDetail(buildCompanionRoomDetail(context, it)) }) }
     }
@@ -577,8 +596,6 @@ private fun ProfileScreen(onLogout: () -> Unit) {
                 }
             }
         }
-        item { SectionTitle(stringResource(R.string.section_daily_tasks), stringResource(R.string.action_all_rewards)) }
-        item { DailyTaskPanel(onTaskClick = { context.openDetail(buildDailyTaskDetail(context, it)) }) }
         item { SectionTitle(stringResource(R.string.section_my_features)) }
         item {
             FakeData.profileMenus.forEach { item ->
@@ -590,16 +607,6 @@ private fun ProfileScreen(onLogout: () -> Unit) {
                 )
             }
         }
-        item { SectionTitle(stringResource(R.string.section_recent_records)) }
-        item {
-            FakeData.recentRecords.forEach { record ->
-                RecentRecordCard(
-                    title = stringResource(record.titleRes),
-                    subtitle = stringResource(record.subtitleRes),
-                    onClick = { context.openDetail(buildRecentRecordDetail(context, record)) },
-                )
-            }
-        }
         item {
             Button(
                 onClick = onLogout,
@@ -608,47 +615,6 @@ private fun ProfileScreen(onLogout: () -> Unit) {
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2A3956)),
             ) {
                 Text(stringResource(R.string.logout), color = Color.White, modifier = Modifier.padding(vertical = 6.dp))
-            }
-        }
-    }
-}
-
-@Composable
-private fun DailyTaskPanel(onTaskClick: (com.example.xingwo.model.DailyTask) -> Unit) {
-    Card(
-        shape = RoundedCornerShape(22.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF13233B)),
-    ) {
-        Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            FakeData.dailyTasks.forEach { task ->
-                Row(
-                    modifier = Modifier.clickable { onTaskClick(task) },
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(22.dp)
-                            .clip(CircleShape)
-                            .background(if (task.completed) Color(0xFF62EDE2) else Color(0xFF2A3954)),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        Text(
-                            if (task.completed) stringResource(R.string.symbol_check) else stringResource(R.string.symbol_bullet),
-                            color = if (task.completed) Color(0xFF071725) else Color.White,
-                        )
-                    }
-                    Spacer(modifier = Modifier.width(12.dp))
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text(stringResource(task.titleRes), color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
-                        Text(stringResource(task.rewardRes), color = Color(0xFF8FA7BC), fontSize = 13.sp)
-                    }
-                    Text(
-                        if (task.completed) stringResource(R.string.task_done) else stringResource(R.string.task_in_progress),
-                        color = if (task.completed) Color(0xFF62EDE2) else Color(0xFFFFC96C),
-                        fontSize = 13.sp,
-                        fontWeight = FontWeight.Bold,
-                    )
-                }
             }
         }
     }
@@ -687,23 +653,6 @@ private fun ProfileAction(titleRes: Int, subtitleRes: Int, badgeRes: Int? = null
     }
 }
 
-@Composable
-private fun RecentRecordCard(title: String, subtitle: String, onClick: () -> Unit) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(bottom = 12.dp)
-            .clickable { onClick() },
-        shape = RoundedCornerShape(18.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF13233B)),
-    ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(title, color = Color.White, fontSize = 17.sp, fontWeight = FontWeight.SemiBold)
-            Spacer(modifier = Modifier.height(6.dp))
-            Text(subtitle, color = Color(0xFF96AFC3), fontSize = 14.sp)
-        }
-    }
-}
 
 @Composable
 private fun BottomBar(selectedTab: BottomTab, onTabSelected: (BottomTab) -> Unit) {

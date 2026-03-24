@@ -6,7 +6,6 @@ import com.example.xingwo.model.BottomTab
 import com.example.xingwo.model.CompanionCard
 import com.example.xingwo.model.CountryCode
 import com.example.xingwo.model.DailyFortune
-import com.example.xingwo.model.DailyTask
 import com.example.xingwo.model.FeatureChip
 import com.example.xingwo.model.FortuneBar
 import com.example.xingwo.model.MatchProfile
@@ -15,11 +14,11 @@ import com.example.xingwo.model.CompanionSection
 import com.example.xingwo.model.ProfileMenu
 import com.example.xingwo.model.ProfileStat
 import com.example.xingwo.model.PromptBubble
-import com.example.xingwo.model.RecentRecord
 import com.example.xingwo.model.RecommendationCard
 import com.example.xingwo.model.TarotCard
 import com.example.xingwo.model.TreeHolePost
 import com.example.xingwo.model.TrendTopic
+import com.example.xingwo.model.ZodiacProfile
 
 object FakeData {
     val countries = listOf(
@@ -174,17 +173,6 @@ object FakeData {
         ProfileMenu(R.string.profile_menu_settings_title, R.string.profile_menu_settings_subtitle),
     )
 
-    val dailyTasks = listOf(
-        DailyTask(R.string.daily_task_1_title, R.string.daily_task_1_reward, true),
-        DailyTask(R.string.daily_task_2_title, R.string.daily_task_2_reward, false),
-        DailyTask(R.string.daily_task_3_title, R.string.daily_task_3_reward, false),
-    )
-
-    val recentRecords = listOf(
-        RecentRecord(R.string.record_1_title, R.string.record_1_subtitle),
-        RecentRecord(R.string.record_2_title, R.string.record_2_subtitle),
-    )
-
     val treeHolePosts = listOf(
         TreeHolePost(R.string.tree_hole_user_1, R.string.tree_hole_mood_1, R.string.tree_hole_message_1, R.string.tree_hole_time_1),
         TreeHolePost(R.string.tree_hole_user_2, R.string.tree_hole_mood_2, R.string.tree_hole_message_2, R.string.tree_hole_time_2),
@@ -209,6 +197,21 @@ object FakeData {
         R.string.tarot_love_trend_3,
         R.string.tarot_love_trend_4,
         R.string.tarot_love_trend_5,
+    )
+
+    val zodiacProfiles = listOf(
+        ZodiacProfile(R.string.zodiac_aries_name, R.string.zodiac_aries_title, R.string.zodiac_aries_summary),
+        ZodiacProfile(R.string.zodiac_taurus_name, R.string.zodiac_taurus_title, R.string.zodiac_taurus_summary),
+        ZodiacProfile(R.string.zodiac_gemini_name, R.string.zodiac_gemini_title, R.string.zodiac_gemini_summary),
+        ZodiacProfile(R.string.zodiac_cancer_name, R.string.zodiac_cancer_title, R.string.zodiac_cancer_summary),
+        ZodiacProfile(R.string.zodiac_leo_name, R.string.zodiac_leo_title, R.string.zodiac_leo_summary),
+        ZodiacProfile(R.string.zodiac_virgo_name, R.string.zodiac_virgo_title, R.string.zodiac_virgo_summary),
+        ZodiacProfile(R.string.zodiac_libra_name, R.string.zodiac_libra_title, R.string.zodiac_libra_summary),
+        ZodiacProfile(R.string.zodiac_scorpio_name, R.string.zodiac_scorpio_title, R.string.zodiac_scorpio_summary),
+        ZodiacProfile(R.string.zodiac_sagittarius_name, R.string.zodiac_sagittarius_title, R.string.zodiac_sagittarius_summary),
+        ZodiacProfile(R.string.zodiac_capricorn_name, R.string.zodiac_capricorn_title, R.string.zodiac_capricorn_summary),
+        ZodiacProfile(R.string.zodiac_aquarius_name, R.string.zodiac_aquarius_title, R.string.zodiac_aquarius_summary),
+        ZodiacProfile(R.string.zodiac_pisces_name, R.string.zodiac_pisces_title, R.string.zodiac_pisces_summary),
     )
 
     val tabs = listOf(BottomTab.Home, BottomTab.Companion, BottomTab.Profile)

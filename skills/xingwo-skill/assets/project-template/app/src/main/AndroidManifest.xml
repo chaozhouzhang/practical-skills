@@ -11,6 +11,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XingWo">
         <activity
+            android:name=".ZodiacDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XingWo" />
+        <activity
+            android:name=".HealingNightDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XingWo" />
+        <activity
+            android:name=".DivinationZoneDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XingWo" />
+        <activity
+            android:name=".HotRoomsDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XingWo" />
+        <activity
+            android:name=".SoulmateDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XingWo" />
+        <activity
+            android:name=".SynastryDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XingWo" />
+        <activity
             android:name=".TarotDetailActivity"
             android:exported="false"
             android:theme="@style/Theme.XingWo" />

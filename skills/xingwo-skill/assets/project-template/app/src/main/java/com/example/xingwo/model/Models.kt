@@ -90,17 +90,6 @@ data class ProfileMenu(
     @StringRes val badgeRes: Int? = null,
 )
 
-data class DailyTask(
-    @StringRes val titleRes: Int,
-    @StringRes val rewardRes: Int,
-    val completed: Boolean,
-)
-
-data class RecentRecord(
-    @StringRes val titleRes: Int,
-    @StringRes val subtitleRes: Int,
-)
-
 data class TreeHolePost(
     @StringRes val nameRes: Int,
     @StringRes val moodRes: Int,
@@ -112,6 +101,12 @@ data class TarotCard(
     @StringRes val nameRes: Int,
     @StringRes val keywordRes: Int,
     @StringRes val meaningRes: Int,
+)
+
+data class ZodiacProfile(
+    @StringRes val nameRes: Int,
+    @StringRes val titleRes: Int,
+    @StringRes val summaryRes: Int,
 )
 
 data class DetailSection(
