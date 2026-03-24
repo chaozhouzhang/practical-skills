@@ -4,9 +4,9 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INIT_SCRIPT="${SCRIPT_DIR}/init_from_template.sh"
 
-DEFAULT_TARGET_DIR="${HOME}/Documents/Github/xingwo-prototype"
-DEFAULT_APP_NAME="星窩 Prototype"
-DEFAULT_PACKAGE_NAME="com.example.xingwo"
+DEFAULT_TARGET_DIR="${HOME}/Documents/Github/xinqingwu-prototype"
+DEFAULT_APP_NAME="心晴屋"
+DEFAULT_PACKAGE_NAME="com.example.xinqingwu"
 
 prompt_with_default() {
   local label="$1"

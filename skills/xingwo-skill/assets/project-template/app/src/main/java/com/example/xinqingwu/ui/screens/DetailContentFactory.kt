@@ -1,19 +1,19 @@
-package com.example.xingwo.ui.screens
+package com.example.xinqingwu.ui.screens
 
 import android.content.Context
-import com.example.xingwo.DetailActivity
-import com.example.xingwo.R
-import com.example.xingwo.model.CompanionCard
-import com.example.xingwo.model.CompanionRoom
-import com.example.xingwo.model.CompanionSection
-import com.example.xingwo.model.DetailPageContent
-import com.example.xingwo.model.DetailSection
-import com.example.xingwo.model.FeatureChip
-import com.example.xingwo.model.MatchProfile
-import com.example.xingwo.model.ProfileMenu
-import com.example.xingwo.model.ProfileStat
-import com.example.xingwo.model.RecommendationCard
-import com.example.xingwo.model.TrendTopic
+import com.example.xinqingwu.DetailActivity
+import com.example.xinqingwu.R
+import com.example.xinqingwu.model.CompanionCard
+import com.example.xinqingwu.model.CompanionRoom
+import com.example.xinqingwu.model.CompanionSection
+import com.example.xinqingwu.model.DetailPageContent
+import com.example.xinqingwu.model.DetailSection
+import com.example.xinqingwu.model.FeatureChip
+import com.example.xinqingwu.model.MatchProfile
+import com.example.xinqingwu.model.ProfileMenu
+import com.example.xinqingwu.model.ProfileStat
+import com.example.xinqingwu.model.RecommendationCard
+import com.example.xinqingwu.model.TrendTopic
 
 internal fun Context.openDetail(content: DetailPageContent) {
     startActivity(DetailActivity.createIntent(this, content))

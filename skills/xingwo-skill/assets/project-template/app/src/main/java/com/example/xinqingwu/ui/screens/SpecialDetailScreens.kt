@@ -1,4 +1,4 @@
-package com.example.xingwo.ui.screens
+package com.example.xinqingwu.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -32,14 +32,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.xingwo.R
-import com.example.xingwo.data.FakeData
-import com.example.xingwo.model.CompanionRoom
-import com.example.xingwo.model.MatchProfile
-import com.example.xingwo.model.TarotCard
-import com.example.xingwo.model.ZodiacProfile
-import com.example.xingwo.ui.components.AvatarBubble
-import com.example.xingwo.ui.components.GradientPrimaryButton
+import com.example.xinqingwu.R
+import com.example.xinqingwu.data.FakeData
+import com.example.xinqingwu.model.CompanionRoom
+import com.example.xinqingwu.model.MatchProfile
+import com.example.xinqingwu.model.TarotCard
+import com.example.xinqingwu.model.ZodiacProfile
+import com.example.xinqingwu.ui.components.AvatarBubble
+import com.example.xinqingwu.ui.components.GradientPrimaryButton
 
 @Composable
 fun FortuneDetailScreen(onBack: () -> Unit) {

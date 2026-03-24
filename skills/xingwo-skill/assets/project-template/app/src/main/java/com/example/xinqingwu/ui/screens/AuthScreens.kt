@@ -1,4 +1,4 @@
-package com.example.xingwo.ui.screens
+package com.example.xinqingwu.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -44,11 +44,11 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.res.stringResource
-import com.example.xingwo.R
-import com.example.xingwo.data.FakeData
-import com.example.xingwo.model.CountryCode
-import com.example.xingwo.ui.components.GradientPrimaryButton
-import com.example.xingwo.ui.components.PlanetLogo
+import com.example.xinqingwu.R
+import com.example.xinqingwu.data.FakeData
+import com.example.xinqingwu.model.CountryCode
+import com.example.xinqingwu.ui.components.GradientPrimaryButton
+import com.example.xinqingwu.ui.components.PlanetLogo
 
 @Composable
 fun SplashScreen() {

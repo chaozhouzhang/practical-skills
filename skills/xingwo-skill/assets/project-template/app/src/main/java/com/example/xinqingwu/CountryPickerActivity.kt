@@ -1,4 +1,4 @@
-package com.example.xingwo
+package com.example.xinqingwu
 
 import android.app.Activity
 import android.content.Intent
@@ -6,9 +6,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.xingwo.ui.XingWoPageContainer
-import com.example.xingwo.ui.screens.CountryPickerScreen
-import com.example.xingwo.ui.theme.XingWoTheme
+import com.example.xinqingwu.ui.XinQingWuPageContainer
+import com.example.xinqingwu.ui.screens.CountryPickerScreen
+import com.example.xinqingwu.ui.theme.XinQingWuTheme
 
 class CountryPickerActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +17,8 @@ class CountryPickerActivity : ComponentActivity() {
         val selectedIndex = intent.getIntExtra(EXTRA_COUNTRY_INDEX, 0)
 
         setContent {
-            XingWoTheme {
-                XingWoPageContainer {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
                     CountryPickerScreen(
                         selectedIndex = selectedIndex,
                         onBack = { finish() },

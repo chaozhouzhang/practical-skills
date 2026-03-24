@@ -1,4 +1,4 @@
-# XingWoPrototype
+# XinQingWuPrototype
 
 基於設計稿生成的 Android 原型工程，使用 Kotlin + Jetpack Compose。
 
@@ -15,17 +15,17 @@
 ## 專案結構
 
 ```text
-XingWoPrototype
+XinQingWuPrototype
 ├── app
 │   ├── build.gradle.kts
 │   └── src/main
 │       ├── AndroidManifest.xml
-│       ├── java/com/example/xingwo
+│       ├── java/com/example/xinqingwu
 │       │   ├── MainActivity.kt
 │       │   ├── data/FakeData.kt
 │       │   ├── model/Models.kt
 │       │   └── ui
-│       │       ├── XingWoApp.kt
+│       │       ├── XinQingWuApp.kt
 │       │       ├── components/CommonComponents.kt
 │       │       ├── screens/AuthScreens.kt
 │       │       ├── screens/MainScreens.kt

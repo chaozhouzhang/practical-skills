@@ -1,24 +1,24 @@
-package com.example.xingwo.data
+package com.example.xinqingwu.data
 
 import androidx.compose.ui.graphics.Color
-import com.example.xingwo.R
-import com.example.xingwo.model.BottomTab
-import com.example.xingwo.model.CompanionCard
-import com.example.xingwo.model.CountryCode
-import com.example.xingwo.model.DailyFortune
-import com.example.xingwo.model.FeatureChip
-import com.example.xingwo.model.FortuneBar
-import com.example.xingwo.model.MatchProfile
-import com.example.xingwo.model.CompanionRoom
-import com.example.xingwo.model.CompanionSection
-import com.example.xingwo.model.ProfileMenu
-import com.example.xingwo.model.ProfileStat
-import com.example.xingwo.model.PromptBubble
-import com.example.xingwo.model.RecommendationCard
-import com.example.xingwo.model.TarotCard
-import com.example.xingwo.model.TreeHolePost
-import com.example.xingwo.model.TrendTopic
-import com.example.xingwo.model.ZodiacProfile
+import com.example.xinqingwu.R
+import com.example.xinqingwu.model.BottomTab
+import com.example.xinqingwu.model.CompanionCard
+import com.example.xinqingwu.model.CountryCode
+import com.example.xinqingwu.model.DailyFortune
+import com.example.xinqingwu.model.FeatureChip
+import com.example.xinqingwu.model.FortuneBar
+import com.example.xinqingwu.model.MatchProfile
+import com.example.xinqingwu.model.CompanionRoom
+import com.example.xinqingwu.model.CompanionSection
+import com.example.xinqingwu.model.ProfileMenu
+import com.example.xinqingwu.model.ProfileStat
+import com.example.xinqingwu.model.PromptBubble
+import com.example.xinqingwu.model.RecommendationCard
+import com.example.xinqingwu.model.TarotCard
+import com.example.xinqingwu.model.TreeHolePost
+import com.example.xinqingwu.model.TrendTopic
+import com.example.xinqingwu.model.ZodiacProfile
 
 object FakeData {
     val countries = listOf(
@@ -168,8 +168,8 @@ object FakeData {
 
     val profileMenus = listOf(
         ProfileMenu(R.string.profile_menu_chart_title, R.string.profile_menu_chart_subtitle),
-        ProfileMenu(R.string.profile_menu_order_title, R.string.profile_menu_order_subtitle, R.string.profile_menu_order_badge),
         ProfileMenu(R.string.profile_menu_saved_title, R.string.profile_menu_saved_subtitle),
+        ProfileMenu(R.string.profile_menu_privacy_title, R.string.profile_menu_privacy_subtitle),
         ProfileMenu(R.string.profile_menu_settings_title, R.string.profile_menu_settings_subtitle),
     )
 

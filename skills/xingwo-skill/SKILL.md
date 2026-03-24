@@ -1,11 +1,10 @@
----
 name: xingwo-skill
 description: 从 0 到 1 生成与当前对话产物一致的 Android 星座陪伴原型 App（Kotlin + Jetpack Compose）。适用于需要快速落地启动页、首页/陪伴/我的三个 tab 主页面、繁体中文文案、假数据、strings.xml 抽离、自动应用 LOGO、Android .gitignore 的场景。优先复制 skill 内置模板工程，再按目标目录、应用名、包名做小范围调整。
 ---
 
-# XingWo Skill
+# XinQingWu Skill
 
-这个 skill 用来直接生成一份接近当前 `xingwo` 原型效果的 Android Compose 工程，而不是只输出零散代码。
+这个 skill 用来直接生成一份接近当前 `xinqingwu` 原型效果的 Android Compose 工程，而不是只输出零散代码。
 
 ## 适用场景
 
@@ -43,6 +42,8 @@ description: 从 0 到 1 生成与当前对话产物一致的 Android 星座陪�
    - 首页移除今日運勢上方旧头部 UI 后，首个内容区仍需和状态栏保留明显顶部间距
    - 陪伴页移除 Banner 上方全部二级 tab
    - 主页面触发系统返回时，要先弹出退出确认，用户确认后直接退出应用
+   - `我的` tab 中移除 `我的訂單`，并在 `設定中心` 上方增加 `隱私政策` 入口；点击后必须进入独立隐私政策页面
+   - 隐私政策页面必须使用 Android `TextView` 加载本地文案，文案应满足 Google Play 上架时常见的隐私披露结构
 
 ## 初始化命令
 
@@ -68,9 +69,9 @@ bash /Users/zhangchaozhou/.agents/skills/xingwo-skill/scripts/init_from_template
 
 ```bash
 bash /Users/zhangchaozhou/.agents/skills/xingwo-skill/scripts/init_from_template.sh \
-  /Users/zhangchaozhou/Documents/Github/my-xingwo \
-  "星窩 Prototype" \
-  "com.example.xingwo"
+  /Users/zhangchaozhou/Documents/Github/my-xinqingwu \
+  "心晴屋" \
+  "com.example.xinqingwu"
 ```
 
 ## 模板工程内容
@@ -134,6 +135,8 @@ bash /Users/zhangchaozhou/.agents/skills/xingwo-skill/scripts/init_from_template
 - 首页今日運勢卡片上方不应再保留旧头部 UI，但要保留与状态栏的顶部间距
 - 陪伴页 Banner 上方不应再保留二级 tab
 - 主页面返回时必须先弹出退出确认，确认后直接退出应用
+- `我的` tab 中不得再出现 `我的訂單`，`隱私政策` 入口必须位于 `設定中心` 上方并能跳到独立页面
+- 隐私政策页面不得继续沿用 Compose 文档页，必须改为 `TextView` 加载本地隐私政策正文
 - 根目录 `.gitignore` 已忽略 `.gradle`、`.kotlin`、`.idea`、`build`、`app/build`、`local.properties`
 
 ### 5. 若用户要继续迭代
@@ -146,7 +149,7 @@ app/src/main/java/<package>
 ├── data/FakeData.kt
 ├── model/Models.kt
 └── ui
-    ├── XingWoApp.kt
+    ├── XinQingWuApp.kt
     ├── components/CommonComponents.kt
     ├── screens/AuthScreens.kt
     ├── screens/MainScreens.kt

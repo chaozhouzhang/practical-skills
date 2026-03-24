@@ -1,4 +1,4 @@
-package com.example.xingwo
+package com.example.xinqingwu
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.lifecycleScope
-import com.example.xingwo.ui.XingWoPageContainer
-import com.example.xingwo.ui.screens.SplashScreen
-import com.example.xingwo.ui.theme.XingWoTheme
+import com.example.xinqingwu.ui.XinQingWuPageContainer
+import com.example.xinqingwu.ui.screens.SplashScreen
+import com.example.xinqingwu.ui.theme.XinQingWuTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -17,8 +17,8 @@ class SplashActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            XingWoTheme {
-                XingWoPageContainer {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
                     SplashScreen()
                 }
             }

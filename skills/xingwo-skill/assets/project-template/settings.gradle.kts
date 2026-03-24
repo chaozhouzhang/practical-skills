@@ -21,5 +21,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "XingWoPrototype"
+rootProject.name = "XinQingWuPrototype"
 include(":app")

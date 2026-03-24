@@ -1,4 +1,4 @@
-package com.example.xingwo.ui.screens
+package com.example.xinqingwu.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -31,9 +31,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.xingwo.R
-import com.example.xingwo.model.DetailPageContent
-import com.example.xingwo.ui.components.GradientPrimaryButton
+import com.example.xinqingwu.R
+import com.example.xinqingwu.model.DetailPageContent
+import com.example.xinqingwu.ui.components.GradientPrimaryButton
 
 @Composable
 fun DetailScreen(

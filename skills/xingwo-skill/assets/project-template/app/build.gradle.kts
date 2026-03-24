@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.xingwo"
+    namespace = "com.example.xinqingwu"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.xingwo"
+        applicationId = "com.example.xinqingwu"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

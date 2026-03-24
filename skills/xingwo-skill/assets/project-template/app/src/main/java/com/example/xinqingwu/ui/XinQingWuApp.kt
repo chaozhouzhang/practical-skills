@@ -1,4 +1,4 @@
-package com.example.xingwo.ui
+package com.example.xinqingwu.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun XingWoPageContainer(content: @Composable BoxScope.() -> Unit) {
+fun XinQingWuPageContainer(content: @Composable BoxScope.() -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()

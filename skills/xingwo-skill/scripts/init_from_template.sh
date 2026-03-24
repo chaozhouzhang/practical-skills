@@ -31,9 +31,9 @@ rsync -a --delete \
   --exclude 'local.properties' \
   "${TEMPLATE_DIR}/" "${TARGET_DIR}/"
 
-DEFAULT_PACKAGE="com.example.xingwo"
-DEFAULT_APP_NAME="星窩 Prototype"
-DEFAULT_PROJECT_NAME="XingWoPrototype"
+DEFAULT_PACKAGE="com.example.xinqingwu"
+DEFAULT_APP_NAME="心晴屋"
+DEFAULT_PROJECT_NAME="XinQingWuPrototype"
 
 replace_in_file() {
   local file="$1"

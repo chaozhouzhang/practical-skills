@@ -1,9 +1,9 @@
 <resources>
-    <color name="xingwo_background">#081325</color>
-    <color name="xingwo_surface">#15263B</color>
-    <color name="xingwo_surface_alt">#243852</color>
-    <color name="xingwo_accent_start">#FFB35B</color>
-    <color name="xingwo_accent_end">#57E8E0</color>
-    <color name="xingwo_text_primary">#F8FBFF</color>
-    <color name="xingwo_text_secondary">#9EB2C7</color>
+    <color name="xinqingwu_background">#081325</color>
+    <color name="xinqingwu_surface">#15263B</color>
+    <color name="xinqingwu_surface_alt">#243852</color>
+    <color name="xinqingwu_accent_start">#FFB35B</color>
+    <color name="xinqingwu_accent_end">#57E8E0</color>
+    <color name="xinqingwu_text_primary">#F8FBFF</color>
+    <color name="xinqingwu_text_secondary">#9EB2C7</color>
 </resources>

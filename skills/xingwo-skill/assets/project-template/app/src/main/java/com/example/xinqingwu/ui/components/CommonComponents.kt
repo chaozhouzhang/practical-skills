@@ -1,4 +1,4 @@
-package com.example.xingwo.ui.components
+package com.example.xinqingwu.ui.components
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background

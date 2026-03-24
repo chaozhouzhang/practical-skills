@@ -1,4 +1,4 @@
-# XingWo 原型规格
+# XinQingWu 原型规格
 
 ## 产品范围
 
@@ -110,6 +110,6 @@
 
 ## 当前模板默认值
 
-- 默认应用名：`星窩 Prototype`
-- 默认包名：`com.example.xingwo`
+- 默认应用名：`心晴屋`
+- 默认包名：`com.example.xinqingwu`
 - 最低 SDK：24

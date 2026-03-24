@@ -1,11 +1,11 @@
-package com.example.xingwo.ui.theme
+package com.example.xinqingwu.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-private val XingWoColorScheme = darkColorScheme(
+private val XinQingWuColorScheme = darkColorScheme(
     primary = Color(0xFF69F1E3),
     secondary = Color(0xFFFFB55E),
     background = Color(0xFF081325),
@@ -17,9 +17,9 @@ private val XingWoColorScheme = darkColorScheme(
 )
 
 @Composable
-fun XingWoTheme(content: @Composable () -> Unit) {
+fun XinQingWuTheme(content: @Composable () -> Unit) {
     MaterialTheme(
-        colorScheme = XingWoColorScheme,
+        colorScheme = XinQingWuColorScheme,
         content = content,
     )
 }

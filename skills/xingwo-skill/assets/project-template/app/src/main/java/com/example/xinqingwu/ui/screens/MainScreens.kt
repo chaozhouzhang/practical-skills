@@ -1,4 +1,4 @@
-package com.example.xingwo.ui.screens
+package com.example.xinqingwu.ui.screens
 
 import android.content.Intent
 import androidx.compose.foundation.background
@@ -53,20 +53,21 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.xingwo.FortuneDetailActivity
-import com.example.xingwo.HealingNightDetailActivity
-import com.example.xingwo.HotRoomsDetailActivity
-import com.example.xingwo.R
-import com.example.xingwo.SoulmateDetailActivity
-import com.example.xingwo.SynastryDetailActivity
-import com.example.xingwo.TarotDetailActivity
-import com.example.xingwo.TreeHoleDetailActivity
-import com.example.xingwo.ZodiacDetailActivity
-import com.example.xingwo.DivinationZoneDetailActivity
-import com.example.xingwo.data.FakeData
-import com.example.xingwo.model.BottomTab
-import com.example.xingwo.ui.components.AvatarBubble
-import com.example.xingwo.ui.components.SectionTitle
+import com.example.xinqingwu.FortuneDetailActivity
+import com.example.xinqingwu.HealingNightDetailActivity
+import com.example.xinqingwu.HotRoomsDetailActivity
+import com.example.xinqingwu.R
+import com.example.xinqingwu.SoulmateDetailActivity
+import com.example.xinqingwu.SynastryDetailActivity
+import com.example.xinqingwu.TarotDetailActivity
+import com.example.xinqingwu.TreeHoleDetailActivity
+import com.example.xinqingwu.ZodiacDetailActivity
+import com.example.xinqingwu.DivinationZoneDetailActivity
+import com.example.xinqingwu.data.FakeData
+import com.example.xinqingwu.model.BottomTab
+import com.example.xinqingwu.PrivacyActivity
+import com.example.xinqingwu.ui.components.AvatarBubble
+import com.example.xinqingwu.ui.components.SectionTitle
 
 @Composable
 fun MainScreen(onExit: () -> Unit) {
@@ -276,7 +277,7 @@ private fun DailyFortuneCard(onClick: () -> Unit) {
 }
 
 @Composable
-private fun FeatureGrid(onCardClick: (com.example.xingwo.model.RecommendationCard) -> Unit) {
+private fun FeatureGrid(onCardClick: (com.example.xinqingwu.model.RecommendationCard) -> Unit) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         userScrollEnabled = false,
@@ -310,7 +311,7 @@ private fun FeatureGrid(onCardClick: (com.example.xingwo.model.RecommendationCar
 }
 
 @Composable
-private fun FeatureChipsRow(onChipClick: (com.example.xingwo.model.FeatureChip) -> Unit) {
+private fun FeatureChipsRow(onChipClick: (com.example.xinqingwu.model.FeatureChip) -> Unit) {
     LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         items(FakeData.chips.size) { index ->
             val chip = FakeData.chips[index]
@@ -351,7 +352,7 @@ private fun BannerCard(onClick: () -> Unit) {
 }
 
 @Composable
-private fun TrendTopicRow(onTopicClick: (com.example.xingwo.model.TrendTopic) -> Unit) {
+private fun TrendTopicRow(onTopicClick: (com.example.xinqingwu.model.TrendTopic) -> Unit) {
     LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         items(FakeData.trendTopics.size) { index ->
             val topic = FakeData.trendTopics[index]
@@ -378,7 +379,7 @@ private fun TrendTopicRow(onTopicClick: (com.example.xingwo.model.TrendTopic) ->
 }
 
 @Composable
-private fun MatchProfileRow(onProfileClick: (com.example.xingwo.model.MatchProfile) -> Unit) {
+private fun MatchProfileRow(onProfileClick: (com.example.xinqingwu.model.MatchProfile) -> Unit) {
     LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         items(FakeData.matchProfiles.size) { index ->
             val profile = FakeData.matchProfiles[index]
@@ -482,7 +483,7 @@ private fun CompanionScreen() {
 }
 
 @Composable
-private fun CompanionSectionRow(onSectionClick: (com.example.xingwo.model.CompanionSection) -> Unit) {
+private fun CompanionSectionRow(onSectionClick: (com.example.xinqingwu.model.CompanionSection) -> Unit) {
     LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         items(FakeData.companionSections.size) { index ->
             val item = FakeData.companionSections[index]
@@ -504,7 +505,7 @@ private fun CompanionSectionRow(onSectionClick: (com.example.xingwo.model.Compan
 }
 
 @Composable
-private fun CompanionRoomList(onRoomClick: (com.example.xingwo.model.CompanionRoom) -> Unit) {
+private fun CompanionRoomList(onRoomClick: (com.example.xinqingwu.model.CompanionRoom) -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         FakeData.companionRooms.forEach { room ->
             Card(
@@ -603,7 +604,13 @@ private fun ProfileScreen() {
                     titleRes = item.titleRes,
                     subtitleRes = item.subtitleRes,
                     badgeRes = item.badgeRes,
-                    onClick = { context.openDetail(buildProfileMenuDetail(context, item)) },
+                    onClick = {
+                        if (item.titleRes == R.string.profile_menu_privacy_title) {
+                            context.startActivity(Intent(context, PrivacyActivity::class.java))
+                        } else {
+                            context.openDetail(buildProfileMenuDetail(context, item))
+                        }
+                    },
                 )
             }
         }

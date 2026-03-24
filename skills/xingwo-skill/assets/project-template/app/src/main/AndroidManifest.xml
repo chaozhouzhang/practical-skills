@@ -9,67 +9,67 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_app_logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.XingWo">
+        android:theme="@style/Theme.XinQingWu">
         <activity
             android:name=".ZodiacDetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".HealingNightDetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".DivinationZoneDetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".HotRoomsDetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".SoulmateDetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".SynastryDetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".TarotDetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".TreeHoleDetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".FortuneDetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".DetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".PrivacyActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".TermsActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".CountryPickerActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.XingWo" />
+            android:theme="@style/Theme.XinQingWu" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.XingWo">
+            android:theme="@style/Theme.XinQingWu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

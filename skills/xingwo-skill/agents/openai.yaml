@@ -1,3 +1,3 @@
-display_name: XingWo Skill
-short_description: 生成带 LOGO 与多 Activity 登录流的星座陪伴 Android 原型
-default_prompt: 从 0 到 1 生成一个与 XingWo 模板一致的 Android 原型项目，包含启动页、精简后的快速登入页、手机号登录页、国家选择页、用戶服務條款页、隱私權政策页，以及首页、陪伴、我的三个 tab；要求跨页面跳转使用独立 Activity、自动应用 LOGO、繁体中文假数据，并将文案统一放入 strings.xml。
+display_name: XinQingWu Skill
+short_description: 生成带 LOGO 与多 Activity 详情页的心晴屋 Android 原型
+default_prompt: 从 0 到 1 生成一个与心晴屋模板一致的 Android 原型项目，启动页后直接进入首页、陪伴、我的三个 tab 主页面；要求跨页面跳转使用独立 Activity、自动应用 LOGO、繁体中文假数据，并将文案统一放入 strings.xml，其中应用默认名称为心晴屋。

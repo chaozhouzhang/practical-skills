@@ -1,21 +1,21 @@
-package com.example.xingwo
+package com.example.xinqingwu
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.xingwo.data.FakeData
-import com.example.xingwo.ui.screens.DivinationZoneDetailScreen
-import com.example.xingwo.ui.XingWoPageContainer
-import com.example.xingwo.ui.screens.FortuneDetailScreen
-import com.example.xingwo.ui.screens.HealingNightDetailScreen
-import com.example.xingwo.ui.screens.HotRoomsDetailScreen
-import com.example.xingwo.ui.screens.SoulmateDetailScreen
-import com.example.xingwo.ui.screens.SynastryDetailScreen
-import com.example.xingwo.ui.screens.TarotDetailScreen
-import com.example.xingwo.ui.screens.TreeHoleDetailScreen
-import com.example.xingwo.ui.screens.ZodiacDetailScreen
-import com.example.xingwo.ui.theme.XingWoTheme
+import com.example.xinqingwu.data.FakeData
+import com.example.xinqingwu.ui.screens.DivinationZoneDetailScreen
+import com.example.xinqingwu.ui.XinQingWuPageContainer
+import com.example.xinqingwu.ui.screens.FortuneDetailScreen
+import com.example.xinqingwu.ui.screens.HealingNightDetailScreen
+import com.example.xinqingwu.ui.screens.HotRoomsDetailScreen
+import com.example.xinqingwu.ui.screens.SoulmateDetailScreen
+import com.example.xinqingwu.ui.screens.SynastryDetailScreen
+import com.example.xinqingwu.ui.screens.TarotDetailScreen
+import com.example.xinqingwu.ui.screens.TreeHoleDetailScreen
+import com.example.xinqingwu.ui.screens.ZodiacDetailScreen
+import com.example.xinqingwu.ui.theme.XinQingWuTheme
 import kotlin.random.Random
 
 class FortuneDetailActivity : ComponentActivity() {
@@ -23,8 +23,8 @@ class FortuneDetailActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            XingWoTheme {
-                XingWoPageContainer {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
                     FortuneDetailScreen(onBack = { finish() })
                 }
             }
@@ -37,8 +37,8 @@ class TreeHoleDetailActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            XingWoTheme {
-                XingWoPageContainer {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
                     TreeHoleDetailScreen(onBack = { finish() })
                 }
             }
@@ -53,8 +53,8 @@ class TarotDetailActivity : ComponentActivity() {
         val loveTrendRes = FakeData.tarotLoveTrends.random(Random(System.currentTimeMillis() + 7))
         enableEdgeToEdge()
         setContent {
-            XingWoTheme {
-                XingWoPageContainer {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
                     TarotDetailScreen(
                         card = card,
                         loveTrendRes = loveTrendRes,
@@ -71,8 +71,8 @@ class SynastryDetailActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            XingWoTheme {
-                XingWoPageContainer {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
                     SynastryDetailScreen(onBack = { finish() })
                 }
             }
@@ -85,8 +85,8 @@ class SoulmateDetailActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            XingWoTheme {
-                XingWoPageContainer {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
                     SoulmateDetailScreen(onBack = { finish() })
                 }
             }
@@ -99,8 +99,8 @@ class HotRoomsDetailActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            XingWoTheme {
-                XingWoPageContainer {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
                     HotRoomsDetailScreen(onBack = { finish() })
                 }
             }
@@ -113,8 +113,8 @@ class DivinationZoneDetailActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            XingWoTheme {
-                XingWoPageContainer {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
                     DivinationZoneDetailScreen(onBack = { finish() })
                 }
             }
@@ -127,8 +127,8 @@ class HealingNightDetailActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            XingWoTheme {
-                XingWoPageContainer {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
                     HealingNightDetailScreen(onBack = { finish() })
                 }
             }
@@ -141,8 +141,8 @@ class ZodiacDetailActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            XingWoTheme {
-                XingWoPageContainer {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
                     ZodiacDetailScreen(onBack = { finish() })
                 }
             }

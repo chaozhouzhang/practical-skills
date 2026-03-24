@@ -1,4 +1,4 @@
-package com.example.xingwo
+package com.example.xinqingwu
 
 import android.content.Context
 import android.content.Intent
@@ -7,10 +7,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.xingwo.model.DetailPageContent
-import com.example.xingwo.ui.XingWoPageContainer
-import com.example.xingwo.ui.screens.DetailScreen
-import com.example.xingwo.ui.theme.XingWoTheme
+import com.example.xinqingwu.model.DetailPageContent
+import com.example.xinqingwu.ui.XinQingWuPageContainer
+import com.example.xinqingwu.ui.screens.DetailScreen
+import com.example.xinqingwu.ui.theme.XinQingWuTheme
 
 class DetailActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,8 +22,8 @@ class DetailActivity : ComponentActivity() {
 
         enableEdgeToEdge()
         setContent {
-            XingWoTheme {
-                XingWoPageContainer {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
                     DetailScreen(
                         content = content,
                         onBack = { finish() },

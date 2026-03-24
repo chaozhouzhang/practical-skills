@@ -1,8 +1,8 @@
-package com.example.xingwo.model
+package com.example.xinqingwu.model
 
 import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.Color
-import com.example.xingwo.R
+import com.example.xinqingwu.R
 import java.io.Serializable
 
 enum class BottomTab(@StringRes val labelRes: Int) {

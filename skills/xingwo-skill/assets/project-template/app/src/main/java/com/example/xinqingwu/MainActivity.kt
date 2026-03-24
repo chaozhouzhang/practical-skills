@@ -1,20 +1,20 @@
-package com.example.xingwo
+package com.example.xinqingwu
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.xingwo.ui.XingWoPageContainer
-import com.example.xingwo.ui.screens.MainScreen
-import com.example.xingwo.ui.theme.XingWoTheme
+import com.example.xinqingwu.ui.XinQingWuPageContainer
+import com.example.xinqingwu.ui.screens.MainScreen
+import com.example.xinqingwu.ui.theme.XinQingWuTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            XingWoTheme {
-                XingWoPageContainer {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
                     MainScreen(onExit = ::finish)
                 }
             }
