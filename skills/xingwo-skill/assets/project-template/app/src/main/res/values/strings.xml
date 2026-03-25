@@ -79,7 +79,7 @@
     <string name="profile_gender_female">女</string>
     <string name="profile_edit_title">個人資料</string>
     <string name="profile_edit_hint">如果你還沒設定資料，系統會自動使用預設值：暱稱為心晴屋、性別為男、生日為首次打開 App 的當天。當你選擇生日後，星座與生肖也會自動生成。</string>
-    <string name="profile_auto_generated_hint">會根據生日自動更新為：%1$s</string>
+    <string name="profile_auto_generated_hint">會根據生日自動更新</string>
     <string name="profile_edit_save">儲存資料</string>
     <string name="profile_edit_back">返回</string>
     <string name="chinese_zodiac_rat">鼠</string>

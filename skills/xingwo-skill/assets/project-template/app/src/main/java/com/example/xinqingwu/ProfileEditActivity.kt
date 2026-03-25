@@ -196,13 +196,13 @@ private fun ProfileEditScreen(onBack: () -> Unit) {
                 ProfileReadonlyField(
                     label = stringResource(R.string.profile_field_zodiac),
                     value = birthdayProfile.zodiac,
-                    hint = context.getString(R.string.profile_auto_generated_hint, birthdayProfile.zodiac),
+                    hint = stringResource(R.string.profile_auto_generated_hint),
                 )
 
                 ProfileReadonlyField(
                     label = stringResource(R.string.profile_field_chinese_zodiac),
                     value = birthdayProfile.chineseZodiac,
-                    hint = context.getString(R.string.profile_auto_generated_hint, birthdayProfile.chineseZodiac),
+                    hint = stringResource(R.string.profile_auto_generated_hint),
                 )
 
                 Button(
