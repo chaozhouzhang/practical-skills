@@ -528,8 +528,6 @@ private fun CompanionScreen() {
                 },
             )
         }
-        item { SectionTitle(title = stringResource(R.string.section_live_rooms), action = stringResource(R.string.action_enter_square)) }
-        item { CompanionRoomList(onRoomClick = { context.openDetail(buildCompanionRoomDetail(context, it)) }) }
     }
 }
 
@@ -549,47 +547,6 @@ private fun CompanionSectionRow(onSectionClick: (com.example.xinqingwu.model.Com
                     Text(stringResource(item.titleRes), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(stringResource(item.descriptionRes), color = Color(0xFF97ADC2), fontSize = 13.sp, lineHeight = 18.sp)
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun CompanionRoomList(onRoomClick: (com.example.xinqingwu.model.CompanionRoom) -> Unit) {
-    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        FakeData.companionRooms.forEach { room ->
-            Card(
-                modifier = Modifier.clickable { onRoomClick(room) },
-                shape = RoundedCornerShape(20.dp),
-                colors = CardDefaults.cardColors(containerColor = room.accent),
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        AvatarBubble(stringResource(room.hostRes), modifier = Modifier.size(42.dp))
-                        Spacer(modifier = Modifier.width(12.dp))
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(stringResource(room.titleRes), color = Color.White, fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                            Text(stringResource(R.string.host_name, stringResource(room.hostRes)), color = Color(0xFFE2E9F2), fontSize = 13.sp)
-                        }
-                        Text(stringResource(R.string.online_count, room.onlineCount), color = Color(0xFFFFE591), fontWeight = FontWeight.Bold, fontSize = 13.sp)
-                    }
-                    Spacer(modifier = Modifier.height(12.dp))
-                    Row(
-                        modifier = Modifier.horizontalScroll(rememberScrollState()),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    ) {
-                        room.tags.forEach { tag ->
-                            Box(
-                                modifier = Modifier
-                                    .clip(RoundedCornerShape(99.dp))
-                                    .background(Color.White.copy(alpha = 0.16f))
-                                    .padding(horizontal = 10.dp, vertical = 6.dp),
-                            ) {
-                                Text(stringResource(tag), color = Color.White, fontSize = 12.sp)
-                            }
-                        }
-                    }
                 }
             }
         }
