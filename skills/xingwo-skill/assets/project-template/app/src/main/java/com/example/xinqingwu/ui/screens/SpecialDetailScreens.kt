@@ -22,19 +22,30 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import com.example.xinqingwu.R
 import com.example.xinqingwu.data.DailyFortuneGenerator
 import com.example.xinqingwu.data.FakeData
+import com.example.xinqingwu.data.TreeHoleStore
+import com.example.xinqingwu.data.UserProfileStore
+import com.example.xinqingwu.TreeHolePublishActivity
 import com.example.xinqingwu.model.CompanionRoom
 import com.example.xinqingwu.model.MatchProfile
 import com.example.xinqingwu.model.TarotCard
@@ -139,6 +150,21 @@ private fun FortuneMetricCard(label: String, value: Int, color: Color) {
 
 @Composable
 fun TreeHoleDetailScreen(onBack: () -> Unit) {
+    val context = LocalContext.current
+    val lifecycleOwner = LocalLifecycleOwner.current
+    val profile = UserProfileStore.getProfile(context)
+    var userPosts by remember { mutableStateOf(TreeHoleStore.posts(context)) }
+
+    DisposableEffect(lifecycleOwner, context) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                userPosts = TreeHoleStore.posts(context)
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
+
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -157,36 +183,79 @@ fun TreeHoleDetailScreen(onBack: () -> Unit) {
                     Text(stringResource(R.string.tree_hole_intro_title), color = Color.White, fontSize = 22.sp, fontWeight = FontWeight.Bold)
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(stringResource(R.string.tree_hole_intro_subtitle), color = Color(0xFFD5E2EE), fontSize = 14.sp, lineHeight = 22.sp)
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Text(stringResource(R.string.tree_hole_intro_support), color = Color(0xFF9DE7FF), fontSize = 14.sp, lineHeight = 22.sp)
+                    Spacer(modifier = Modifier.height(16.dp))
+                    GradientPrimaryButton(
+                        text = stringResource(R.string.tree_hole_publish_entry),
+                        onClick = { context.startActivity(android.content.Intent(context, TreeHolePublishActivity::class.java)) },
+                    )
                 }
             }
         }
+        if (userPosts.isNotEmpty()) {
+            item {
+                Text(stringResource(R.string.tree_hole_latest_post_title), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+            }
+            items(userPosts.size) { index ->
+                TreeHolePostCard(
+                    displayName = profile.nickname,
+                    timeLabel = userPosts[index].timeLabel,
+                    tagLabel = userPosts[index].tags.firstOrNull(),
+                    message = userPosts[index].message,
+                    containerColor = Color(0xFF14304A),
+                )
+            }
+        }
+        item {
+            Text(stringResource(R.string.tree_hole_example_title), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+        }
         items(FakeData.treeHolePosts.size) { index ->
             val post = FakeData.treeHolePosts[index]
-            Card(
-                shape = RoundedCornerShape(22.dp),
-                colors = CardDefaults.cardColors(containerColor = Color(0xFF12243B)),
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        AvatarBubble(stringResource(post.nameRes).take(1), modifier = Modifier.size(44.dp))
-                        Spacer(modifier = Modifier.width(12.dp))
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(stringResource(post.nameRes), color = Color.White, fontWeight = FontWeight.Bold, fontSize = 16.sp)
-                            Text(stringResource(post.timeRes), color = Color(0xFF8FA7BC), fontSize = 12.sp)
-                        }
-                        Box(
-                            modifier = Modifier
-                                .clip(RoundedCornerShape(999.dp))
-                                .background(Color(0xFF304F71))
-                                .padding(horizontal = 10.dp, vertical = 6.dp),
-                        ) {
-                            Text(stringResource(post.moodRes), color = Color(0xFF9DE7FF), fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
-                        }
+            TreeHolePostCard(
+                displayName = profile.nickname,
+                timeLabel = stringResource(R.string.tree_hole_example_time),
+                tagLabel = stringResource(post.moodRes),
+                message = stringResource(post.messageRes),
+                containerColor = Color(0xFF12243B),
+            )
+        }
+    }
+}
+
+@Composable
+private fun TreeHolePostCard(
+    displayName: String,
+    timeLabel: String,
+    tagLabel: String?,
+    message: String,
+    containerColor: Color,
+) {
+    Card(
+        shape = RoundedCornerShape(22.dp),
+        colors = CardDefaults.cardColors(containerColor = containerColor),
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                AvatarBubble(displayName.take(1), modifier = Modifier.size(44.dp))
+                Spacer(modifier = Modifier.width(12.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(displayName, color = Color.White, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                    Text(timeLabel, color = Color(0xFF8FA7BC), fontSize = 12.sp)
+                }
+                tagLabel?.takeIf { it.isNotBlank() }?.let { tag ->
+                    Box(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(999.dp))
+                            .background(Color(0xFF304F71))
+                            .padding(horizontal = 10.dp, vertical = 6.dp),
+                    ) {
+                        Text(tag, color = Color(0xFF9DE7FF), fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
                     }
-                    Spacer(modifier = Modifier.height(12.dp))
-                    Text(stringResource(post.messageRes), color = Color(0xFFE4EDF6), fontSize = 15.sp, lineHeight = 23.sp)
                 }
             }
+            Spacer(modifier = Modifier.height(12.dp))
+            Text(message, color = Color(0xFFE4EDF6), fontSize = 15.sp, lineHeight = 23.sp)
         }
     }
 }

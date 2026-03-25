@@ -363,8 +363,25 @@
     <string name="detail_record_focus">從目前這段內容來看，重點訊息是：%1$s</string>
     <string name="detail_record_suggestion">如果這類紀錄未來越來越多，最適合做成可回顧、可對照的時間軸，讓使用者能看見自己的變化。</string>
 
-    <string name="tree_hole_intro_title">今晚的樹洞，很多人都在說心裡話</string>
-    <string name="tree_hole_intro_subtitle">這裡模擬的是匿名陪伴場景。每一則發言都像把悶著的情緒放下來一點，也讓後來的人知道自己不是唯一一個卡住的人。</string>
+    <string name="tree_hole_intro_title">這是你的專屬樹洞，快說說你的心理話吧</string>
+    <string name="tree_hole_intro_subtitle">這裡像是一個可以慢慢放下情緒的角落。每一段心情都能先被好好說出來。</string>
+    <string name="tree_hole_intro_support">你可以在樹洞裡寫出你所有的心裡話。</string>
+    <string name="tree_hole_publish_entry">發布心情</string>
+    <string name="tree_hole_latest_post_title">你發布的心情</string>
+    <string name="tree_hole_example_title">你可以這樣說</string>
+    <string name="tree_hole_example_time">示例</string>
+    <string name="tree_hole_publish_title">發布心情</string>
+    <string name="tree_hole_publish_hint">把心裡想說的話寫下來就好，不用太完整；如果你願意，也可以替這段心情加上幾個標籤。</string>
+    <string name="tree_hole_publish_field_message">心情內容</string>
+    <string name="tree_hole_publish_field_tags">心情標籤</string>
+    <string name="tree_hole_publish_custom_tags_placeholder">也可以自己輸入標籤，例如：委屈、想哭、需要抱抱</string>
+    <string name="tree_hole_publish_placeholder">例如：今天明明很努力了，還是有點想躲起來休息一下。</string>
+    <string name="tree_hole_publish_action">發布這則心情</string>
+    <string name="tree_hole_publish_tag_healing">療癒</string>
+    <string name="tree_hole_publish_tag_relationship">關係</string>
+    <string name="tree_hole_publish_tag_work">工作</string>
+    <string name="tree_hole_publish_tag_sleep">失眠</string>
+    <string name="tree_hole_publish_tag_growth">成長</string>
     <string name="tree_hole_user_1">阿霧</string>
     <string name="tree_hole_user_2">Rika</string>
     <string name="tree_hole_user_3">晚睡的人</string>
