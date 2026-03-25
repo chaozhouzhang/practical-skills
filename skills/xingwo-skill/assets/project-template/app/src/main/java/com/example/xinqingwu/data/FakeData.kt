@@ -12,7 +12,6 @@ import com.example.xinqingwu.model.MatchProfile
 import com.example.xinqingwu.model.CompanionRoom
 import com.example.xinqingwu.model.CompanionSection
 import com.example.xinqingwu.model.ProfileMenu
-import com.example.xinqingwu.model.ProfileStat
 import com.example.xinqingwu.model.PromptBubble
 import com.example.xinqingwu.model.RecommendationCard
 import com.example.xinqingwu.model.TarotCard
@@ -158,12 +157,6 @@ object FakeData {
             89,
             Color(0xFF4C7A88),
         ),
-    )
-
-    val profileStats = listOf(
-        ProfileStat(R.string.profile_stat_fate, R.string.profile_stat_fate_value),
-        ProfileStat(R.string.profile_stat_saved, R.string.profile_stat_saved_value),
-        ProfileStat(R.string.profile_stat_check_in, R.string.profile_stat_check_in_value),
     )
 
     val profileMenus = listOf(

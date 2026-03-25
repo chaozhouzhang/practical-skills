@@ -593,31 +593,6 @@ private fun ProfileScreen() {
                     }
                     Spacer(modifier = Modifier.height(18.dp))
                     ProfileSummaryRow(profile = profile)
-                    Spacer(modifier = Modifier.height(18.dp))
-                    Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                        FakeData.profileStats.forEach { stat ->
-                            Card(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .clickable { context.openDetail(buildProfileStatDetail(context, stat)) },
-                                shape = RoundedCornerShape(18.dp),
-                                colors = CardDefaults.cardColors(containerColor = Color(0xFF243A5C)),
-                            ) {
-                                Column(
-                                    modifier = Modifier.padding(vertical = 14.dp),
-                                    horizontalAlignment = Alignment.CenterHorizontally,
-                                ) {
-                                    Text(
-                                        stringResource(stat.valueRes),
-                                        color = Color.White,
-                                        fontSize = 20.sp,
-                                        fontWeight = FontWeight.Bold,
-                                    )
-                                    Text(stringResource(stat.labelRes), color = Color(0xFF9BB3C7), fontSize = 12.sp)
-                                }
-                            }
-                        }
-                    }
                 }
             }
         }
@@ -643,22 +618,22 @@ private fun ProfileScreen() {
 
 @Composable
 private fun ProfileSummaryRow(profile: UserProfile) {
-    Row(
+    Column(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(10.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         ProfileSummaryPill(
-            modifier = Modifier.weight(1f),
+            modifier = Modifier.fillMaxWidth(),
             label = stringResource(R.string.profile_field_nickname),
             value = profile.nickname,
         )
         ProfileSummaryPill(
-            modifier = Modifier.weight(1f),
+            modifier = Modifier.fillMaxWidth(),
             label = stringResource(R.string.profile_field_gender),
             value = profile.gender,
         )
         ProfileSummaryPill(
-            modifier = Modifier.weight(1f),
+            modifier = Modifier.fillMaxWidth(),
             label = stringResource(R.string.profile_field_birthday),
             value = profile.birthday,
         )
@@ -680,8 +655,6 @@ private fun ProfileSummaryPill(modifier: Modifier = Modifier, label: String, val
                 color = Color.White,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.SemiBold,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
             )
         }
     }
