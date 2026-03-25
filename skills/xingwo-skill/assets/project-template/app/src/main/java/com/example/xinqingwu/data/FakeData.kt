@@ -14,6 +14,7 @@ import com.example.xinqingwu.model.ProfileMenu
 import com.example.xinqingwu.model.PromptBubble
 import com.example.xinqingwu.model.RecommendationCard
 import com.example.xinqingwu.model.TarotCard
+import com.example.xinqingwu.model.TarotGuideEntry
 import com.example.xinqingwu.model.TreeHolePost
 import com.example.xinqingwu.model.TrendTopic
 import com.example.xinqingwu.model.ZodiacProfile
@@ -208,6 +209,55 @@ object FakeData {
         ZodiacProfile(R.string.chinese_zodiac_rooster, R.string.chinese_zodiac_rooster_title, R.string.chinese_zodiac_rooster_summary),
         ZodiacProfile(R.string.chinese_zodiac_dog, R.string.chinese_zodiac_dog_title, R.string.chinese_zodiac_dog_summary),
         ZodiacProfile(R.string.chinese_zodiac_pig, R.string.chinese_zodiac_pig_title, R.string.chinese_zodiac_pig_summary),
+    )
+
+    val majorArcanaGuides = listOf(
+        TarotGuideEntry(R.string.tarot_major_fool_name, R.string.tarot_major_fool_summary),
+        TarotGuideEntry(R.string.tarot_major_magician_name, R.string.tarot_major_magician_summary),
+        TarotGuideEntry(R.string.tarot_major_high_priestess_name, R.string.tarot_major_high_priestess_summary),
+        TarotGuideEntry(R.string.tarot_major_empress_name, R.string.tarot_major_empress_summary),
+        TarotGuideEntry(R.string.tarot_major_emperor_name, R.string.tarot_major_emperor_summary),
+        TarotGuideEntry(R.string.tarot_major_hierophant_name, R.string.tarot_major_hierophant_summary),
+        TarotGuideEntry(R.string.tarot_major_lovers_name, R.string.tarot_major_lovers_summary),
+        TarotGuideEntry(R.string.tarot_major_chariot_name, R.string.tarot_major_chariot_summary),
+        TarotGuideEntry(R.string.tarot_major_strength_name, R.string.tarot_major_strength_summary),
+        TarotGuideEntry(R.string.tarot_major_hermit_name, R.string.tarot_major_hermit_summary),
+        TarotGuideEntry(R.string.tarot_major_wheel_name, R.string.tarot_major_wheel_summary),
+        TarotGuideEntry(R.string.tarot_major_justice_name, R.string.tarot_major_justice_summary),
+        TarotGuideEntry(R.string.tarot_major_hanged_man_name, R.string.tarot_major_hanged_man_summary),
+        TarotGuideEntry(R.string.tarot_major_death_name, R.string.tarot_major_death_summary),
+        TarotGuideEntry(R.string.tarot_major_temperance_name, R.string.tarot_major_temperance_summary),
+        TarotGuideEntry(R.string.tarot_major_devil_name, R.string.tarot_major_devil_summary),
+        TarotGuideEntry(R.string.tarot_major_tower_name, R.string.tarot_major_tower_summary),
+        TarotGuideEntry(R.string.tarot_major_star_name, R.string.tarot_major_star_summary),
+        TarotGuideEntry(R.string.tarot_major_moon_name, R.string.tarot_major_moon_summary),
+        TarotGuideEntry(R.string.tarot_major_sun_name, R.string.tarot_major_sun_summary),
+        TarotGuideEntry(R.string.tarot_major_judgement_name, R.string.tarot_major_judgement_summary),
+        TarotGuideEntry(R.string.tarot_major_world_name, R.string.tarot_major_world_summary),
+    )
+
+    val minorArcanaSuitGuides = listOf(
+        TarotGuideEntry(R.string.tarot_minor_wands_name, R.string.tarot_minor_wands_summary),
+        TarotGuideEntry(R.string.tarot_minor_cups_name, R.string.tarot_minor_cups_summary),
+        TarotGuideEntry(R.string.tarot_minor_swords_name, R.string.tarot_minor_swords_summary),
+        TarotGuideEntry(R.string.tarot_minor_pentacles_name, R.string.tarot_minor_pentacles_summary),
+    )
+
+    val minorArcanaRankGuides = listOf(
+        TarotGuideEntry(R.string.tarot_rank_ace_name, R.string.tarot_rank_ace_summary),
+        TarotGuideEntry(R.string.tarot_rank_two_name, R.string.tarot_rank_two_summary),
+        TarotGuideEntry(R.string.tarot_rank_three_name, R.string.tarot_rank_three_summary),
+        TarotGuideEntry(R.string.tarot_rank_four_name, R.string.tarot_rank_four_summary),
+        TarotGuideEntry(R.string.tarot_rank_five_name, R.string.tarot_rank_five_summary),
+        TarotGuideEntry(R.string.tarot_rank_six_name, R.string.tarot_rank_six_summary),
+        TarotGuideEntry(R.string.tarot_rank_seven_name, R.string.tarot_rank_seven_summary),
+        TarotGuideEntry(R.string.tarot_rank_eight_name, R.string.tarot_rank_eight_summary),
+        TarotGuideEntry(R.string.tarot_rank_nine_name, R.string.tarot_rank_nine_summary),
+        TarotGuideEntry(R.string.tarot_rank_ten_name, R.string.tarot_rank_ten_summary),
+        TarotGuideEntry(R.string.tarot_rank_page_name, R.string.tarot_rank_page_summary),
+        TarotGuideEntry(R.string.tarot_rank_knight_name, R.string.tarot_rank_knight_summary),
+        TarotGuideEntry(R.string.tarot_rank_queen_name, R.string.tarot_rank_queen_summary),
+        TarotGuideEntry(R.string.tarot_rank_king_name, R.string.tarot_rank_king_summary),
     )
 
     val tabs = listOf(BottomTab.Home, BottomTab.Companion, BottomTab.Profile)

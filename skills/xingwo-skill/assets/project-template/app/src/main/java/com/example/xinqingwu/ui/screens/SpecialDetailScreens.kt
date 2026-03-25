@@ -49,6 +49,7 @@ import com.example.xinqingwu.data.UserProfileStore
 import com.example.xinqingwu.TreeHolePublishActivity
 import com.example.xinqingwu.model.CompanionRoom
 import com.example.xinqingwu.model.MatchProfile
+import com.example.xinqingwu.model.TarotGuideEntry
 import com.example.xinqingwu.model.ZodiacProfile
 import com.example.xinqingwu.ui.components.AvatarBubble
 import com.example.xinqingwu.ui.components.GradientPrimaryButton
@@ -598,6 +599,57 @@ fun ChineseZodiacDetailScreen(onBack: () -> Unit) {
 }
 
 @Composable
+fun TarotGuideDetailScreen(onBack: () -> Unit) {
+    val majorArcana = FakeData.majorArcanaGuides
+    val minorSuits = FakeData.minorArcanaSuitGuides
+    val minorRanks = FakeData.minorArcanaRankGuides
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding()
+            .navigationBarsPadding(),
+        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 18.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+        item { DetailTopBar(title = stringResource(R.string.tarot_guide_banner_title), onBack = onBack) }
+        item {
+            DetailHeroCard(
+                title = stringResource(R.string.tarot_guide_detail_title),
+                subtitle = stringResource(R.string.tarot_guide_detail_subtitle),
+                colors = listOf(Color(0xFF31155E), Color(0xFF6430B9), Color(0xFFB275FF)),
+            )
+        }
+        item { InfoBlock(title = stringResource(R.string.tarot_major_section_title), body = stringResource(R.string.tarot_major_section_body)) }
+        items(majorArcana.size) { index ->
+            TarotGuideEntryCard(entry = majorArcana[index], badge = stringResource(R.string.tarot_major_badge))
+        }
+        item { InfoBlock(title = stringResource(R.string.tarot_minor_section_title), body = stringResource(R.string.tarot_minor_section_body)) }
+        item {
+            Text(
+                text = stringResource(R.string.tarot_minor_suits_title),
+                color = Color.White,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+        items(minorSuits.size) { index ->
+            TarotGuideEntryCard(entry = minorSuits[index], badge = stringResource(R.string.tarot_minor_badge))
+        }
+        item {
+            Text(
+                text = stringResource(R.string.tarot_minor_ranks_title),
+                color = Color.White,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+        items(minorRanks.size) { index ->
+            TarotGuideEntryCard(entry = minorRanks[index], badge = stringResource(R.string.tarot_rank_badge))
+        }
+    }
+}
+
+@Composable
 private fun RelationshipMetricCard(title: String, score: String, body: String) {
     Card(
         shape = RoundedCornerShape(22.dp),
@@ -706,6 +758,31 @@ private fun ZodiacProfileCard(profile: ZodiacProfile) {
             }
             Spacer(modifier = Modifier.height(12.dp))
             Text(stringResource(profile.summaryRes), color = Color(0xFFD8E4EF), fontSize = 15.sp, lineHeight = 24.sp)
+        }
+    }
+}
+
+@Composable
+private fun TarotGuideEntryCard(entry: TarotGuideEntry, badge: String) {
+    Card(
+        shape = RoundedCornerShape(22.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF132642)),
+    ) {
+        Column(modifier = Modifier.padding(18.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(999.dp))
+                        .background(Color(0xFF6B35B9))
+                        .padding(horizontal = 12.dp, vertical = 8.dp),
+                ) {
+                    Text(badge, color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                }
+                Spacer(modifier = Modifier.width(10.dp))
+                Text(stringResource(entry.nameRes), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+            }
+            Spacer(modifier = Modifier.height(12.dp))
+            Text(stringResource(entry.summaryRes), color = Color(0xFFD8E4EF), fontSize = 15.sp, lineHeight = 24.sp)
         }
     }
 }

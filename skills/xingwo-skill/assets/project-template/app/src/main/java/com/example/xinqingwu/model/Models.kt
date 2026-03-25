@@ -118,6 +118,11 @@ data class ZodiacProfile(
     @StringRes val summaryRes: Int,
 )
 
+data class TarotGuideEntry(
+    @StringRes val nameRes: Int,
+    @StringRes val summaryRes: Int,
+)
+
 data class DetailSection(
     val title: String,
     val body: String,

@@ -13,6 +13,7 @@ import com.example.xinqingwu.ui.screens.HotRoomsDetailScreen
 import com.example.xinqingwu.ui.screens.SoulmateDetailScreen
 import com.example.xinqingwu.ui.screens.SynastryDetailScreen
 import com.example.xinqingwu.ui.screens.TarotDetailScreen
+import com.example.xinqingwu.ui.screens.TarotGuideDetailScreen
 import com.example.xinqingwu.ui.screens.TreeHoleDetailScreen
 import com.example.xinqingwu.ui.screens.ZodiacDetailScreen
 import com.example.xinqingwu.ui.theme.XinQingWuTheme
@@ -151,6 +152,20 @@ class ChineseZodiacDetailActivity : ComponentActivity() {
             XinQingWuTheme {
                 XinQingWuPageContainer {
                     ChineseZodiacDetailScreen(onBack = { finish() })
+                }
+            }
+        }
+    }
+}
+
+class TarotGuideDetailActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
+                    TarotGuideDetailScreen(onBack = { finish() })
                 }
             }
         }

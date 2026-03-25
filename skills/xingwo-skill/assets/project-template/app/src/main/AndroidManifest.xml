@@ -27,6 +27,10 @@
             android:exported="false"
             android:theme="@style/Theme.XinQingWu" />
         <activity
+            android:name=".TarotGuideDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XinQingWu" />
+        <activity
             android:name=".HealingNightDetailActivity"
             android:exported="false"
             android:theme="@style/Theme.XinQingWu" />

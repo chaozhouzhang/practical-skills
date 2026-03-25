@@ -64,6 +64,7 @@ import com.example.xinqingwu.ProfileEditActivity
 import com.example.xinqingwu.SoulmateDetailActivity
 import com.example.xinqingwu.SynastryDetailActivity
 import com.example.xinqingwu.TarotDetailActivity
+import com.example.xinqingwu.TarotGuideDetailActivity
 import com.example.xinqingwu.TreeHoleDetailActivity
 import com.example.xinqingwu.ZodiacDetailActivity
 import com.example.xinqingwu.DivinationZoneDetailActivity
@@ -360,6 +361,17 @@ private fun ChineseZodiacBannerCard(onClick: () -> Unit) {
 }
 
 @Composable
+private fun TarotGuideBannerCard(onClick: () -> Unit) {
+    TopicBannerCard(
+        title = stringResource(R.string.tarot_guide_banner_title),
+        subtitle = stringResource(R.string.tarot_guide_banner_subtitle),
+        colors = listOf(Color(0xFF3E1F75), Color(0xFF8846D9)),
+        icon = stringResource(R.string.icon_star),
+        onClick = onClick,
+    )
+}
+
+@Composable
 private fun TopicBannerCard(
     title: String,
     subtitle: String,
@@ -460,6 +472,8 @@ private fun CompanionScreen() {
         verticalArrangement = Arrangement.spacedBy(14.dp),
     ) {
         item { BannerCard(onClick = { context.startActivity(Intent(context, ZodiacDetailActivity::class.java)) }) }
+        item { ChineseZodiacBannerCard(onClick = { context.startActivity(Intent(context, ChineseZodiacDetailActivity::class.java)) }) }
+        item { TarotGuideBannerCard(onClick = { context.startActivity(Intent(context, TarotGuideDetailActivity::class.java)) }) }
         item { SectionTitle(title = stringResource(R.string.section_recommended_companion), action = stringResource(R.string.action_view_more)) }
         item {
             LazyVerticalGrid(
