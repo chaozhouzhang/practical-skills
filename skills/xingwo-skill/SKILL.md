@@ -1,6 +1,6 @@
 ---
 name: xingwo-skill
-description: 从 0 到 1 生成与当前对话产物一致的 Android 星座陪伴原型 App（Kotlin + Jetpack Compose）。适用于需要快速落地启动页、首页/陪伴/我的三个 tab 主页面、繁体中文文案、假数据、strings.xml 抽离、自动应用 LOGO、Android .gitignore 的场景。优先复制 skill 内置模板工程，再按目标目录、应用名、包名做小范围调整。
+description: 从 0 到 1 生成与当前对话产物一致的 Android 星座陪伴原型 App（Kotlin + Jetpack Compose）。适用于需要快速落地启动页、首页/陪伴/我的三个 tab 主页面、繁体中文文案、假数据、strings.xml 抽离、内置应用 LOGO 资源、Android .gitignore 的场景。优先复制 skill 内置模板工程，再按目标目录、应用名、包名做小范围调整。
 ---
 
 # XinQingWu Skill
@@ -15,7 +15,7 @@ description: 从 0 到 1 生成与当前对话产物一致的 Android 星座陪�
 - 需要内置繁体中文假数据与 `strings.xml`
 - 需要主流程：启动页后直接进入主页面
 - 主页面仅保留 `首頁 / 陪伴 / 我的` 三个 tab，不要讯息页
-- 需要自动生成并替换应用 LOGO
+- 需要使用模板内置的应用 LOGO 资源
 - 需要所有跨页面跳转都通过新 Activity 完成
 
 ## 默认做法
@@ -30,7 +30,7 @@ description: 从 0 到 1 生成与当前对话产物一致的 Android 星座陪�
    - 文案使用繁體中文，语气偏台湾产品
    - 根目录包含 Android 常用 `.gitignore`
    - 底部 tab 只有 `首頁 / 陪伴 / 我的`
-   - 应用图标使用模板自带的自动生成 LOGO，不使用系统默认图标
+   - 应用图标使用模板内置的 PNG LOGO 资源，不使用系统默认图标
    - 所有跨页面导航都使用新 Activity，不在当前 Activity 里靠弹窗或隐藏显示切页
    - 主页面 `首頁 / 陪伴 / 我的` 三个 tab 内的主要显示元素都应可点击，并跳转到新的详情页面；详情内容要根据点击前的 UI 元素做差异化展开，不可全部复用同一份静态说明
    - 不必把所有详情页都塞进同一个 Activity；对于信息结构明显不同的入口，应拆成独立详情 Activity
@@ -87,7 +87,7 @@ bash /Users/zhangchaozhou/.agents/skills/xingwo-skill/scripts/init_from_template
 - 主页面返回退出确认弹窗
 - 首页、陪伴页、我的页的假数据内容
 - 统一 `strings.xml`
-- 自绘应用 LOGO 与 Manifest 图标替换
+- 内置 PNG 应用 LOGO 与 Manifest 图标替换
 - `.gitignore`
 
 ## 工作流
