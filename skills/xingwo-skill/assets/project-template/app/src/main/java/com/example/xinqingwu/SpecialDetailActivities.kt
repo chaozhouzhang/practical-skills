@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.xinqingwu.data.FakeData
 import com.example.xinqingwu.ui.screens.DivinationZoneDetailScreen
 import com.example.xinqingwu.ui.XinQingWuPageContainer
 import com.example.xinqingwu.ui.screens.ChineseZodiacDetailScreen
@@ -17,7 +16,6 @@ import com.example.xinqingwu.ui.screens.TarotDetailScreen
 import com.example.xinqingwu.ui.screens.TreeHoleDetailScreen
 import com.example.xinqingwu.ui.screens.ZodiacDetailScreen
 import com.example.xinqingwu.ui.theme.XinQingWuTheme
-import kotlin.random.Random
 
 class FortuneDetailActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,17 +48,11 @@ class TreeHoleDetailActivity : ComponentActivity() {
 class TarotDetailActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val card = FakeData.tarotCards.random(Random(System.currentTimeMillis()))
-        val loveTrendRes = FakeData.tarotLoveTrends.random(Random(System.currentTimeMillis() + 7))
         enableEdgeToEdge()
         setContent {
             XinQingWuTheme {
                 XinQingWuPageContainer {
-                    TarotDetailScreen(
-                        card = card,
-                        loveTrendRes = loveTrendRes,
-                        onBack = { finish() },
-                    )
+                    TarotDetailScreen(onBack = { finish() })
                 }
             }
         }

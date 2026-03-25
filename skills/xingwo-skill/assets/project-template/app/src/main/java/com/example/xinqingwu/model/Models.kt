@@ -103,6 +103,15 @@ data class TarotCard(
     @StringRes val meaningRes: Int,
 )
 
+data class TarotReading(
+    val chineseName: String,
+    val englishName: String,
+    val orientation: String,
+    val keyword: String,
+    val meaning: String,
+    val loveTrend: String,
+)
+
 data class ZodiacProfile(
     @StringRes val nameRes: Int,
     @StringRes val titleRes: Int,

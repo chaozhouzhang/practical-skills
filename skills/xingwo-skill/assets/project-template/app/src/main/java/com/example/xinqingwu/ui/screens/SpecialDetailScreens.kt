@@ -43,12 +43,12 @@ import androidx.lifecycle.LifecycleEventObserver
 import com.example.xinqingwu.R
 import com.example.xinqingwu.data.DailyFortuneGenerator
 import com.example.xinqingwu.data.FakeData
+import com.example.xinqingwu.data.TarotReadingGenerator
 import com.example.xinqingwu.data.TreeHoleStore
 import com.example.xinqingwu.data.UserProfileStore
 import com.example.xinqingwu.TreeHolePublishActivity
 import com.example.xinqingwu.model.CompanionRoom
 import com.example.xinqingwu.model.MatchProfile
-import com.example.xinqingwu.model.TarotCard
 import com.example.xinqingwu.model.ZodiacProfile
 import com.example.xinqingwu.ui.components.AvatarBubble
 import com.example.xinqingwu.ui.components.GradientPrimaryButton
@@ -261,11 +261,9 @@ private fun TreeHolePostCard(
 }
 
 @Composable
-fun TarotDetailScreen(
-    card: TarotCard,
-    loveTrendRes: Int,
-    onBack: () -> Unit,
-) {
+fun TarotDetailScreen(onBack: () -> Unit) {
+    val context = LocalContext.current
+    val reading = TarotReadingGenerator.generate(context)
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -293,18 +291,30 @@ fun TarotDetailScreen(
                     Column(horizontalAlignment = Alignment.Start) {
                         Text(stringResource(R.string.tarot_random_result), color = Color(0xFFE7D9FF), fontSize = 13.sp)
                         Spacer(modifier = Modifier.height(10.dp))
-                        Text(stringResource(card.nameRes), color = Color.White, fontSize = 28.sp, fontWeight = FontWeight.Black)
+                        Text(reading.chineseName, color = Color.White, fontSize = 28.sp, fontWeight = FontWeight.Black)
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(reading.englishName, color = Color(0xFFE7D9FF), fontSize = 17.sp, fontWeight = FontWeight.SemiBold)
                         Spacer(modifier = Modifier.height(8.dp))
-                        Box(
-                            modifier = Modifier
-                                .clip(RoundedCornerShape(999.dp))
-                                .background(Color.White.copy(alpha = 0.18f))
-                                .padding(horizontal = 12.dp, vertical = 8.dp),
-                        ) {
-                            Text(stringResource(card.keywordRes), color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            Box(
+                                modifier = Modifier
+                                    .clip(RoundedCornerShape(999.dp))
+                                    .background(Color.White.copy(alpha = 0.18f))
+                                    .padding(horizontal = 12.dp, vertical = 8.dp),
+                            ) {
+                                Text(reading.orientation, color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
+                            }
+                            Box(
+                                modifier = Modifier
+                                    .clip(RoundedCornerShape(999.dp))
+                                    .background(Color.White.copy(alpha = 0.18f))
+                                    .padding(horizontal = 12.dp, vertical = 8.dp),
+                            ) {
+                                Text(reading.keyword, color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
+                            }
                         }
                         Spacer(modifier = Modifier.height(14.dp))
-                        Text(stringResource(card.meaningRes), color = Color(0xFFF5EEFF), fontSize = 15.sp, lineHeight = 24.sp)
+                        Text(reading.meaning, color = Color(0xFFF5EEFF), fontSize = 15.sp, lineHeight = 24.sp)
                     }
                 }
             }
@@ -317,7 +327,7 @@ fun TarotDetailScreen(
                 Column(modifier = Modifier.padding(18.dp)) {
                     Text(stringResource(R.string.tarot_love_trend_title), color = Color.White, fontSize = 19.sp, fontWeight = FontWeight.Bold)
                     Spacer(modifier = Modifier.height(10.dp))
-                    Text(stringResource(loveTrendRes), color = Color(0xFFD8E4EF), fontSize = 15.sp, lineHeight = 24.sp)
+                    Text(reading.loveTrend, color = Color(0xFFD8E4EF), fontSize = 15.sp, lineHeight = 24.sp)
                 }
             }
         }
