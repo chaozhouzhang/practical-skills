@@ -287,19 +287,17 @@ private fun DailyFortuneCard(onClick: () -> Unit) {
 
 @Composable
 private fun FeatureGrid(onCardClick: (com.example.xinqingwu.model.RecommendationCard) -> Unit) {
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
-        userScrollEnabled = false,
+    Column(
         verticalArrangement = Arrangement.spacedBy(12.dp),
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        modifier = Modifier.height(280.dp),
+        modifier = Modifier.fillMaxWidth(),
     ) {
-        items(FakeData.homeCards) { item ->
+        FakeData.homeCards.forEach { item ->
             Card(
                 shape = RoundedCornerShape(18.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.Transparent),
                 modifier = Modifier
-                    .height(132.dp)
+                    .fillMaxWidth()
+                    .height(96.dp)
                     .clickable { onCardClick(item) },
             ) {
                 Box(
