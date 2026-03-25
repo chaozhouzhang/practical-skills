@@ -1,3 +1,4 @@
+---
 name: xingwo-skill
 description: 从 0 到 1 生成与当前对话产物一致的 Android 星座陪伴原型 App（Kotlin + Jetpack Compose）。适用于需要快速落地启动页、首页/陪伴/我的三个 tab 主页面、繁体中文文案、假数据、strings.xml 抽离、自动应用 LOGO、Android .gitignore 的场景。优先复制 skill 内置模板工程，再按目标目录、应用名、包名做小范围调整。
 ---
