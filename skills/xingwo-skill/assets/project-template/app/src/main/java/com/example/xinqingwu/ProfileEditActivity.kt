@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -67,6 +68,9 @@ private fun ProfileEditScreen(onBack: () -> Unit) {
     var nickname by remember { mutableStateOf(profile.nickname) }
     var gender by remember { mutableStateOf(profile.gender) }
     var birthday by remember { mutableStateOf(profile.birthday) }
+    val birthdayProfile = remember(nickname, gender, birthday) {
+        UserProfileStore.getProfilePreview(context, nickname, gender, birthday)
+    }
 
     Column(
         modifier = Modifier
@@ -74,6 +78,7 @@ private fun ProfileEditScreen(onBack: () -> Unit) {
             .background(Color(0xFF081325))
             .statusBarsPadding()
             .navigationBarsPadding()
+            .verticalScroll(rememberScrollState())
             .padding(horizontal = 16.dp, vertical = 16.dp),
     ) {
         Row(
@@ -98,6 +103,7 @@ private fun ProfileEditScreen(onBack: () -> Unit) {
         Spacer(modifier = Modifier.height(18.dp))
 
         Card(
+            modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(24.dp),
             colors = CardDefaults.cardColors(containerColor = Color(0xFF13233B)),
         ) {
@@ -187,6 +193,18 @@ private fun ProfileEditScreen(onBack: () -> Unit) {
                     }
                 }
 
+                ProfileReadonlyField(
+                    label = stringResource(R.string.profile_field_zodiac),
+                    value = birthdayProfile.zodiac,
+                    hint = context.getString(R.string.profile_auto_generated_hint, birthdayProfile.zodiac),
+                )
+
+                ProfileReadonlyField(
+                    label = stringResource(R.string.profile_field_chinese_zodiac),
+                    value = birthdayProfile.chineseZodiac,
+                    hint = context.getString(R.string.profile_auto_generated_hint, birthdayProfile.chineseZodiac),
+                )
+
                 Button(
                     onClick = {
                         UserProfileStore.saveProfile(context, nickname, gender, birthday)
@@ -205,6 +223,37 @@ private fun ProfileEditScreen(onBack: () -> Unit) {
                 }
             }
         }
+        Spacer(modifier = Modifier.height(24.dp))
+    }
+}
+
+@Composable
+private fun ProfileReadonlyField(label: String, value: String, hint: String) {
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Text(
+            text = label,
+            color = Color.White,
+            fontSize = 15.sp,
+            fontWeight = FontWeight.SemiBold,
+        )
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(18.dp),
+            colors = CardDefaults.cardColors(containerColor = Color(0xFF1C3152)),
+        ) {
+            Text(
+                text = value,
+                color = Color(0xFF96AFC3),
+                fontSize = 16.sp,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 18.dp),
+            )
+        }
+        Text(
+            text = hint,
+            color = Color(0xFF7E96AC),
+            fontSize = 13.sp,
+            lineHeight = 20.sp,
+        )
     }
 }
 

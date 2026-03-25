@@ -637,6 +637,16 @@ private fun ProfileSummaryRow(profile: UserProfile) {
             label = stringResource(R.string.profile_field_birthday),
             value = profile.birthday,
         )
+        ProfileSummaryPill(
+            modifier = Modifier.fillMaxWidth(),
+            label = stringResource(R.string.profile_field_zodiac),
+            value = profile.zodiac,
+        )
+        ProfileSummaryPill(
+            modifier = Modifier.fillMaxWidth(),
+            label = stringResource(R.string.profile_field_chinese_zodiac),
+            value = profile.chineseZodiac,
+        )
     }
 }
 
