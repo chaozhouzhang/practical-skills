@@ -44,6 +44,7 @@ description: 从 0 到 1 生成与当前对话产物一致的 Android 星座陪�
    - 陪伴页移除 Banner 上方全部二级 tab
    - 主页面触发系统返回时，要先弹出退出确认，用户确认后直接退出应用
    - `我的` tab 中移除 `我的訂單`，并在 `設定中心` 上方增加 `隱私政策` 入口；点击后必须进入独立隐私政策页面
+   - `我的` tab 需包含独立的个人资料页面，至少支持昵称、性别、生日的显示与修改；若用户未设置，则默认昵称为 `心晴屋`、性别为 `男`、生日为首次打开应用当天
    - 隐私政策页面必须使用 Android `TextView` 加载本地文案，文案应满足 Google Play 上架时常见的隐私披露结构
 
 ## 初始化命令
@@ -87,6 +88,7 @@ bash /Users/zhangchaozhou/.agents/skills/xingwo-skill/scripts/init_from_template
 - 主页面返回退出确认弹窗
 - 首页、陪伴页、我的页的假数据内容
 - 统一 `strings.xml`
+- `我的` tab 的个人资料页与本地资料持久化
 - 内置 PNG 应用 LOGO 与 Manifest 图标替换
 - `.gitignore`
 

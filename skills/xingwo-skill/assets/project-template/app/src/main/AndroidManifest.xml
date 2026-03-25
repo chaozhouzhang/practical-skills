@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XinQingWu">
         <activity
+            android:name=".ProfileEditActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XinQingWu" />
+        <activity
             android:name=".ZodiacDetailActivity"
             android:exported="false"
             android:theme="@style/Theme.XinQingWu" />

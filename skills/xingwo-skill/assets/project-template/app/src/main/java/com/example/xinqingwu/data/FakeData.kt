@@ -167,6 +167,7 @@ object FakeData {
     )
 
     val profileMenus = listOf(
+        ProfileMenu(R.string.profile_menu_personal_title, R.string.profile_menu_personal_subtitle),
         ProfileMenu(R.string.profile_menu_chart_title, R.string.profile_menu_chart_subtitle),
         ProfileMenu(R.string.profile_menu_saved_title, R.string.profile_menu_saved_subtitle),
         ProfileMenu(R.string.profile_menu_privacy_title, R.string.profile_menu_privacy_subtitle),

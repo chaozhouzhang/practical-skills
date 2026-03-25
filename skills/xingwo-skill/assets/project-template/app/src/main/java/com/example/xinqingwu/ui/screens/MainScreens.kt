@@ -36,6 +36,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.Text
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -47,6 +48,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -57,6 +59,7 @@ import com.example.xinqingwu.FortuneDetailActivity
 import com.example.xinqingwu.HealingNightDetailActivity
 import com.example.xinqingwu.HotRoomsDetailActivity
 import com.example.xinqingwu.R
+import com.example.xinqingwu.ProfileEditActivity
 import com.example.xinqingwu.SoulmateDetailActivity
 import com.example.xinqingwu.SynastryDetailActivity
 import com.example.xinqingwu.TarotDetailActivity
@@ -64,10 +67,14 @@ import com.example.xinqingwu.TreeHoleDetailActivity
 import com.example.xinqingwu.ZodiacDetailActivity
 import com.example.xinqingwu.DivinationZoneDetailActivity
 import com.example.xinqingwu.data.FakeData
+import com.example.xinqingwu.data.UserProfile
+import com.example.xinqingwu.data.UserProfileStore
 import com.example.xinqingwu.model.BottomTab
 import com.example.xinqingwu.PrivacyActivity
 import com.example.xinqingwu.ui.components.AvatarBubble
 import com.example.xinqingwu.ui.components.SectionTitle
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 
 @Composable
 fun MainScreen(onExit: () -> Unit) {
@@ -548,6 +555,21 @@ private fun CompanionRoomList(onRoomClick: (com.example.xinqingwu.model.Companio
 @Composable
 private fun ProfileScreen() {
     val context = LocalContext.current
+    val lifecycleOwner = LocalLifecycleOwner.current
+    var profile by remember { mutableStateOf(UserProfileStore.getProfile(context)) }
+
+    DisposableEffect(lifecycleOwner, context) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                profile = UserProfileStore.getProfile(context)
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
+        }
+    }
+
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 52.dp, bottom = 20.dp),
@@ -555,20 +577,22 @@ private fun ProfileScreen() {
     ) {
         item {
             Card(
-                modifier = Modifier.clickable { context.openDetail(buildProfileOverviewDetail(context)) },
+                modifier = Modifier.clickable { context.startActivity(Intent(context, ProfileEditActivity::class.java)) },
                 shape = RoundedCornerShape(24.dp),
                 colors = CardDefaults.cardColors(containerColor = Color(0xFF182843)),
             ) {
                 Column(modifier = Modifier.padding(18.dp)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        AvatarBubble(stringResource(R.string.avatar_short_name), modifier = Modifier.size(56.dp))
+                        AvatarBubble(profile.nickname.take(1), modifier = Modifier.size(56.dp))
                         Spacer(modifier = Modifier.width(14.dp))
                         Column(modifier = Modifier.weight(1f)) {
-                            Text(stringResource(R.string.display_name), color = Color.White, fontSize = 24.sp, fontWeight = FontWeight.Bold)
-                            Text(stringResource(R.string.profile_subtitle), color = Color(0xFF9EB2C8), fontSize = 14.sp)
+                            Text(profile.nickname, color = Color.White, fontSize = 24.sp, fontWeight = FontWeight.Bold)
+                            Text(stringResource(R.string.profile_personal_card_subtitle), color = Color(0xFF9EB2C8), fontSize = 14.sp)
                         }
                         Text(stringResource(R.string.icon_sparkles), fontSize = 24.sp)
                     }
+                    Spacer(modifier = Modifier.height(18.dp))
+                    ProfileSummaryRow(profile = profile)
                     Spacer(modifier = Modifier.height(18.dp))
                     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                         FakeData.profileStats.forEach { stat ->
@@ -605,14 +629,60 @@ private fun ProfileScreen() {
                     subtitleRes = item.subtitleRes,
                     badgeRes = item.badgeRes,
                     onClick = {
-                        if (item.titleRes == R.string.profile_menu_privacy_title) {
-                            context.startActivity(Intent(context, PrivacyActivity::class.java))
-                        } else {
-                            context.openDetail(buildProfileMenuDetail(context, item))
+                        when (item.titleRes) {
+                            R.string.profile_menu_privacy_title -> context.startActivity(Intent(context, PrivacyActivity::class.java))
+                            R.string.profile_menu_personal_title -> context.startActivity(Intent(context, ProfileEditActivity::class.java))
+                            else -> context.openDetail(buildProfileMenuDetail(context, item))
                         }
                     },
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun ProfileSummaryRow(profile: UserProfile) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        ProfileSummaryPill(
+            modifier = Modifier.weight(1f),
+            label = stringResource(R.string.profile_field_nickname),
+            value = profile.nickname,
+        )
+        ProfileSummaryPill(
+            modifier = Modifier.weight(1f),
+            label = stringResource(R.string.profile_field_gender),
+            value = profile.gender,
+        )
+        ProfileSummaryPill(
+            modifier = Modifier.weight(1f),
+            label = stringResource(R.string.profile_field_birthday),
+            value = profile.birthday,
+        )
+    }
+}
+
+@Composable
+private fun ProfileSummaryPill(modifier: Modifier = Modifier, label: String, value: String) {
+    Card(
+        modifier = modifier,
+        shape = RoundedCornerShape(18.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF243A5C)),
+    ) {
+        Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 14.dp)) {
+            Text(label, color = Color(0xFF9BB3C7), fontSize = 12.sp)
+            Spacer(modifier = Modifier.height(6.dp))
+            Text(
+                text = value,
+                color = Color.White,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.SemiBold,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
         }
     }
 }

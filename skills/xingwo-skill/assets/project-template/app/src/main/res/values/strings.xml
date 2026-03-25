@@ -68,6 +68,17 @@
     <string name="profile_tag_openhearted">大方</string>
     <string name="profile_tag_sagittarius">射手旅行家</string>
     <string name="profile_subtitle">射手座旅行家 · 情緒療癒愛好者</string>
+    <string name="profile_default_name">心晴屋</string>
+    <string name="profile_personal_card_subtitle">查看與修改個人資料</string>
+    <string name="profile_field_nickname">暱稱</string>
+    <string name="profile_field_gender">性別</string>
+    <string name="profile_field_birthday">生日</string>
+    <string name="profile_gender_male">男</string>
+    <string name="profile_gender_female">女</string>
+    <string name="profile_edit_title">個人資料</string>
+    <string name="profile_edit_hint">如果你還沒設定資料，系統會自動使用預設值：暱稱為心晴屋、性別為男、生日為首次打開 App 的當天。</string>
+    <string name="profile_edit_save">儲存資料</string>
+    <string name="profile_edit_back">返回</string>
 
     <string name="section_today_fortune">今日運勢 🍀</string>
     <string name="section_today_topics">今日話題</string>
@@ -171,6 +182,8 @@
     <string name="profile_stat_check_in">連續簽到</string>
     <string name="profile_stat_check_in_value">7 天</string>
 
+    <string name="profile_menu_personal_title">個人資料</string>
+    <string name="profile_menu_personal_subtitle">查看並修改你的暱稱、性別與生日</string>
     <string name="profile_menu_chart_title">我的星盤</string>
     <string name="profile_menu_chart_subtitle">查看專屬人格畫像、關係匹配與運勢總結</string>
     <string name="profile_menu_order_title">我的訂單</string>
