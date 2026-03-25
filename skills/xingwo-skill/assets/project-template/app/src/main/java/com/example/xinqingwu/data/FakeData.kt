@@ -5,7 +5,6 @@ import com.example.xinqingwu.R
 import com.example.xinqingwu.model.BottomTab
 import com.example.xinqingwu.model.CompanionCard
 import com.example.xinqingwu.model.CountryCode
-import com.example.xinqingwu.model.DailyFortune
 import com.example.xinqingwu.model.FeatureChip
 import com.example.xinqingwu.model.FortuneBar
 import com.example.xinqingwu.model.MatchProfile
@@ -29,18 +28,6 @@ object FakeData {
         CountryCode(R.string.country_singapore, R.string.country_singapore_en, R.string.country_code_singapore),
         CountryCode(R.string.country_usa, R.string.country_usa_en, R.string.country_code_usa),
         CountryCode(R.string.country_australia, R.string.country_australia_en, R.string.country_code_australia),
-    )
-
-    val dailyFortune = DailyFortune(
-        score = 90,
-        suggestionRes = R.string.fortune_suggestion,
-        bars = listOf(
-            FortuneBar(R.string.fortune_love, 92, Color(0xFFFF78C1)),
-            FortuneBar(R.string.fortune_career, 90, Color(0xFF9B86FF)),
-            FortuneBar(R.string.fortune_wealth, 91, Color(0xFF68B9FF)),
-            FortuneBar(R.string.fortune_social, 86, Color(0xFFFFC857)),
-            FortuneBar(R.string.fortune_study, 88, Color(0xFFE778FF)),
-        ),
     )
 
     val homeCards = listOf(

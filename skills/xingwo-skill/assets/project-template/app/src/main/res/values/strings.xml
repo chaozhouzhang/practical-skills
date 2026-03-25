@@ -111,12 +111,25 @@
     <string name="action_enter_square">進入廣場</string>
     <string name="action_all_rewards">全部獎勵</string>
 
-    <string name="fortune_suggestion">人生建議：乘星逐光，隨心向暖，放慢一點也很好。</string>
+    <string name="fortune_suggestion_format">%1$s，今天是%2$s與%3$s能量共振的一天。你的%4$s運勢更亮，適合先把重心放在%5$s；用%6$s的方式推進，並記得%7$s。</string>
     <string name="fortune_love">愛情</string>
     <string name="fortune_career">事業</string>
     <string name="fortune_wealth">財富</string>
     <string name="fortune_social">社交</string>
     <string name="fortune_study">學業</string>
+    <string name="fortune_action_relationship">整理關係裡最在意的那一句話</string>
+    <string name="fortune_action_career">把工作與待辦排出清楚優先順序</string>
+    <string name="fortune_action_wealth">重新確認今天的支出與金錢節奏</string>
+    <string name="fortune_action_social">主動回應一段值得維繫的互動</string>
+    <string name="fortune_action_study">把注意力留給最想完成的學習目標</string>
+    <string name="fortune_tone_gentle">溫柔但不拖延</string>
+    <string name="fortune_tone_confident">更有主見一點</string>
+    <string name="fortune_tone_steady">照著自己的節奏穩穩往前</string>
+    <string name="fortune_tone_open">保留彈性並真誠表達</string>
+    <string name="fortune_reminder_rest">晚上替自己留一點休息空間</string>
+    <string name="fortune_reminder_focus">先完成最重要的一件事</string>
+    <string name="fortune_reminder_timing">別把最好時段浪費在猶豫上</string>
+    <string name="fortune_reminder_expression">你越願意說清楚，今天越順</string>
 
     <string name="home_card_tree_hole_title">心靈樹洞</string>
     <string name="home_card_tree_hole_subtitle">心情悶悶的時候，來和樹洞聊聊</string>

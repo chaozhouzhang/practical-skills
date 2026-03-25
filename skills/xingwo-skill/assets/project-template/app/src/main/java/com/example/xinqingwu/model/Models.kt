@@ -25,7 +25,7 @@ data class FortuneBar(
 
 data class DailyFortune(
     val score: Int,
-    @StringRes val suggestionRes: Int,
+    val suggestion: String,
     val bars: List<FortuneBar>,
 )
 

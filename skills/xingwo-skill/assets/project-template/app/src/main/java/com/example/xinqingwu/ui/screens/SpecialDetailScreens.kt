@@ -33,6 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.xinqingwu.R
+import com.example.xinqingwu.data.DailyFortuneGenerator
 import com.example.xinqingwu.data.FakeData
 import com.example.xinqingwu.model.CompanionRoom
 import com.example.xinqingwu.model.MatchProfile
@@ -43,7 +44,8 @@ import com.example.xinqingwu.ui.components.GradientPrimaryButton
 
 @Composable
 fun FortuneDetailScreen(onBack: () -> Unit) {
-    val fortune = FakeData.dailyFortune
+    val context = LocalContext.current
+    val fortune = DailyFortuneGenerator.generate(context)
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -55,45 +57,81 @@ fun FortuneDetailScreen(onBack: () -> Unit) {
         item { DetailTopBar(title = stringResource(R.string.section_today_fortune), onBack = onBack) }
         item {
             Card(
-                shape = RoundedCornerShape(26.dp),
-                colors = CardDefaults.cardColors(containerColor = Color(0xFF314A4D)),
+                shape = RoundedCornerShape(28.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF17304C)),
             ) {
-                Column(modifier = Modifier.padding(18.dp)) {
+                Column(modifier = Modifier.padding(20.dp)) {
+                    Text(stringResource(R.string.section_today_fortune), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
+                    Spacer(modifier = Modifier.height(8.dp))
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.Bottom,
                     ) {
-                        Text(stringResource(R.string.section_today_fortune), color = Color.White, fontSize = 22.sp, fontWeight = FontWeight.Bold)
-                        Text(stringResource(R.string.icon_trend_up), color = Color(0xFFBED2D7), fontSize = 20.sp)
-                    }
-                    Spacer(modifier = Modifier.height(10.dp))
-                    Row(verticalAlignment = Alignment.Bottom) {
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(stringResource(R.string.number_value, fortune.score), color = Color(0xFFFFE082), fontSize = 58.sp, fontWeight = FontWeight.Black)
-                            Text(stringResource(fortune.suggestionRes), color = Color(0xFFE6F0F1), fontSize = 15.sp, lineHeight = 22.sp)
-                        }
-                        Row(
-                            modifier = Modifier.weight(1f),
-                            horizontalArrangement = Arrangement.SpaceEvenly,
-                            verticalAlignment = Alignment.Bottom,
-                        ) {
-                            fortune.bars.forEach { item ->
-                                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                    Box(
-                                        modifier = Modifier
-                                            .width(10.dp)
-                                            .height((item.value * 0.9f).dp)
-                                            .clip(RoundedCornerShape(999.dp))
-                                            .background(item.color),
-                                    )
-                                    Spacer(modifier = Modifier.height(8.dp))
-                                    Text(stringResource(R.string.number_value, item.value), color = item.color, fontSize = 12.sp, fontWeight = FontWeight.Bold)
-                                    Text(stringResource(item.labelRes), color = Color(0xFFC7D2D9), fontSize = 11.sp)
-                                }
-                            }
+                        Column {
+                            Text(stringResource(R.string.number_value, fortune.score), color = Color(0xFFFFE082), fontSize = 64.sp, fontWeight = FontWeight.Black)
                         }
                     }
                 }
+            }
+        }
+        item {
+            Card(
+                shape = RoundedCornerShape(24.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF12243B)),
+            ) {
+                Column(modifier = Modifier.padding(18.dp)) {
+                    Text(stringResource(R.string.detail_section_suggestion), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Text(fortune.suggestion, color = Color(0xFFDCE7F0), fontSize = 15.sp, lineHeight = 24.sp)
+                }
+            }
+        }
+        item {
+            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                Text(stringResource(R.string.detail_section_rhythm), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                fortune.bars.forEach { item ->
+                    FortuneMetricCard(
+                        label = stringResource(item.labelRes),
+                        value = item.value,
+                        color = item.color,
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun FortuneMetricCard(label: String, value: Int, color: Color) {
+    Card(
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF13233B)),
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(label, color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
+                Text(stringResource(R.string.number_value, value), color = color, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+            }
+            Spacer(modifier = Modifier.height(12.dp))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(10.dp)
+                    .clip(RoundedCornerShape(999.dp))
+                    .background(Color.White.copy(alpha = 0.10f)),
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth((value / 100f).coerceIn(0f, 1f))
+                        .height(10.dp)
+                        .clip(RoundedCornerShape(999.dp))
+                        .background(color),
+                )
             }
         }
     }

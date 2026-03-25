@@ -66,6 +66,7 @@ import com.example.xinqingwu.TarotDetailActivity
 import com.example.xinqingwu.TreeHoleDetailActivity
 import com.example.xinqingwu.ZodiacDetailActivity
 import com.example.xinqingwu.DivinationZoneDetailActivity
+import com.example.xinqingwu.data.DailyFortuneGenerator
 import com.example.xinqingwu.data.FakeData
 import com.example.xinqingwu.data.UserProfile
 import com.example.xinqingwu.data.UserProfileStore
@@ -238,7 +239,8 @@ private fun MiniBadge(text: String) {
 
 @Composable
 private fun DailyFortuneCard(onClick: () -> Unit) {
-    val fortune = FakeData.dailyFortune
+    val context = LocalContext.current
+    val fortune = DailyFortuneGenerator.generate(context)
     Card(
         modifier = Modifier.clickable { onClick() },
         shape = RoundedCornerShape(22.dp),
@@ -256,7 +258,7 @@ private fun DailyFortuneCard(onClick: () -> Unit) {
             Row(verticalAlignment = Alignment.Bottom) {
                 Column(modifier = Modifier.weight(1f)) {
                     Text(stringResource(R.string.number_value, fortune.score), color = Color(0xFFFFE082), fontSize = 54.sp, fontWeight = FontWeight.Black)
-                    Text(stringResource(fortune.suggestionRes), color = Color(0xFFE3EEEF), fontSize = 15.sp, lineHeight = 22.sp)
+                    Text(fortune.suggestion, color = Color(0xFFE3EEEF), fontSize = 15.sp, lineHeight = 22.sp)
                 }
                 Row(
                     modifier = Modifier.weight(1f),
