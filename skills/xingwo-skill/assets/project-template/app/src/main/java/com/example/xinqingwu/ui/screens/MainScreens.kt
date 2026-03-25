@@ -159,21 +159,15 @@ private fun HomeScreen() {
             )
         }
         item {
-            FeatureGrid(
-                onCardClick = {
-                    when (it.titleRes) {
-                        R.string.home_card_tree_hole_title -> context.startActivity(Intent(context, TreeHoleDetailActivity::class.java))
-                        R.string.home_card_tarot_title -> context.startActivity(Intent(context, TarotDetailActivity::class.java))
-                        R.string.home_card_synastry_title -> context.startActivity(Intent(context, SynastryDetailActivity::class.java))
-                        R.string.home_card_soulmate_title -> context.startActivity(Intent(context, SoulmateDetailActivity::class.java))
-                        else -> context.openDetail(buildRecommendationDetail(context, it))
-                    }
-                },
-            )
+            BannerCard(onClick = { context.startActivity(Intent(context, ZodiacDetailActivity::class.java)) })
+        }
+        item {
+            ChineseZodiacBannerCard(onClick = { context.startActivity(Intent(context, ChineseZodiacDetailActivity::class.java)) })
+        }
+        item {
+            TarotGuideBannerCard(onClick = { context.startActivity(Intent(context, TarotGuideDetailActivity::class.java)) })
         }
         item { FeatureChipsRow(onChipClick = { context.openDetail(buildChipDetail(context, it)) }) }
-        item { BannerCard(onClick = { context.startActivity(Intent(context, ZodiacDetailActivity::class.java)) }) }
-        item { ChineseZodiacBannerCard(onClick = { context.startActivity(Intent(context, ChineseZodiacDetailActivity::class.java)) }) }
         item { SectionTitle(stringResource(R.string.section_today_topics), stringResource(R.string.action_refresh)) }
         item { TrendTopicRow(onTopicClick = { context.openDetail(buildTrendTopicDetail(context, it)) }) }
         item { SectionTitle(stringResource(R.string.section_soul_match), stringResource(R.string.action_view_all)) }
@@ -471,9 +465,19 @@ private fun CompanionScreen() {
         contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 48.dp, bottom = 20.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp),
     ) {
-        item { BannerCard(onClick = { context.startActivity(Intent(context, ZodiacDetailActivity::class.java)) }) }
-        item { ChineseZodiacBannerCard(onClick = { context.startActivity(Intent(context, ChineseZodiacDetailActivity::class.java)) }) }
-        item { TarotGuideBannerCard(onClick = { context.startActivity(Intent(context, TarotGuideDetailActivity::class.java)) }) }
+        item {
+            FeatureGrid(
+                onCardClick = {
+                    when (it.titleRes) {
+                        R.string.home_card_tree_hole_title -> context.startActivity(Intent(context, TreeHoleDetailActivity::class.java))
+                        R.string.home_card_tarot_title -> context.startActivity(Intent(context, TarotDetailActivity::class.java))
+                        R.string.home_card_synastry_title -> context.startActivity(Intent(context, SynastryDetailActivity::class.java))
+                        R.string.home_card_soulmate_title -> context.startActivity(Intent(context, SoulmateDetailActivity::class.java))
+                        else -> context.openDetail(buildRecommendationDetail(context, it))
+                    }
+                },
+            )
+        }
         item { SectionTitle(title = stringResource(R.string.section_recommended_companion), action = stringResource(R.string.action_view_more)) }
         item {
             LazyVerticalGrid(
