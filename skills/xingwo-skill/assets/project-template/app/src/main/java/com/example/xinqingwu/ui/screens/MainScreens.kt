@@ -59,6 +59,7 @@ import com.example.xinqingwu.FortuneDetailActivity
 import com.example.xinqingwu.HealingNightDetailActivity
 import com.example.xinqingwu.HotRoomsDetailActivity
 import com.example.xinqingwu.R
+import com.example.xinqingwu.ChineseZodiacDetailActivity
 import com.example.xinqingwu.ProfileEditActivity
 import com.example.xinqingwu.SoulmateDetailActivity
 import com.example.xinqingwu.SynastryDetailActivity
@@ -171,6 +172,7 @@ private fun HomeScreen() {
         }
         item { FeatureChipsRow(onChipClick = { context.openDetail(buildChipDetail(context, it)) }) }
         item { BannerCard(onClick = { context.startActivity(Intent(context, ZodiacDetailActivity::class.java)) }) }
+        item { ChineseZodiacBannerCard(onClick = { context.startActivity(Intent(context, ChineseZodiacDetailActivity::class.java)) }) }
         item { SectionTitle(stringResource(R.string.section_today_topics), stringResource(R.string.action_refresh)) }
         item { TrendTopicRow(onTopicClick = { context.openDetail(buildTrendTopicDetail(context, it)) }) }
         item { SectionTitle(stringResource(R.string.section_soul_match), stringResource(R.string.action_view_all)) }
@@ -337,6 +339,34 @@ private fun FeatureChipsRow(onChipClick: (com.example.xinqingwu.model.FeatureChi
 
 @Composable
 private fun BannerCard(onClick: () -> Unit) {
+    TopicBannerCard(
+        title = stringResource(R.string.banner_title),
+        subtitle = stringResource(R.string.banner_subtitle),
+        colors = listOf(Color(0xFF102B9B), Color(0xFF233ED7)),
+        icon = stringResource(R.string.icon_star),
+        onClick = onClick,
+    )
+}
+
+@Composable
+private fun ChineseZodiacBannerCard(onClick: () -> Unit) {
+    TopicBannerCard(
+        title = stringResource(R.string.chinese_zodiac_banner_title),
+        subtitle = stringResource(R.string.chinese_zodiac_banner_subtitle),
+        colors = listOf(Color(0xFF5A2A14), Color(0xFFB65B1D)),
+        icon = stringResource(R.string.icon_sparkles),
+        onClick = onClick,
+    )
+}
+
+@Composable
+private fun TopicBannerCard(
+    title: String,
+    subtitle: String,
+    colors: List<Color>,
+    icon: String,
+    onClick: () -> Unit,
+) {
     Card(
         modifier = Modifier.clickable { onClick() },
         shape = RoundedCornerShape(18.dp),
@@ -346,14 +376,14 @@ private fun BannerCard(onClick: () -> Unit) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(92.dp)
-                .background(Brush.horizontalGradient(listOf(Color(0xFF102B9B), Color(0xFF233ED7))))
+                .background(Brush.horizontalGradient(colors))
                 .padding(horizontal = 22.dp, vertical = 16.dp),
         ) {
             Column {
-                Text(stringResource(R.string.banner_title), color = Color.White, fontSize = 26.sp, fontWeight = FontWeight.Black)
-                Text(stringResource(R.string.banner_subtitle), color = Color(0xFFF6F8FE), fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                Text(title, color = Color.White, fontSize = 26.sp, fontWeight = FontWeight.Black)
+                Text(subtitle, color = Color(0xFFF6F8FE), fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
-            Text(stringResource(R.string.icon_star), color = Color(0xFFFFEE8B), fontSize = 34.sp, modifier = Modifier.align(Alignment.CenterEnd))
+            Text(icon, color = Color(0xFFFFEE8B), fontSize = 34.sp, modifier = Modifier.align(Alignment.CenterEnd))
         }
     }
 }

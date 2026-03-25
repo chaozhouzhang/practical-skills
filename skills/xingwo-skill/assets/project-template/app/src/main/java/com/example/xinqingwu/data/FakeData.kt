@@ -195,5 +195,20 @@ object FakeData {
         ZodiacProfile(R.string.zodiac_pisces_name, R.string.zodiac_pisces_title, R.string.zodiac_pisces_summary),
     )
 
+    val chineseZodiacProfiles = listOf(
+        ZodiacProfile(R.string.chinese_zodiac_rat, R.string.chinese_zodiac_rat_title, R.string.chinese_zodiac_rat_summary),
+        ZodiacProfile(R.string.chinese_zodiac_ox, R.string.chinese_zodiac_ox_title, R.string.chinese_zodiac_ox_summary),
+        ZodiacProfile(R.string.chinese_zodiac_tiger, R.string.chinese_zodiac_tiger_title, R.string.chinese_zodiac_tiger_summary),
+        ZodiacProfile(R.string.chinese_zodiac_rabbit, R.string.chinese_zodiac_rabbit_title, R.string.chinese_zodiac_rabbit_summary),
+        ZodiacProfile(R.string.chinese_zodiac_dragon, R.string.chinese_zodiac_dragon_title, R.string.chinese_zodiac_dragon_summary),
+        ZodiacProfile(R.string.chinese_zodiac_snake, R.string.chinese_zodiac_snake_title, R.string.chinese_zodiac_snake_summary),
+        ZodiacProfile(R.string.chinese_zodiac_horse, R.string.chinese_zodiac_horse_title, R.string.chinese_zodiac_horse_summary),
+        ZodiacProfile(R.string.chinese_zodiac_goat, R.string.chinese_zodiac_goat_title, R.string.chinese_zodiac_goat_summary),
+        ZodiacProfile(R.string.chinese_zodiac_monkey, R.string.chinese_zodiac_monkey_title, R.string.chinese_zodiac_monkey_summary),
+        ZodiacProfile(R.string.chinese_zodiac_rooster, R.string.chinese_zodiac_rooster_title, R.string.chinese_zodiac_rooster_summary),
+        ZodiacProfile(R.string.chinese_zodiac_dog, R.string.chinese_zodiac_dog_title, R.string.chinese_zodiac_dog_summary),
+        ZodiacProfile(R.string.chinese_zodiac_pig, R.string.chinese_zodiac_pig_title, R.string.chinese_zodiac_pig_summary),
+    )
+
     val tabs = listOf(BottomTab.Home, BottomTab.Companion, BottomTab.Profile)
 }

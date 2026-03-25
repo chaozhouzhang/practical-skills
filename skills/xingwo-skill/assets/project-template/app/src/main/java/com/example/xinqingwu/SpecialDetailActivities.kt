@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import com.example.xinqingwu.data.FakeData
 import com.example.xinqingwu.ui.screens.DivinationZoneDetailScreen
 import com.example.xinqingwu.ui.XinQingWuPageContainer
+import com.example.xinqingwu.ui.screens.ChineseZodiacDetailScreen
 import com.example.xinqingwu.ui.screens.FortuneDetailScreen
 import com.example.xinqingwu.ui.screens.HealingNightDetailScreen
 import com.example.xinqingwu.ui.screens.HotRoomsDetailScreen
@@ -144,6 +145,20 @@ class ZodiacDetailActivity : ComponentActivity() {
             XinQingWuTheme {
                 XinQingWuPageContainer {
                     ZodiacDetailScreen(onBack = { finish() })
+                }
+            }
+        }
+    }
+}
+
+class ChineseZodiacDetailActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            XinQingWuTheme {
+                XinQingWuPageContainer {
+                    ChineseZodiacDetailScreen(onBack = { finish() })
                 }
             }
         }

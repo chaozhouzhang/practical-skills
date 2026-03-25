@@ -563,6 +563,31 @@ fun ZodiacDetailScreen(onBack: () -> Unit) {
 }
 
 @Composable
+fun ChineseZodiacDetailScreen(onBack: () -> Unit) {
+    val profiles = FakeData.chineseZodiacProfiles
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .statusBarsPadding()
+            .navigationBarsPadding(),
+        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 18.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+        item { DetailTopBar(title = stringResource(R.string.chinese_zodiac_banner_title), onBack = onBack) }
+        item {
+            DetailHeroCard(
+                title = stringResource(R.string.chinese_zodiac_detail_title),
+                subtitle = stringResource(R.string.chinese_zodiac_detail_subtitle),
+                colors = listOf(Color(0xFF5E2F16), Color(0xFF9F4D17), Color(0xFFFFB15B)),
+            )
+        }
+        items(profiles.size) { index ->
+            ZodiacProfileCard(profile = profiles[index])
+        }
+    }
+}
+
+@Composable
 private fun RelationshipMetricCard(title: String, score: String, body: String) {
     Card(
         shape = RoundedCornerShape(22.dp),

@@ -147,6 +147,8 @@
 
     <string name="banner_title">十二星座</string>
     <string name="banner_subtitle">屬人格心瓶子</string>
+    <string name="chinese_zodiac_banner_title">十二生肖</string>
+    <string name="chinese_zodiac_banner_subtitle">人格地圖</string>
 
     <string name="prompt_1">你說抑鬱症，真的還有救嗎？</string>
     <string name="prompt_2">你覺得學業和愛情，哪個比較重要？</string>
@@ -478,6 +480,8 @@
 
     <string name="zodiac_detail_title">十二星座人格地圖</string>
     <string name="zodiac_detail_subtitle">這裡把 12 星座的人格氣質拆成更容易理解的短篇介紹，適合快速感受每個星座在關係、情緒與日常互動裡最鮮明的樣子。</string>
+    <string name="chinese_zodiac_detail_title">十二生肖人格地圖</string>
+    <string name="chinese_zodiac_detail_subtitle">這裡把 12 生肖常見的人格底色、相處節奏與情緒表達整理成一張地圖，適合快速感受每個生肖在人際與關係裡最明顯的樣子。</string>
     <string name="zodiac_aries_name">牡羊座</string>
     <string name="zodiac_aries_title">直接熱烈的行動派</string>
     <string name="zodiac_aries_summary">牡羊座的魅力在於反應快、熱情真，喜歡了就會靠近，不喜歡拐彎。情緒來得快也去得快，最受不了關係裡一直拖著不說清楚。</string>
@@ -514,4 +518,28 @@
     <string name="zodiac_pisces_name">雙魚座</string>
     <string name="zodiac_pisces_title">感受力很強的浪漫共情者</string>
     <string name="zodiac_pisces_summary">雙魚座很容易被情緒和氛圍打動，也很會替別人著想。愛的時候很深，受傷時也容易把自己困住。對他們來說，被溫柔理解是一件很重要的事。</string>
+    <string name="chinese_zodiac_rat_title">反應快、觀察細的靈巧型人格</string>
+    <string name="chinese_zodiac_rat_summary">屬鼠的人通常反應快、會看氣氛，也擅長在複雜場景裡找到更聰明的做法。對關係很敏感，常常先觀察再靠近，真正信任後其實很願意照顧人。</string>
+    <string name="chinese_zodiac_ox_title">穩定踏實的長線陪伴者</string>
+    <string name="chinese_zodiac_ox_summary">屬牛的人節奏偏穩，不愛太浮動的關係，也不喜歡反覆試探。他們更相信日常累積出來的安全感，看起來慢熱，但一旦認定就很難輕易放手。</string>
+    <string name="chinese_zodiac_tiger_title">有主見也有衝勁的行動派</string>
+    <string name="chinese_zodiac_tiger_summary">屬虎的人通常很有自己的想法，做事果斷，也不太習慣委屈自己去迎合氣氛。關係裡重視真誠與痛快，如果被信任，他們往往會主動扛起保護與帶領的位置。</string>
+    <string name="chinese_zodiac_rabbit_title">溫柔敏感的安撫型人格</string>
+    <string name="chinese_zodiac_rabbit_summary">屬兔的人通常氣質柔和，擅長察覺別人的情緒，也很在意相處裡是否舒服、有分寸。他們不喜歡太硬碰硬的節奏，更適合在被理解、被善待的環境裡慢慢打開自己。</string>
+    <string name="chinese_zodiac_dragon_title">自帶氣場的高標準人格</string>
+    <string name="chinese_zodiac_dragon_summary">屬龍的人常常有明顯存在感，做事有企圖心，也希望自己活得有方向、有亮點。關係裡既想被看見，也希望對方有能力並肩同行，所以很重視彼此的成長感。</string>
+    <string name="chinese_zodiac_snake_title">安靜克制的深層觀察者</string>
+    <string name="chinese_zodiac_snake_summary">屬蛇的人通常不會一下子把自己全打開，而是先用觀察和感受來判斷值不值得靠近。他們情緒細、直覺強，關係裡討厭表面功夫，更偏好深度、真實和邊界清楚的互動。</string>
+    <string name="chinese_zodiac_horse_title">自由感很強的直率人格</string>
+    <string name="chinese_zodiac_horse_summary">屬馬的人行動快，情緒來得直接，也很需要空間感。他們喜歡真誠、清爽、有活力的關係，不喜歡被控制。越能讓他們保有自己原本的節奏，越容易相處長久。</string>
+    <string name="chinese_zodiac_goat_title">柔軟細膩的共感型人格</string>
+    <string name="chinese_zodiac_goat_summary">屬羊的人通常情感細膩，容易被氛圍和語氣影響，也很願意替別人著想。雖然外表溫和，但內心有自己的堅持。被好好接住時，他們會展現很強的陪伴力和理解力。</string>
+    <string name="chinese_zodiac_monkey_title">機靈活躍的話題製造者</string>
+    <string name="chinese_zodiac_monkey_summary">屬猴的人通常腦筋快、點子多，很會把氣氛帶活，也擅長在互動中找樂子。他們喜歡有趣、聰明、彼此接得住的交流，如果長期覺得無聊，很容易把心收回去。</string>
+    <string name="chinese_zodiac_rooster_title">清楚俐落的秩序型人格</string>
+    <string name="chinese_zodiac_rooster_summary">屬雞的人通常很有原則，說話直接，也很在意事情能不能被整理清楚。他們不一定圓滑，但常常很真。關係裡最受不了含糊和敷衍，反而欣賞坦白、可靠、有邏輯的人。</string>
+    <string name="chinese_zodiac_dog_title">重承諾的守護型人格</string>
+    <string name="chinese_zodiac_dog_summary">屬狗的人通常很重義氣，也很在意信任感建立後能不能被好好珍惜。他們對人真誠，願意在關係裡付出，但也對背叛特別敏感。越真心，越希望彼此能一直站在同一邊。</string>
+    <string name="chinese_zodiac_pig_title">溫厚鬆弛的治癒型人格</string>
+    <string name="chinese_zodiac_pig_summary">屬豬的人通常給人舒服、沒壓力的感覺，待人真誠，也比較少刻意和誰較勁。他們重視陪伴感和生活裡的踏實幸福，關係裡最珍惜的是被善待、被疼惜和被安穩接住。</string>
 </resources>
