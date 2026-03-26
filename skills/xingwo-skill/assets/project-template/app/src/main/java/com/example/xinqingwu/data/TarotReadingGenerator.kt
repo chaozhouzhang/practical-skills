@@ -39,7 +39,7 @@ object TarotReadingGenerator {
         TarotArchetype("世界", "The World", "圓滿收束 / 關係成熟 / 進入新階段", "差最後一步 / 還沒真正完成 / 留下遺憾", "你正在靠近更完整的關係狀態", "別在最後一步又退回去"),
     )
 
-    fun generate(context: Context): TarotReading {
+    fun generate(context: Context, excludedReadingId: String? = null): TarotReading {
         val profile = UserProfileStore.getProfile(context)
         val seedSource = listOf(
             profile.nickname,
@@ -50,8 +50,15 @@ object TarotReadingGenerator {
             System.currentTimeMillis().toString(),
         ).joinToString("#")
         val random = Random(seedSource.hashCode())
-        val card = cards.random(random)
-        val isUpright = random.nextBoolean()
+        val allVariants = cards.flatMap { card ->
+            listOf(card to true, card to false)
+        }
+        val availableVariants = allVariants.filterNot { (card, isUpright) ->
+            buildReadingId(card, isUpright) == excludedReadingId
+        }.ifEmpty {
+            allVariants
+        }
+        val (card, isUpright) = availableVariants.random(random)
         val orientation = if (isUpright) "正位" else "逆位"
         val keyword = if (isUpright) card.uprightKeyword else card.reversedKeyword
         val theme = if (isUpright) card.uprightTheme else card.reversedTheme
@@ -94,6 +101,7 @@ object TarotReadingGenerator {
             append("這幾天適合先把心意說清楚一點，別只等對方猜。")
         }
         return TarotReading(
+            readingId = buildReadingId(card, isUpright),
             chineseName = card.chineseName,
             englishName = card.englishName,
             orientation = orientation,
@@ -101,5 +109,9 @@ object TarotReadingGenerator {
             meaning = meaning,
             loveTrend = loveTrend,
         )
+    }
+
+    private fun buildReadingId(card: TarotArchetype, isUpright: Boolean): String {
+        return "${card.chineseName}#${if (isUpright) "upright" else "reversed"}"
     }
 }

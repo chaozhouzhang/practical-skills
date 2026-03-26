@@ -133,11 +133,13 @@ fun DetailScreen(
                 }
             }
         }
-        Spacer(modifier = Modifier.height(8.dp))
-        GradientPrimaryButton(
-            text = content.actionText,
-            enabled = true,
-            onClick = onBack,
-        )
+        if (content.actionText.isNotBlank()) {
+            Spacer(modifier = Modifier.height(8.dp))
+            GradientPrimaryButton(
+                text = content.actionText,
+                enabled = true,
+                onClick = onBack,
+            )
+        }
     }
 }

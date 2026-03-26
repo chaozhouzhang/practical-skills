@@ -3,6 +3,8 @@ package com.example.xinqingwu.ui.screens
 import android.content.Context
 import com.example.xinqingwu.DetailActivity
 import com.example.xinqingwu.R
+import com.example.xinqingwu.data.IdealPartnerStore
+import com.example.xinqingwu.data.UserProfileStore
 import com.example.xinqingwu.model.CompanionCard
 import com.example.xinqingwu.model.CompanionRoom
 import com.example.xinqingwu.model.CompanionSection
@@ -107,7 +109,31 @@ internal fun buildMatchProfileDetail(context: Context, profile: MatchProfile): D
             DetailSection(context.getString(R.string.detail_section_benefit), context.getString(R.string.detail_match_benefit, name)),
             DetailSection(context.getString(R.string.detail_section_suggestion), context.getString(R.string.detail_match_suggestion)),
         ),
-        actionText = context.getString(R.string.detail_action_connect),
+        actionText = "",
+    )
+}
+
+internal fun buildIdealPartnerMatchDetail(context: Context): DetailPageContent {
+    val partner = IdealPartnerStore.getProfile(context)
+    val self = UserProfileStore.getProfile(context)
+    val baseProfile = FakeData.matchProfiles.first()
+    val name = partner.nickname
+    val sign = partner.zodiac
+    val compatibility = baseProfile.compatibility
+    return DetailPageContent(
+        category = context.getString(R.string.section_soul_match),
+        title = name,
+        subtitle = context.getString(R.string.detail_ideal_partner_match_subtitle, self.nickname, partner.nickname),
+        highlights = arrayListOf(
+            context.getString(R.string.detail_highlight_compatibility, compatibility),
+            context.getString(R.string.detail_highlight_sign, sign),
+        ),
+        sections = arrayListOf(
+            DetailSection(context.getString(R.string.detail_section_mode), context.getString(R.string.detail_match_mode, name, sign)),
+            DetailSection(context.getString(R.string.detail_section_benefit), context.getString(R.string.detail_match_benefit, name)),
+            DetailSection(context.getString(R.string.detail_section_suggestion), context.getString(R.string.detail_match_suggestion)),
+        ),
+        actionText = "",
     )
 }
 
@@ -221,6 +247,64 @@ internal fun buildProfileMenuDetail(context: Context, menu: ProfileMenu): Detail
         ),
         actionText = context.getString(R.string.detail_action_open_feature),
     )
+}
+
+internal fun buildCoupleZodiacDetail(context: Context): DetailPageContent {
+    val self = UserProfileStore.getProfile(context)
+    val partner = IdealPartnerStore.getProfile(context)
+    return DetailPageContent(
+        category = context.getString(R.string.section_my_features),
+        title = context.getString(R.string.profile_menu_couple_zodiac_title),
+        subtitle = context.getString(R.string.detail_couple_zodiac_subtitle, self.nickname, partner.nickname),
+        highlights = arrayListOf(
+            context.getString(R.string.detail_highlight_sign, self.zodiac),
+            context.getString(R.string.detail_highlight_sign, partner.zodiac),
+        ),
+        sections = arrayListOf(
+            DetailSection(context.getString(R.string.detail_couple_self_sign_title, self.nickname, self.zodiac), zodiacSummary(context, self.zodiac)),
+            DetailSection(context.getString(R.string.detail_couple_partner_sign_title, partner.nickname, partner.zodiac), zodiacSummary(context, partner.zodiac)),
+            DetailSection(
+                context.getString(R.string.detail_couple_relation_title),
+                context.getString(R.string.detail_couple_zodiac_relation_body, self.zodiac, partner.zodiac),
+            ),
+        ),
+        actionText = "",
+    )
+}
+
+internal fun buildCoupleChineseZodiacDetail(context: Context): DetailPageContent {
+    val self = UserProfileStore.getProfile(context)
+    val partner = IdealPartnerStore.getProfile(context)
+    return DetailPageContent(
+        category = context.getString(R.string.section_my_features),
+        title = context.getString(R.string.profile_menu_couple_chinese_zodiac_title),
+        subtitle = context.getString(R.string.detail_couple_chinese_zodiac_subtitle, self.nickname, partner.nickname),
+        highlights = arrayListOf(
+            context.getString(R.string.detail_highlight_chinese_zodiac, self.chineseZodiac),
+            context.getString(R.string.detail_highlight_chinese_zodiac, partner.chineseZodiac),
+        ),
+        sections = arrayListOf(
+            DetailSection(context.getString(R.string.detail_couple_self_zodiac_title, self.nickname, self.chineseZodiac), chineseZodiacSummary(context, self.chineseZodiac)),
+            DetailSection(context.getString(R.string.detail_couple_partner_zodiac_title, partner.nickname, partner.chineseZodiac), chineseZodiacSummary(context, partner.chineseZodiac)),
+            DetailSection(
+                context.getString(R.string.detail_couple_relation_title),
+                context.getString(R.string.detail_couple_chinese_zodiac_relation_body, self.chineseZodiac, partner.chineseZodiac),
+            ),
+        ),
+        actionText = "",
+    )
+}
+
+private fun zodiacSummary(context: Context, zodiac: String): String {
+    return FakeData.zodiacProfiles.firstOrNull { context.getString(it.nameRes) == zodiac }
+        ?.let { context.getString(it.summaryRes) }
+        ?: context.getString(R.string.detail_default_zodiac_summary, zodiac)
+}
+
+private fun chineseZodiacSummary(context: Context, chineseZodiac: String): String {
+    return FakeData.chineseZodiacProfiles.firstOrNull { context.getString(it.nameRes) == chineseZodiac }
+        ?.let { context.getString(it.summaryRes) }
+        ?: context.getString(R.string.detail_default_chinese_zodiac_summary, chineseZodiac)
 }
 
 private fun buildFeatureStyleDetail(

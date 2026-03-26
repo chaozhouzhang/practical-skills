@@ -264,7 +264,7 @@ private fun TreeHolePostCard(
 @Composable
 fun TarotDetailScreen(onBack: () -> Unit) {
     val context = LocalContext.current
-    val reading = TarotReadingGenerator.generate(context)
+    var reading by remember { mutableStateOf(TarotReadingGenerator.generate(context)) }
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -336,7 +336,12 @@ fun TarotDetailScreen(onBack: () -> Unit) {
             GradientPrimaryButton(
                 text = stringResource(R.string.tarot_try_again),
                 enabled = true,
-                onClick = onBack,
+                onClick = {
+                    reading = TarotReadingGenerator.generate(
+                        context = context,
+                        excludedReadingId = reading.readingId,
+                    )
+                },
             )
         }
     }

@@ -47,6 +47,10 @@
             android:exported="false"
             android:theme="@style/Theme.XinQingWu" />
         <activity
+            android:name=".IdealPartnerMatchDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XinQingWu" />
+        <activity
             android:name=".SynastryDetailActivity"
             android:exported="false"
             android:theme="@style/Theme.XinQingWu" />

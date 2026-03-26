@@ -104,6 +104,7 @@ data class TarotCard(
 )
 
 data class TarotReading(
+    val readingId: String,
     val chineseName: String,
     val englishName: String,
     val orientation: String,

@@ -62,6 +62,12 @@
     <string name="icon_trend_up">↗</string>
     <string name="icon_star">✦</string>
     <string name="icon_sparkles">✨</string>
+    <string name="icon_tree">🌳</string>
+    <string name="icon_tarot_card">🃏</string>
+    <string name="icon_moon">🌙</string>
+    <string name="icon_sun">☀️</string>
+    <string name="icon_crystal_ball">🔮</string>
+    <string name="icon_calendar">📅</string>
 
     <string name="display_name">小葵花衫</string>
     <string name="avatar_short_name">花</string>
@@ -137,8 +143,8 @@
     <string name="home_card_tarot_subtitle">看看最近的感情與運勢走向</string>
     <string name="home_card_synastry_title">星盤合盤</string>
     <string name="home_card_synastry_subtitle">戀愛、婚配與關係默契分析</string>
-    <string name="home_card_soulmate_title">靈魂伴侶</string>
-    <string name="home_card_soulmate_subtitle">找找平行時空裡懂你的 TA</string>
+    <string name="home_card_soulmate_title">靈魂契合</string>
+    <string name="home_card_soulmate_subtitle">看看你和心中的 TA 有多合拍</string>
 
     <string name="feature_chip_astrology">星座解析</string>
     <string name="feature_chip_ziwei">紫微斗數</string>
@@ -227,6 +233,10 @@
     <string name="profile_menu_privacy_subtitle">查看 Google Play 上架版本使用的個資與資料處理說明</string>
     <string name="profile_menu_settings_title">設定中心</string>
     <string name="profile_menu_settings_subtitle">通知、帳號安全與關於我們</string>
+    <string name="profile_menu_couple_zodiac_title">我和TA的星座</string>
+    <string name="profile_menu_couple_zodiac_subtitle">查看你和心中的TA的星座個性與相處節奏</string>
+    <string name="profile_menu_couple_chinese_zodiac_title">我和心中的TA的生肖</string>
+    <string name="profile_menu_couple_chinese_zodiac_subtitle">查看你和心中的TA的生肖底色與互動感受</string>
 
     <string name="daily_task_1_title">完成今日簽到</string>
     <string name="daily_task_1_reward">+10 星光</string>
@@ -277,6 +287,7 @@
     <string name="detail_highlight_today_topic">今日推薦話題</string>
     <string name="detail_highlight_compatibility">默契度 %1$d%%</string>
     <string name="detail_highlight_sign">星座 %1$s</string>
+    <string name="detail_highlight_chinese_zodiac">生肖 %1$s</string>
     <string name="detail_highlight_online_count">%1$d 人正在參與</string>
     <string name="detail_highlight_price">體驗參考 %1$d 星幣</string>
     <string name="detail_highlight_zone">精選陪伴分區</string>
@@ -330,9 +341,21 @@
     <string name="detail_match_mode">%1$s 的互動風格偏溫柔細緻，和 %2$s 的特質結合後，會更重視情緒回應、聊天節奏與被理解的感覺。</string>
     <string name="detail_match_benefit">如果你選擇和 %1$s 深聊，通常會先得到穩定的情緒承接，再慢慢延伸到更深入的關係理解。</string>
     <string name="detail_match_suggestion">先從比較日常、比較輕的內容開始互動，等節奏穩下來後，再談真正卡在心裡的事，感受通常會更好。</string>
+    <string name="detail_couple_zodiac_subtitle">%1$s 和 %2$s 的星座特質會一起影響你們的情緒節奏、靠近方式與關係互動。這裡把你們兩個人的星座重點拆開來看。</string>
+    <string name="detail_couple_chinese_zodiac_subtitle">%1$s 和 %2$s 的生肖底色會影響彼此靠近時的安全感、耐心與生活節奏。這裡把你們兩個人的生肖特質整理成更容易理解的介紹。</string>
+    <string name="detail_couple_self_sign_title">%1$s的星座：%2$s</string>
+    <string name="detail_couple_partner_sign_title">%1$s的星座：%2$s</string>
+    <string name="detail_couple_self_zodiac_title">%1$s的生肖：%2$s</string>
+    <string name="detail_couple_partner_zodiac_title">%1$s的生肖：%2$s</string>
+    <string name="detail_couple_relation_title">你們的相處觀察</string>
+    <string name="detail_couple_zodiac_relation_body">%1$s 和 %2$s 放在一起時，通常會把彼此在情緒表達、主動靠近與安全感需求上的差異放大。越願意理解對方的節奏，你們越能把原本不同的個性，慢慢磨成互相欣賞的默契。</string>
+    <string name="detail_couple_chinese_zodiac_relation_body">%1$s 和 %2$s 的相處，通常會把生活節奏、耐心程度與照顧方式變得很鮮明。當彼此願意多留一點空間與時間，你們更容易把這份不同感，變成能互相補位的關係溫度。</string>
+    <string name="detail_default_zodiac_summary">%1$s的人通常有自己鮮明的情緒節奏，靠近時在意感受是否被理解，也會用自己的方式慢慢建立信任。</string>
+    <string name="detail_default_chinese_zodiac_summary">%1$s的人通常有自己穩定的生活底色，關係裡會自然帶出獨特的步調、照顧方式與安全感需求。</string>
 
     <string name="detail_companion_card_subtitle">你點進的是一張偏體驗型的陪伴卡片，重點不只是內容本身，也在於進去後的聊天氛圍與節奏感。</string>
     <string name="detail_companion_card_mode">「%1$s」通常會先用比較輕柔的方式讓你進入情境，再慢慢帶到對話、測驗或陪伴互動本身。</string>
+    <string name="detail_ideal_partner_match_subtitle">%1$s 和 %2$s 的靈魂契合會更偏向安心靠近、慢慢升溫的類型。這裡先用首頁契合人物的同款解讀方式，幫你看清這段關係最容易發光的位置。</string>
     <string name="detail_companion_card_scene">適合在想找人說話、想測一下關係方向，或單純想替今天的情緒找個出口時點進去。</string>
     <string name="detail_companion_card_next">如果你現在還不確定要不要深入參與，可以先把這張卡當成暖身入口，先看感覺，再決定要不要往下一步走。</string>
 
@@ -417,7 +440,7 @@
 
     <string name="tarot_random_result">隨機抽到的塔羅牌</string>
     <string name="tarot_love_trend_title">最近的感情運勢走向</string>
-    <string name="tarot_try_again">返回上一頁</string>
+    <string name="tarot_try_again">再抽一張塔羅牌</string>
     <string name="tarot_guide_detail_title">塔羅牌解讀總覽</string>
     <string name="tarot_guide_detail_subtitle">這頁把塔羅牌系統拆成更好理解的導覽，先看 22 張大阿爾克那，再看小阿爾克那的四組牌花與數字、宮廷牌在解牌時代表的方向。</string>
     <string name="tarot_major_section_title">大阿爾克那</string>

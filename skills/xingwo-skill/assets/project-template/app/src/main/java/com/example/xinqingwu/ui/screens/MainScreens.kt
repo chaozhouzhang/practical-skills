@@ -58,6 +58,7 @@ import androidx.compose.ui.unit.sp
 import com.example.xinqingwu.FortuneDetailActivity
 import com.example.xinqingwu.HealingNightDetailActivity
 import com.example.xinqingwu.HotRoomsDetailActivity
+import com.example.xinqingwu.IdealPartnerMatchDetailActivity
 import com.example.xinqingwu.R
 import com.example.xinqingwu.ChineseZodiacDetailActivity
 import com.example.xinqingwu.ProfileEditActivity
@@ -167,11 +168,6 @@ private fun HomeScreen() {
         item {
             TarotGuideBannerCard(onClick = { context.startActivity(Intent(context, TarotGuideDetailActivity::class.java)) })
         }
-        item { FeatureChipsRow(onChipClick = { context.openDetail(buildChipDetail(context, it)) }) }
-        item { SectionTitle(stringResource(R.string.section_today_topics), stringResource(R.string.action_refresh)) }
-        item { TrendTopicRow(onTopicClick = { context.openDetail(buildTrendTopicDetail(context, it)) }) }
-        item { SectionTitle(stringResource(R.string.section_soul_match), stringResource(R.string.action_view_all)) }
-        item { MatchProfileRow(onProfileClick = { context.openDetail(buildMatchProfileDetail(context, it)) }) }
     }
 }
 
@@ -303,13 +299,55 @@ private fun FeatureGrid(onCardClick: (com.example.xinqingwu.model.Recommendation
                         .background(Brush.linearGradient(listOf(item.accent, item.accentEnd)))
                         .padding(14.dp),
                 ) {
-                    Column {
-                        Text(stringResource(item.titleRes), color = Color.White, fontSize = 22.sp, fontWeight = FontWeight.Bold)
-                        Spacer(modifier = Modifier.height(6.dp))
-                        Text(stringResource(item.subtitleRes), color = Color(0xFFF1F5FA), fontSize = 14.sp)
+                    Row(
+                        modifier = Modifier.fillMaxSize(),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(stringResource(item.titleRes), color = Color.White, fontSize = 22.sp, fontWeight = FontWeight.Bold)
+                            Spacer(modifier = Modifier.height(6.dp))
+                            Text(stringResource(item.subtitleRes), color = Color(0xFFF1F5FA), fontSize = 14.sp)
+                        }
+                        FeatureCardAccent(item.titleRes)
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun FeatureCardAccent(titleRes: Int) {
+    val icons = when (titleRes) {
+        R.string.home_card_tree_hole_title -> listOf(
+            stringResource(R.string.icon_tree),
+            stringResource(R.string.icon_sparkles),
+        )
+        R.string.home_card_tarot_title -> listOf(
+            stringResource(R.string.icon_tarot_card),
+            stringResource(R.string.icon_moon),
+        )
+        R.string.home_card_synastry_title -> listOf(
+            stringResource(R.string.icon_planet),
+            stringResource(R.string.icon_sun),
+        )
+        R.string.home_card_soulmate_title -> listOf(
+            stringResource(R.string.icon_star),
+            stringResource(R.string.icon_moon),
+        )
+        else -> emptyList()
+    }
+
+    Column(
+        horizontalAlignment = Alignment.End,
+        verticalArrangement = Arrangement.spacedBy(2.dp),
+    ) {
+        icons.forEachIndexed { index, icon ->
+            Text(
+                text = icon,
+                color = Color.White.copy(alpha = if (index == 0) 0.96f else 0.78f),
+                fontSize = if (index == 0) 24.sp else 18.sp,
+            )
         }
     }
 }
@@ -472,64 +510,39 @@ private fun CompanionScreen() {
                         R.string.home_card_tree_hole_title -> context.startActivity(Intent(context, TreeHoleDetailActivity::class.java))
                         R.string.home_card_tarot_title -> context.startActivity(Intent(context, TarotDetailActivity::class.java))
                         R.string.home_card_synastry_title -> context.startActivity(Intent(context, SynastryDetailActivity::class.java))
-                        R.string.home_card_soulmate_title -> context.startActivity(Intent(context, SoulmateDetailActivity::class.java))
+                        R.string.home_card_soulmate_title -> context.startActivity(Intent(context, IdealPartnerMatchDetailActivity::class.java))
                         else -> context.openDetail(buildRecommendationDetail(context, it))
                     }
                 },
             )
         }
-        item { SectionTitle(title = stringResource(R.string.section_recommended_companion), action = stringResource(R.string.action_view_more)) }
-        item {
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
-                userScrollEnabled = false,
-                verticalArrangement = Arrangement.spacedBy(12.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
-                modifier = Modifier.height(450.dp),
-            ) {
-                items(FakeData.companionCards) { item ->
-                    Card(
-                        modifier = Modifier
-                            .height(210.dp)
-                            .clickable { context.openDetail(buildCompanionCardDetail(context, item)) },
-                        shape = RoundedCornerShape(18.dp),
-                        colors = CardDefaults.cardColors(containerColor = item.accent),
-                    ) {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(14.dp),
-                            verticalArrangement = Arrangement.SpaceBetween,
-                        ) {
-                            Text(
-                                text = stringResource(item.titleRes),
-                                color = Color.White,
-                                fontSize = 18.sp,
-                                fontWeight = FontWeight.SemiBold,
-                                maxLines = 3,
-                                overflow = TextOverflow.Ellipsis,
-                            )
-                            if (item.onlineCount > 0) {
-                                Text(stringResource(R.string.people_online, item.onlineCount), color = Color(0xFFE8EEF5), fontSize = 14.sp)
-                            } else {
-                                Text(stringResource(R.string.divination_price, item.price ?: 0), color = Color(0xFFFFE28C), fontSize = 14.sp)
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        item { SectionTitle(title = stringResource(R.string.section_companion_zone)) }
-        item {
-            CompanionSectionRow(
-                onSectionClick = {
-                    when (it.titleRes) {
-                        R.string.companion_section_1_title -> context.startActivity(Intent(context, HotRoomsDetailActivity::class.java))
-                        R.string.companion_section_2_title -> context.startActivity(Intent(context, DivinationZoneDetailActivity::class.java))
-                        R.string.companion_section_3_title -> context.startActivity(Intent(context, HealingNightDetailActivity::class.java))
-                        else -> context.openDetail(buildCompanionSectionDetail(context, it))
-                    }
-                },
+        item { SectionTitle(stringResource(R.string.section_today_topics)) }
+        item { TrendTopicRow(onTopicClick = { context.openDetail(buildTrendTopicDetail(context, it)) }) }
+    }
+}
+
+@Composable
+private fun CompanionCardAccent(titleRes: Int) {
+    val icons = when (titleRes) {
+        R.string.feature_chip_ziwei -> listOf(
+            stringResource(R.string.icon_crystal_ball),
+            stringResource(R.string.icon_star),
+            stringResource(R.string.icon_planet),
+        )
+        R.string.feature_chip_calendar -> listOf(
+            stringResource(R.string.icon_calendar),
+            stringResource(R.string.icon_sun),
+            stringResource(R.string.icon_moon),
+        )
+        else -> emptyList()
+    }
+
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+        icons.forEachIndexed { index, icon ->
+            Text(
+                text = icon,
+                color = Color.White.copy(alpha = if (index == 0) 0.95f else 0.8f),
+                fontSize = if (index == 0) 22.sp else 16.sp,
             )
         }
     }
@@ -611,7 +624,8 @@ private fun ProfileScreen() {
                     onClick = {
                         when (item.titleRes) {
                             R.string.profile_menu_privacy_title -> context.startActivity(Intent(context, PrivacyActivity::class.java))
-                            R.string.profile_menu_personal_title -> context.startActivity(Intent(context, ProfileEditActivity::class.java))
+                            R.string.profile_menu_couple_zodiac_title -> context.openDetail(buildCoupleZodiacDetail(context))
+                            R.string.profile_menu_couple_chinese_zodiac_title -> context.openDetail(buildCoupleChineseZodiacDetail(context))
                             else -> context.openDetail(buildProfileMenuDetail(context, item))
                         }
                     },
