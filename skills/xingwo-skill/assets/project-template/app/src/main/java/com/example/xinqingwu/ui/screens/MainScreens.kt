@@ -735,6 +735,7 @@ private fun BottomBar(selectedTab: BottomTab, onTabSelected: (BottomTab) -> Unit
     ) {
         FakeData.tabs.forEach { tab ->
             val selected = tab == selectedTab
+            val labelColor = if (selected) Color(0xFF67F1E4) else Color(0xFF8C9BB0)
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
@@ -744,15 +745,21 @@ private fun BottomBar(selectedTab: BottomTab, onTabSelected: (BottomTab) -> Unit
             ) {
                 Text(
                     text = when (tab) {
-                        BottomTab.Home -> stringResource(R.string.icon_planet)
-                        BottomTab.Companion -> stringResource(R.string.icon_people)
-                        BottomTab.Profile -> stringResource(R.string.icon_profile)
+                        BottomTab.Home -> stringResource(
+                            if (selected) R.string.bottom_tab_icon_home_selected else R.string.bottom_tab_icon_home_unselected,
+                        )
+                        BottomTab.Companion -> stringResource(
+                            if (selected) R.string.bottom_tab_icon_companion_selected else R.string.bottom_tab_icon_companion_unselected,
+                        )
+                        BottomTab.Profile -> stringResource(
+                            if (selected) R.string.bottom_tab_icon_profile_selected else R.string.bottom_tab_icon_profile_unselected,
+                        )
                     },
                     fontSize = 20.sp,
                 )
                 Text(
                     stringResource(tab.labelRes),
-                    color = if (selected) Color(0xFF67F1E4) else Color(0xFF8C9BB0),
+                    color = labelColor,
                     fontSize = 13.sp,
                     fontWeight = if (selected) FontWeight.Bold else FontWeight.Medium,
                 )

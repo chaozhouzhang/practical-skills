@@ -53,6 +53,12 @@
     <string name="bottom_tab_home">首頁</string>
     <string name="bottom_tab_companion">陪伴</string>
     <string name="bottom_tab_profile">我的</string>
+    <string name="bottom_tab_icon_home_selected">🏠</string>
+    <string name="bottom_tab_icon_home_unselected">🏚️</string>
+    <string name="bottom_tab_icon_companion_selected">💫</string>
+    <string name="bottom_tab_icon_companion_unselected">🌙</string>
+    <string name="bottom_tab_icon_profile_selected">😊</string>
+    <string name="bottom_tab_icon_profile_unselected">🙂</string>
     <string name="icon_planet">🪐</string>
     <string name="icon_people">👥</string>
     <string name="icon_profile">🙂</string>
